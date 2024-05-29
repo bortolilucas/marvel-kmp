@@ -33,6 +33,7 @@ kotlin {
         androidMain.dependencies {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
+            implementation(libs.koin.android)
         }
         commonMain.dependencies {
             implementation(compose.runtime)
@@ -55,10 +56,7 @@ kotlin {
             implementation(libs.voyager.koin)
 
             implementation(project.dependencies.platform(libs.koin.bom))
-            implementation(libs.insert.koin.koin.core)
-        }
-        androidMain.dependencies {
-            implementation(libs.koin.android)
+            implementation(libs.koin.core)
         }
     }
 }

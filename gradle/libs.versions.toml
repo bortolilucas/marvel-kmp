@@ -20,12 +20,11 @@ ktorClientCore = "2.3.11"
 voyagerNavigator = "1.0.0"
 
 [libraries]
-insert-koin-koin-core = { module = "io.insert-koin:koin-core" }
 kamel-image = { module = "media.kamel:kamel-image", version.ref = "kamelImage" }
 koin-bom = { module = "io.insert-koin:koin-bom", version.ref = "koin" }
-koin-android = { module = "io.insert-koin:koin-android", version.ref = "koin" }
-koin-androidx-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koin" }
-koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin" }
+koin-android = { module = "io.insert-koin:koin-android" }
+koin-androidx-compose = { module = "io.insert-koin:koin-androidx-compose" }
+koin-core = { module = "io.insert-koin:koin-core" }
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 kotlin-test-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }

@@ -41,6 +41,24 @@ kotlin {
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
+
+            implementation(libs.ktor.client.core)
+            implementation(libs.ktor.client.content.negotiation)
+            implementation(libs.ktor.serialization.kotlinx.json)
+
+            implementation(libs.kotlinx.coroutines.core)
+
+            implementation(libs.kamel.image)
+
+            implementation(libs.voyager.navigator)
+            implementation(libs.voyager.screenmodel)
+            implementation(libs.voyager.koin)
+
+            implementation(project.dependencies.platform(libs.koin.bom))
+            implementation(libs.insert.koin.koin.core)
+        }
+        androidMain.dependencies {
+            implementation(libs.koin.android)
         }
     }
 }

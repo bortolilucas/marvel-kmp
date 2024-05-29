@@ -12,9 +12,19 @@ androidx-material = "1.12.0"
 androidx-test-junit = "1.1.5"
 compose-plugin = "1.6.10"
 junit = "4.13.2"
+kamelImage = "0.9.5"
+koin = "3.5.6"
 kotlin = "2.0.0"
+kotlinxCoroutinesCore = "1.9.0-RC"
+ktorClientCore = "2.3.11"
+voyagerNavigator = "1.0.0"
 
 [libraries]
+kamel-image = { module = "media.kamel:kamel-image", version.ref = "kamelImage" }
+koin-bom = { module = "io.insert-koin:koin-bom", version.ref = "koin" }
+koin-android = { module = "io.insert-koin:koin-android" }
+koin-androidx-compose = { module = "io.insert-koin:koin-androidx-compose" }
+koin-core = { module = "io.insert-koin:koin-core" }
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 kotlin-test-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -25,6 +35,14 @@ androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version
 androidx-material = { group = "com.google.android.material", name = "material", version.ref = "androidx-material" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "androidx-constraintlayout" }
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
+kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinxCoroutinesCore" }
+ktor-client-cio = { module = "io.ktor:ktor-client-cio", version.ref = "ktorClientCore" }
+ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktorClientCore" }
+ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktorClientCore" }
+ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktorClientCore" }
+voyager-koin = { module = "cafe.adriel.voyager:voyager-koin", version.ref = "voyagerNavigator" }
+voyager-navigator = { module = "cafe.adriel.voyager:voyager-navigator", version.ref = "voyagerNavigator" }
+voyager-screenmodel = { module = "cafe.adriel.voyager:voyager-screenmodel", version.ref = "voyagerNavigator" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

@@ -1,3 +1,4 @@
+import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
@@ -7,6 +8,9 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsCompose)
     alias(libs.plugins.compose.compiler)
+
+//    id("org.jetbrains.kotlin.jvm") version "2.0.0"
+    id("com.github.gmazzo.buildconfig") version "5.3.5"
 }
 
 kotlin {
@@ -16,7 +20,7 @@ kotlin {
             jvmTarget.set(JvmTarget.JVM_11)
         }
     }
-    
+
     listOf(
         iosX64(),
         iosArm64(),
@@ -27,13 +31,14 @@ kotlin {
             isStatic = true
         }
     }
-    
+
     sourceSets {
-        
+
         androidMain.dependencies {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
             implementation(libs.koin.android)
+            implementation(libs.ktor.client.okhttp)
         }
         commonMain.dependencies {
             implementation(compose.runtime)
@@ -44,6 +49,7 @@ kotlin {
             implementation(compose.components.uiToolingPreview)
 
             implementation(libs.ktor.client.core)
+            implementation(libs.ktor.client.logging)
             implementation(libs.ktor.client.content.negotiation)
             implementation(libs.ktor.serialization.kotlinx.json)
 
@@ -57,6 +63,19 @@ kotlin {
 
             implementation(project.dependencies.platform(libs.koin.bom))
             implementation(libs.koin.core)
+
+            implementation(libs.logback.android)
+            implementation(libs.slf4j.api)
+
+            implementation(libs.napier)
+
+            implementation(libs.kotlinx.datetime)
+
+            implementation(project.dependencies.platform(libs.crypto.bom))
+            implementation(libs.crypto)
+            implementation(libs.crypto.md)
+
+            implementation(libs.bignum)
         }
     }
 }
@@ -97,4 +116,10 @@ android {
         debugImplementation(compose.uiTooling)
     }
 }
+buildConfig {
+    val publicKey = gradleLocalProperties(rootDir).getProperty("PUBLIC_KEY")
+    val privateKey = gradleLocalProperties(rootDir).getProperty("PRIVATE_KEY")
 
+    buildConfigField("String", "PUBLIC_KEY", publicKey)
+    buildConfigField("String", "PRIVATE_KEY", privateKey)
+}

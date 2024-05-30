@@ -16,7 +16,7 @@ ktor = "2.3.11"
 logbackAndroid = "3.0.0"
 napier = "2.7.1"
 slf4jApi = "2.0.13"
-voyagerNavigator = "1.0.0"
+voyagerNavigator = "1.1.0-beta01"
 
 [libraries]
 bignum = { module = "com.ionspin.kotlin:bignum", version.ref = "bignum" }

@@ -1,5 +1,4 @@
 import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
-import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
@@ -8,8 +7,6 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsCompose)
     alias(libs.plugins.compose.compiler)
-
-//    id("org.jetbrains.kotlin.jvm") version "2.0.0"
     id("com.github.gmazzo.buildconfig") version "5.3.5"
 }
 
@@ -33,7 +30,6 @@ kotlin {
     }
 
     sourceSets {
-
         androidMain.dependencies {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)

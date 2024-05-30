@@ -1,20 +1,11 @@
-import androidx.compose.material.Button
-import androidx.compose.material.Text
+import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
-import cafe.adriel.voyager.core.model.rememberScreenModel
-import cafe.adriel.voyager.core.screen.Screen
-import core.theme.ui.ThemeProvider
+import cafe.adriel.voyager.navigator.Navigator
+import features.home.ui.screens.home.HomeScreen
 
-class App : Screen {
-    @Composable
-    override fun Content() {
-        val screenModel = rememberScreenModel { TestScreenModel() }
-
-        ThemeProvider {
-            Text("Hello World")
-            Button(onClick = { screenModel.test() }) {
-                Text("Click me")
-            }
-        }
+@Composable
+fun App() {
+    MaterialTheme {
+        Navigator(HomeScreen)
     }
 }

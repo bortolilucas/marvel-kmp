@@ -53,6 +53,11 @@ kotlin {
 
             implementation(libs.kamel.image)
 
+            implementation(libs.coil)
+            implementation(libs.coil.compose)
+            implementation(libs.coil.network.ktor)
+            implementation(libs.coil.gif)
+
             implementation(libs.voyager.navigator)
             implementation(libs.voyager.screenmodel)
             implementation(libs.voyager.koin)

@@ -1,4 +1,4 @@
-package core.theme.ui
+package core.presentation.theme
 
 import androidx.compose.material.Shapes
 

@@ -1,4 +1,4 @@
-package features.home.ui.screens.home
+package features.home.presentation.screens.home
 
 import cafe.adriel.voyager.core.model.StateScreenModel
 

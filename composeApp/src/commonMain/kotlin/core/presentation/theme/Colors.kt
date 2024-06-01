@@ -1,4 +1,4 @@
-package core.theme.ui
+package core.presentation.theme
 
 import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors

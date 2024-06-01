@@ -1,4 +1,4 @@
-package features.home.ui.screens.home
+package features.character.presentation.screens.characterDetail
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -13,10 +13,8 @@ import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.koin.koinScreenModel
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
-import features.character.ui.screens.characterDetail.CharacterDetailScreen
-import features.character.ui.screens.characterDetail.CharacterDetailScreenModel
 
-object HomeScreen : Screen {
+object CharacterDetailScreen : Screen {
     @Composable
     override fun Content() {
         val model = koinScreenModel<CharacterDetailScreenModel>()
@@ -27,10 +25,10 @@ object HomeScreen : Screen {
             verticalArrangement = Arrangement.spacedBy(40.dp, Alignment.CenterVertically),
             modifier = Modifier.fillMaxSize()
         ) {
-            Text("Home Screen")
+            Text("Character Detail Screen")
 
-            Button(onClick = { navigator.push(CharacterDetailScreen) }) {
-                Text("Character Screen")
+            Button(onClick = { navigator.pop() }) {
+                Text("Voltar")
             }
         }
     }

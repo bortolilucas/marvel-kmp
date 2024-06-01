@@ -1,4 +1,4 @@
-package core.model
+package core.data.model
 
 data class GenerateHashReturn(
     val hash: String,

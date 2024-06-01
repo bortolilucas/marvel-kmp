@@ -1,4 +1,4 @@
-package features.home.ui.screens.home
+package features.home.presentation.screens.home
 
 data class HomeState(
     val testParam: Boolean = false

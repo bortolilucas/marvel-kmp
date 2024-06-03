@@ -1,6 +1,6 @@
 package features.home.di
 
-import core.data.repository.CharacterRepositoryImpl
+import features.home.data.repository.CharacterRepositoryImpl
 import features.home.domain.repository.CharacterRepository
 import features.home.domain.usecase.GetCharactersByTypeUseCase
 import features.home.data.service.CharacterService

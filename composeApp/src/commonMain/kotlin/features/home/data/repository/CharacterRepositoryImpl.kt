@@ -1,4 +1,4 @@
-package core.data.repository
+package features.home.data.repository
 
 import features.home.data.service.CharacterService
 import core.domain.mapper.toDomain

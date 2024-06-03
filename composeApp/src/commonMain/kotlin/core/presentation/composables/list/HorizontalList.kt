@@ -28,6 +28,7 @@ import core.presentation.theme.Theme
 fun <T> HorizontalList(
     title: String,
     data: List<T>,
+    keyExtractor: (T) -> Any,
     renderItem: @Composable LazyItemScope.(T) -> Unit,
     modifier: Modifier = Modifier,
     numOfItems: Int = 3,
@@ -36,7 +37,7 @@ fun <T> HorizontalList(
     titleColor: Color = Theme.colors.onBackground,
     onSeeAll: (() -> Unit)? = null,
 ) {
-    val itemWidth = getHorizontalItemWidth(numOfItems, horizontalPadding, itemSpacing)
+    val itemWidth = rememberHorizontalItemWidth(numOfItems, horizontalPadding, itemSpacing)
 
     Column(
         modifier = modifier.fillMaxWidth(),
@@ -70,9 +71,9 @@ fun <T> HorizontalList(
             horizontalArrangement = Arrangement.spacedBy(itemSpacing),
             modifier = Modifier.fillMaxWidth(),
         ) {
-            items(data) {
+            items(data, keyExtractor) {
                 Box(
-                    modifier = modifier
+                    modifier = Modifier
                         .size(itemWidth, 230.dp)
                         .shadow(Theme.spacing.small, Theme.shapes.large)
                         .background(Theme.colors.surface)

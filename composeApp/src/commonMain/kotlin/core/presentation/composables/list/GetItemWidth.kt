@@ -1,20 +1,25 @@
 package core.presentation.composables.list
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import core.presentation.util.dimensions.LocalDimensions
 
 @Composable
-fun getHorizontalItemWidth(
+fun rememberHorizontalItemWidth(
     numOfItems: Int,
     horizontalPadding: Dp,
     itemSpacing: Dp
 ): Dp {
-    val listWidth = LocalDimensions.current.screenWidth - horizontalPadding
-    val spacingWidth = itemSpacing * (numOfItems - 1)
-    val numOfItemsRatio = numOfItems * 0.8
-    val itemWidth = (listWidth - spacingWidth) / numOfItemsRatio.dp
+    val screenWidth = LocalDimensions.current.screenWidth
 
-    return itemWidth.dp
+    return remember(screenWidth, numOfItems, horizontalPadding, itemSpacing) {
+        val listWidth = screenWidth - horizontalPadding
+        val spacingWidth = itemSpacing * (numOfItems - 1)
+        val numOfItemsRatio = numOfItems * 0.8
+        val itemWidth = (listWidth - spacingWidth) / numOfItemsRatio.dp
+
+        itemWidth.dp
+    }
 }

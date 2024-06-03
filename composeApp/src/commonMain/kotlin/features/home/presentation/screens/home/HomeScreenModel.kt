@@ -3,7 +3,7 @@ package features.home.presentation.screens.home
 import cafe.adriel.voyager.core.model.StateScreenModel
 import cafe.adriel.voyager.core.model.screenModelScope
 import core.presentation.model.ScreenState
-import features.character.domain.usecase.GetCharactersByTypeUseCase
+import features.home.domain.usecase.GetCharactersByTypeUseCase
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 

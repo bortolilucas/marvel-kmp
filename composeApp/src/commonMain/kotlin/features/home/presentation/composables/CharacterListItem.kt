@@ -12,7 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import coil3.compose.AsyncImage
 import core.presentation.theme.Theme
-import features.character.domain.model.Character
+import core.domain.model.Character
 
 @Composable
 fun CharacterListItem(

@@ -1,9 +1,9 @@
-package features.character.domain.usecase
+package features.home.domain.usecase
 
-import features.character.domain.model.Character
-import features.character.domain.model.CharacterAlignment
-import features.character.domain.model.CharacterRace
-import features.character.domain.repository.CharacterRepository
+import core.domain.model.Character
+import core.domain.model.CharacterAlignment
+import core.domain.model.CharacterRace
+import features.home.domain.repository.CharacterRepository
 
 data class GetCharactersByTypeReturn(
     val heroes: List<Character>,

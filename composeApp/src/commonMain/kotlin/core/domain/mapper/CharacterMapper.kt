@@ -1,11 +1,11 @@
-package features.character.domain.mapper
+package core.domain.mapper
 
-import features.character.data.response.superhero.CharacterDto
-import features.character.domain.model.Character
-import features.character.domain.model.CharacterAlignment
-import features.character.domain.model.CharacterImages
-import features.character.domain.model.CharacterPublisher
-import features.character.domain.model.CharacterRace
+import core.data.response.superhero.CharacterDto
+import core.domain.model.Character
+import core.domain.model.CharacterAlignment
+import core.domain.model.CharacterImages
+import core.domain.model.CharacterPublisher
+import core.domain.model.CharacterRace
 
 fun CharacterDto.toDomain(): Character = Character(
     id = id,

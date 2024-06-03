@@ -1,4 +1,4 @@
-package features.character.data.response.superhero
+package core.data.response.superhero
 
 import kotlinx.serialization.Serializable
 

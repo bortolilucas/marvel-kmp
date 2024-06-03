@@ -1,7 +1,6 @@
 package network.service
 
 import MarvelKmp.composeApp.BuildConfig.PUBLIC_KEY
-import io.github.aakira.napier.DebugAntilog
 import io.github.aakira.napier.Napier
 import io.ktor.client.HttpClient
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
@@ -13,7 +12,7 @@ import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
 import network.utils.generateHash
 
-val apiService = HttpClient {
+val marvelApiService = HttpClient {
     val generateHashReturn = generateHash()
 
     install(Logging) {
@@ -38,4 +37,4 @@ val apiService = HttpClient {
             parameters.append("hash", generateHashReturn.hash)
         }
     }
-}.also { Napier.base(DebugAntilog()) }
+}

@@ -8,8 +8,8 @@ import org.koin.core.context.startKoin
 fun initKoin() {
     val modules = listOf(
         networkModule,
-        homeModule,
         characterModule,
+        homeModule,
     )
 
     startKoin {

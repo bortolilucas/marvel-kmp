@@ -26,18 +26,20 @@ import core.presentation.theme.Theme
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
-fun Error(onBack: () -> Unit, onRetry: () -> Unit) {
+fun ErrorContainer(onBack: (() -> Unit)? = null, onRetry: () -> Unit) {
     val randomIllustration = illustrations.random()
 
     Column(
         Modifier.fillMaxSize().background(Theme.colors.onSurface).padding(Theme.spacing.extraMedium)
     ) {
-        IconButton(onClick = { onBack() }) {
-            Icon(
-                imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                contentDescription = null,
-                tint = Theme.colors.primary
-            )
+        onBack?.let {
+            IconButton(onClick = it) {
+                Icon(
+                    imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                    contentDescription = null,
+                    tint = Theme.colors.primary
+                )
+            }
         }
         Column(
             Modifier.weight(1f).fillMaxSize(),
@@ -79,5 +81,5 @@ fun Error(onBack: () -> Unit, onRetry: () -> Unit) {
 @Preview
 @Composable
 private fun ErrorPreview() {
-    Error(onBack = {}, onRetry = {})
+    ErrorContainer(onBack = {}, onRetry = {})
 }

@@ -13,8 +13,9 @@ import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.koin.koinScreenModel
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
+import features.character.domain.model.Character
 
-object CharacterDetailScreen : Screen {
+class CharacterDetailScreen(private val character: Character) : Screen {
     @Composable
     override fun Content() {
         val model = koinScreenModel<CharacterDetailScreenModel>()

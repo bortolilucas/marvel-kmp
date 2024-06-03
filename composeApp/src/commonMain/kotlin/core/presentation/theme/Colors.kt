@@ -7,7 +7,7 @@ import androidx.compose.ui.graphics.Color
 val PrimaryRed = Color(0xFFF2264b)
 val PrimaryBlack = Color(0xFF000000)
 val PrimaryDark = Color(0xFF313140)
-val PrimaryGrey = Color(0xB7B7C8)
+val PrimaryGrey = Color(0xFFB7B7C8)
 val PrimarySilver = Color(0xFFF8F8F8)
 val PrimaryWhite = Color(0xFFFFFFFF)
 

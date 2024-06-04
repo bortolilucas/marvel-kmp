@@ -5,7 +5,7 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class Result(
+data class CharacterDetailsResult(
     @SerialName("comics")
     val comics: Comics,
     @SerialName("description")

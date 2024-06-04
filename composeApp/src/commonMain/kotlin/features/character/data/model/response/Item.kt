@@ -11,5 +11,7 @@ data class Item(
     @SerialName("resourceURI")
     val resourceURI: String,
     @SerialName("type")
-    val type: String? = null
+    val type: String? = null,
+    @SerialName("role")
+    val role: String? = null
 )

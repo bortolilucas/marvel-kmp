@@ -5,7 +5,7 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class Data(
+data class Data<T>(
     @SerialName("count")
     val count: Int,
     @SerialName("limit")
@@ -13,7 +13,7 @@ data class Data(
     @SerialName("offset")
     val offset: Int,
     @SerialName("results")
-    val results: List<Result>,
+    val results: List<T>,
     @SerialName("total")
     val total: Int
 )

@@ -5,7 +5,7 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class CharacterDetailResponse(
+data class MarvelApiResponse<T>(
     @SerialName("attributionHTML")
     val attributionHTML: String,
     @SerialName("attributionText")
@@ -15,7 +15,7 @@ data class CharacterDetailResponse(
     @SerialName("copyright")
     val copyright: String,
     @SerialName("data")
-    val data: Data,
+    val data: Data<T>,
     @SerialName("etag")
     val etag: String,
     @SerialName("status")

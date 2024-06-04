@@ -12,5 +12,6 @@ data class CharacterDetails(
     val height: String,
     val gender: String,
     val biography: String? = null,
-    val stats: CharacterPowerStatsDto? = null
+    val stats: CharacterPowerStatsDto? = null,
+    val comics: List<CharacterComic>? = emptyList()
 )

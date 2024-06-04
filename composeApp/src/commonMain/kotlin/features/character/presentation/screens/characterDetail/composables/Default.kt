@@ -26,6 +26,7 @@ import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
 import core.presentation.composables.list.HorizontalList
 import core.presentation.theme.Theme
+import features.character.data.model.CharacterComic
 import features.character.data.model.CharacterDetails
 import marvelkmp.composeapp.generated.resources.Res
 import marvelkmp.composeapp.generated.resources.age
@@ -141,20 +142,38 @@ fun CharacterDetailsDefault(onBack: () -> Unit, character: CharacterDetails) {
                     }
                 }
             }
-            HorizontalList(
-                title = "Comics",
-                titleColor = Theme.colors.onSurface,
-                data = listOf("Guardians of the Galaxy", "Infinity Gauntlet", "Infinity War"),
-                onSeeAll = {},
-                horizontalPadding = 24.dp,
-                keyExtractor = { it },
-                renderItem = { item ->
-                    AsyncImage(
-                        model = "https://i.annihil.us/u/prod/marvel/i/mg/c/50/64e3c09ade63c.jpg",
-                        contentDescription = null
-                    )
-                }
-            )
+            if (character.comics?.isNotEmpty() == true) {
+                HorizontalList(
+                    modifier = Modifier.padding(bottom = 24.dp),
+                    title = "Comics",
+                    titleColor = Theme.colors.onSurface,
+                    data = character.comics,
+                    horizontalPadding = 24.dp,
+                    keyExtractor = { it.id },
+                    renderItem = { item ->
+                        Box {
+                            AsyncImage(
+                                model = item.cover,
+                                contentDescription = null
+                            )
+                            Box(
+                                Modifier.fillMaxWidth().matchParentSize().background(
+                                    Brush.verticalGradient(
+                                        colors = listOf(Color.Transparent, Theme.colors.surface),
+                                        startY = 100f
+                                    )
+                                ).align(Alignment.BottomCenter)
+                            )
+                            Text(
+                                modifier = Modifier.align(Alignment.BottomStart).padding(12.dp),
+                                text = item.title,
+                                style = Theme.typography.h3,
+                                color = Theme.colors.onSurface
+                            )
+                        }
+                    }
+                )
+            }
         }
     }
 }

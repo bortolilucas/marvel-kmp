@@ -1,5 +1,6 @@
 import androidx.compose.runtime.Composable
 import cafe.adriel.voyager.navigator.Navigator
+import cafe.adriel.voyager.transitions.SlideTransition
 import core.presentation.theme.ThemeProvider
 import core.presentation.util.dimensions.DimensionsProvider
 import features.home.presentation.screens.home.HomeScreen
@@ -8,7 +9,9 @@ import features.home.presentation.screens.home.HomeScreen
 fun App() {
     DimensionsProvider {
         ThemeProvider {
-            Navigator(HomeScreen)
+            Navigator(HomeScreen) { navigator ->
+                SlideTransition(navigator)
+            }
         }
     }
 }

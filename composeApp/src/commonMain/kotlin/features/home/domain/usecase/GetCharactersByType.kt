@@ -2,7 +2,7 @@ package features.home.domain.usecase
 
 import core.domain.model.Character
 import core.domain.model.CharacterAlignment
-import core.domain.model.CharacterRace
+import core.domain.model.CharacterRaceType
 import features.home.domain.repository.CharacterRepository
 
 data class GetCharactersByTypeReturn(
@@ -23,8 +23,8 @@ class GetCharactersByTypeUseCase(
             heroes = characters.filterAndLimit { it.alignment == CharacterAlignment.HERO },
             villains = characters.filterAndLimit { it.alignment == CharacterAlignment.VILLAIN },
             antiHeroes = characters.filterAndLimit { it.alignment == CharacterAlignment.ANTIHERO },
-            aliens = characters.filterAndLimit { it.race is CharacterRace.Aliens },
-            humans = characters.filterAndLimit { it.race is CharacterRace.Human },
+            aliens = characters.filterAndLimit { it.race?.type == CharacterRaceType.ALIEN },
+            humans = characters.filterAndLimit { it.race?.type == CharacterRaceType.HUMAN },
         )
     }
 

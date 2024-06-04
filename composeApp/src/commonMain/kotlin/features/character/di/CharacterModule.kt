@@ -6,7 +6,9 @@ import features.character.data.service.CharacterDetailsServiceImpl
 import features.character.domain.repository.CharacterDetailRepository
 import features.character.domain.usecase.GetCharacterComicsUseCase
 import features.character.domain.usecase.GetCharacterDetailsUseCase
+import features.character.domain.usecase.GetCharacterListUseCase
 import features.character.presentation.screens.characterDetail.CharacterDetailScreenModel
+import features.character.presentation.screens.characterList.CharacterListScreenModel
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
 
@@ -16,4 +18,6 @@ val characterModule = module {
     single<CharacterDetailRepository> { CharacterDetailRepositoryImpl(get()) }
     factory { GetCharacterDetailsUseCase(get()) }
     factory { GetCharacterComicsUseCase(get()) }
+    factory { GetCharacterListUseCase(get()) }
+    factory { CharacterListScreenModel(get()) }
 }

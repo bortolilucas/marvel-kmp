@@ -19,6 +19,8 @@ import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
@@ -26,10 +28,8 @@ import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
 import core.presentation.composables.list.HorizontalList
 import core.presentation.theme.Theme
-import features.character.data.model.CharacterComic
 import features.character.data.model.CharacterDetails
 import marvelkmp.composeapp.generated.resources.Res
-import marvelkmp.composeapp.generated.resources.age
 import marvelkmp.composeapp.generated.resources.gender
 import marvelkmp.composeapp.generated.resources.height
 import marvelkmp.composeapp.generated.resources.universe
@@ -151,7 +151,13 @@ fun CharacterDetailsDefault(onBack: () -> Unit, character: CharacterDetails) {
                     horizontalPadding = 24.dp,
                     keyExtractor = { it.id },
                     renderItem = { item ->
-                        Box {
+                        Box(
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .shadow(Theme.spacing.small, Theme.shapes.large)
+                                .background(Theme.colors.onSurface)
+                                .clip(Theme.shapes.large)
+                        ) {
                             AsyncImage(
                                 model = item.cover,
                                 contentDescription = null

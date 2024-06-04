@@ -8,15 +8,18 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import core.presentation.composables.list.HorizontalList
-import core.presentation.theme.Theme
 import core.domain.model.Character
+import core.presentation.composables.list.HorizontalList
+import core.presentation.model.CharacterFilter
+import core.presentation.theme.Theme
 import features.home.presentation.composables.CharacterListItem
+import features.home.presentation.composables.CharacterTypeCircleList
 
 @Composable
 fun HomeDefault(
     state: HomeState,
     onCharacterClick: (Character) -> Unit,
+    onCharacterTypeClick: (CharacterFilter) -> Unit,
 ) {
     LazyColumn {
         item {
@@ -39,6 +42,14 @@ fun HomeDefault(
                     text = "Pick your\ncharacter",
                     style = Theme.typography.h2,
                     color = Theme.colors.onBackground,
+                )
+
+                CharacterTypeCircleList(
+                    onCirclePress = onCharacterTypeClick,
+                    modifier = Modifier.padding(
+                        top = Theme.spacing.medium,
+                        bottom = Theme.spacing.small
+                    )
                 )
             }
         }

@@ -10,6 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import core.domain.model.Character
 import core.presentation.composables.list.HorizontalList
+import core.presentation.mapper.asString
 import core.presentation.model.CharacterFilter
 import core.presentation.theme.Theme
 import features.home.presentation.composables.CharacterListItem
@@ -54,13 +55,13 @@ fun HomeDefault(
             }
         }
 
-        items(state.sections, key = { it.title }) { section ->
+        items(state.sections, key = { it.type }) { section ->
             HorizontalList(
-                title = section.title,
-                data = section.data,
+                title = section.type.asString(),
+                data = section.characters,
                 keyExtractor = { it.id },
                 titleColor = Theme.colors.primary,
-                onSeeAll = {},
+                onSeeAll = { onCharacterTypeClick(section.type) },
                 renderItem = {
                     CharacterListItem(
                         character = it,

@@ -22,7 +22,7 @@ class HomeScreenModel(
                 mutableState.update {
                     it.copy(
                         state = ScreenState.Default,
-                        sections = characterTypes.toHomeSections()
+                        sections = characterTypes
                     )
                 }
             }

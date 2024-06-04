@@ -1,5 +1,6 @@
 package features.home.presentation.composables
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -9,10 +10,12 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.layout.ContentScale
 import coil3.compose.AsyncImage
-import core.presentation.theme.Theme
 import core.domain.model.Character
+import core.presentation.theme.Theme
 
 @Composable
 fun CharacterListItem(
@@ -24,6 +27,9 @@ fun CharacterListItem(
         contentAlignment = Alignment.BottomStart,
         modifier = modifier
             .fillMaxSize()
+            .shadow(Theme.spacing.small, Theme.shapes.large)
+            .background(Theme.colors.surface)
+            .clip(Theme.shapes.large)
             .clickable(onClick = { onClick(character) }),
     ) {
         AsyncImage(

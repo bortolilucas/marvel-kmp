@@ -14,6 +14,7 @@ import core.presentation.composables.error.ErrorContainer
 import core.presentation.composables.loading.Loading
 import core.presentation.model.ScreenState
 import features.character.presentation.screens.characterDetail.CharacterDetailScreen
+import features.character.presentation.screens.characterList.CharacterListScreen
 import features.home.presentation.composables.Header
 
 object HomeScreen : Screen {
@@ -35,7 +36,7 @@ object HomeScreen : Screen {
                     HomeDefault(
                         state = state,
                         onCharacterClick = { navigator.push(CharacterDetailScreen(it)) },
-                        onCharacterTypeClick = {}
+                        onCharacterTypeClick = { navigator.push(CharacterListScreen(it)) }
                     )
                 }
 

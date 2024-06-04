@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -25,14 +26,16 @@ import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
 import core.presentation.composables.list.HorizontalList
 import core.presentation.theme.Theme
+import features.character.data.model.CharacterDetails
 import marvelkmp.composeapp.generated.resources.Res
 import marvelkmp.composeapp.generated.resources.age
+import marvelkmp.composeapp.generated.resources.gender
 import marvelkmp.composeapp.generated.resources.height
 import marvelkmp.composeapp.generated.resources.universe
 import marvelkmp.composeapp.generated.resources.weight
 
 @Composable
-fun Default(onBack: () -> Unit) {
+fun CharacterDetailsDefault(onBack: () -> Unit, character: CharacterDetails) {
     Column(
         Modifier
             .background(Theme.colors.surface)
@@ -41,9 +44,9 @@ fun Default(onBack: () -> Unit) {
     ) {
         Box {
             AsyncImage(
-                modifier = Modifier.fillMaxWidth(),
+                modifier = Modifier.fillMaxWidth().height(400.dp),
                 contentScale = ContentScale.FillWidth,
-                model = "https://i.annihil.us/u/prod/marvel/i/mg/a/f0/5202887448860.jpg",
+                model = character.backgroundImage,
                 contentDescription = null,
             )
             Row(Modifier.padding(horizontal = 12.dp, vertical = 20.dp)) {
@@ -68,12 +71,12 @@ fun Default(onBack: () -> Unit) {
                 verticalArrangement = Arrangement.spacedBy(8.dp)
             ) {
                 Text(
-                    text = "Adam Warlock",
+                    text = character.realName,
                     style = Theme.typography.subtitle1,
                     color = Theme.colors.onSurface
                 )
                 Text(
-                    text = "Adam Warlock",
+                    text = character.name,
                     style = Theme.typography.h1,
                     color = Theme.colors.onSurface
                 )
@@ -90,47 +93,52 @@ fun Default(onBack: () -> Unit) {
                     horizontalArrangement = Arrangement.SpaceBetween
                 ) {
                     CharacterInfo(
-                        icon = Res.drawable.age,
-                        text = "1000 years"
+                        icon = Res.drawable.gender,
+                        text = character.gender
                     )
                     CharacterInfo(
                         icon = Res.drawable.weight,
-                        text = "108kg"
+                        text = character.weight
                     )
                     CharacterInfo(
                         icon = Res.drawable.height,
-                        text = "1.83m"
+                        text = character.height
                     )
                     CharacterInfo(
                         icon = Res.drawable.universe,
-                        text = "Earth 616"
+                        text = character.race
                     )
                 }
-                Text(
-                    modifier = Modifier.padding(
-                        bottom = 32.dp
-                    ),
-                    text = "Adam Warlock is an artificially created human who was born in a cocoon at a scientific complex called The Beehive.",
-                    style = Theme.typography.body1,
-                    color = Theme.colors.onSurface
-                )
-                Text(
-                    modifier = Modifier.padding(
-                        bottom = 24.dp
-                    ),
-                    text = "Habilities",
-                    style = Theme.typography.h4,
-                    color = Theme.colors.onSurface
-                )
-                Column(
-                    modifier = Modifier.padding(bottom = 32.dp),
-                    verticalArrangement = Arrangement.spacedBy(24.dp)
-                ) {
-                    HabilityRow(label = "Force", level = 90)
-                    HabilityRow(label = "Intelligence", level = 80)
-                    HabilityRow(label = "Agility", level = 70)
-                    HabilityRow(label = "Resistance", level = 60)
-                    HabilityRow(label = "Velocity", level = 50)
+                if (character.biography != null) {
+                    Text(
+                        modifier = Modifier.padding(
+                            bottom = 32.dp
+                        ),
+                        text = character.biography,
+                        style = Theme.typography.body1,
+                        color = Theme.colors.onSurface
+                    )
+                }
+                if (character.stats != null) {
+                    Text(
+                        modifier = Modifier.padding(
+                            bottom = 24.dp
+                        ),
+                        text = "Abilities",
+                        style = Theme.typography.h4,
+                        color = Theme.colors.onSurface
+                    )
+                    Column(
+                        modifier = Modifier.padding(bottom = 32.dp),
+                        verticalArrangement = Arrangement.spacedBy(24.dp)
+                    ) {
+                        HabilityRow(label = "Power", level = character.stats.power)
+                        HabilityRow(label = "Intelligence", level = character.stats.intelligence)
+                        HabilityRow(label = "Strength", level = character.stats.strength)
+                        HabilityRow(label = "Combat", level = character.stats.combat)
+                        HabilityRow(label = "Speed", level = character.stats.speed)
+                        HabilityRow(label = "Durability", level = character.stats.durability)
+                    }
                 }
             }
             HorizontalList(

@@ -1,4 +1,4 @@
-package features.character.domain.model
+package core.domain.model
 
 data class CharacterImages(
     val sm: String,

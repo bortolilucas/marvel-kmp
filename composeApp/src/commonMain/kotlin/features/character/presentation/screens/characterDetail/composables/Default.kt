@@ -139,6 +139,7 @@ fun Default(onBack: () -> Unit) {
                 data = listOf("Guardians of the Galaxy", "Infinity Gauntlet", "Infinity War"),
                 onSeeAll = {},
                 horizontalPadding = 24.dp,
+                keyExtractor = { it },
                 renderItem = { item ->
                     AsyncImage(
                         model = "https://i.annihil.us/u/prod/marvel/i/mg/c/50/64e3c09ade63c.jpg",

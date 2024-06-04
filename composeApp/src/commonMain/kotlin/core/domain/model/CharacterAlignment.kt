@@ -1,4 +1,4 @@
-package features.character.domain.model
+package core.domain.model
 
 enum class CharacterAlignment {
     HERO,

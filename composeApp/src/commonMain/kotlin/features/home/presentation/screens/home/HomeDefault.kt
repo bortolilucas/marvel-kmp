@@ -10,7 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import core.presentation.composables.list.HorizontalList
 import core.presentation.theme.Theme
-import features.character.domain.model.Character
+import core.domain.model.Character
 import features.home.presentation.composables.CharacterListItem
 
 @Composable

@@ -1,4 +1,4 @@
-package features.character.domain.model
+package core.domain.model
 
 sealed class CharacterRace(val name: String) {
     data object Human : CharacterRace("Human")

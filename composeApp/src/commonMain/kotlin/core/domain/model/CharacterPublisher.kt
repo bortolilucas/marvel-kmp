@@ -1,4 +1,4 @@
-package features.character.domain.model
+package core.domain.model
 
 sealed class CharacterPublisher(val name: String) {
     data object Marvel : CharacterPublisher("Marvel Comics")

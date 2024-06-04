@@ -2,8 +2,8 @@ package features.home.presentation.screens.home
 
 import core.presentation.model.ListSection
 import core.presentation.model.ScreenState
-import features.character.domain.model.Character
-import features.character.domain.usecase.GetCharactersByTypeReturn
+import core.domain.model.Character
+import features.home.domain.usecase.GetCharactersByTypeReturn
 
 data class HomeState(
     val state: ScreenState = ScreenState.Loading,

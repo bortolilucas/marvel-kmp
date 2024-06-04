@@ -1,8 +1,8 @@
 package features.home.domain.usecase
 
+import core.domain.mapper.filterBy
 import core.domain.model.Character
-import core.domain.model.CharacterAlignment
-import core.domain.model.CharacterRaceType
+import core.presentation.model.CharacterFilter
 import features.home.domain.repository.CharacterRepository
 
 data class GetCharactersByTypeReturn(
@@ -20,15 +20,15 @@ class GetCharactersByTypeUseCase(
         val characters = characterRepository.getMarvelCharacters().shuffled()
 
         GetCharactersByTypeReturn(
-            heroes = characters.filterAndLimit { it.alignment == CharacterAlignment.HERO },
-            villains = characters.filterAndLimit { it.alignment == CharacterAlignment.VILLAIN },
-            antiHeroes = characters.filterAndLimit { it.alignment == CharacterAlignment.ANTIHERO },
-            aliens = characters.filterAndLimit { it.race?.type == CharacterRaceType.ALIEN },
-            humans = characters.filterAndLimit { it.race?.type == CharacterRaceType.HUMAN },
+            heroes = characters.filterByTypeAndLimit(CharacterFilter.HUMAN),
+            villains = characters.filterByTypeAndLimit(CharacterFilter.VILLAIN),
+            antiHeroes = characters.filterByTypeAndLimit(CharacterFilter.ANTIHERO),
+            aliens = characters.filterByTypeAndLimit(CharacterFilter.ALIEN),
+            humans = characters.filterByTypeAndLimit(CharacterFilter.HUMAN),
         )
     }
 
-    private fun List<Character>.filterAndLimit(
-        predicate: (Character) -> Boolean
-    ): List<Character> = filter(predicate).slice(0..10)
+    private fun List<Character>.filterByTypeAndLimit(
+        filterType: CharacterFilter
+    ): List<Character> = filterBy(filterType).slice(0..10)
 }

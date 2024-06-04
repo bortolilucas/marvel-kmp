@@ -34,7 +34,8 @@ object HomeScreen : Screen {
                 ScreenState.Default -> {
                     HomeDefault(
                         state = state,
-                        onCharacterClick = { navigator.push(CharacterDetailScreen(it)) }
+                        onCharacterClick = { navigator.push(CharacterDetailScreen(it)) },
+                        onCharacterTypeClick = {}
                     )
                 }
 

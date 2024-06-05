@@ -18,7 +18,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import coil3.compose.AsyncImage
+import core.presentation.composables.images.GifImage
 import core.presentation.theme.Theme
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
@@ -55,9 +55,8 @@ fun Loading(
                 .weight(1f)
                 .padding(bottom = Theme.spacing.extraBig),
         ) {
-            AsyncImage(
-                model = illustration.url,
-                contentDescription = "Loading...",
+            GifImage(
+                url = illustration.url,
                 contentScale = ContentScale.Fit,
                 modifier = Modifier.size(illustration.size)
             )

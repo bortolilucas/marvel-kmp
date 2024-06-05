@@ -15,6 +15,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import core.domain.model.Character
 import core.presentation.mapper.asString
@@ -41,7 +42,8 @@ fun CharacterListDefault(
         Text(
             text = type.asString(),
             style = Theme.typography.h2,
-            color = Theme.colors.onBackground,
+            fontWeight = FontWeight.Bold,
+            color = Theme.colors.primary,
             modifier = Modifier.padding(
                 start = Theme.spacing.large,
                 end = Theme.spacing.large,

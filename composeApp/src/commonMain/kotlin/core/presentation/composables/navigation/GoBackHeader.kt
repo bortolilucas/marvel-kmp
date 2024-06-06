@@ -16,7 +16,7 @@ import core.presentation.util.modifiers.safePadding
 @Composable
 fun GoBackHeader(
     onGoBack: () -> Unit,
-    tint: Color = Theme.colors.primary,
+    tint: Color = Theme.colors.primaryVariant,
     modifier: Modifier = Modifier,
 ) {
     Row(

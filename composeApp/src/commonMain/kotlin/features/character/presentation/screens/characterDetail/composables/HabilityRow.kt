@@ -29,7 +29,7 @@ fun HabilityRow(
 
         if (shouldRenderCompletedAbilityBar) return Theme.colors.onSurface
 
-        return Theme.colors.onBackground
+        return Theme.colors.onSurface.copy(alpha = 0.25f)
     }
 
     Row(

@@ -1,5 +1,6 @@
 package features.home.presentation.screens.home
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
@@ -7,7 +8,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import cafe.adriel.voyager.core.screen.Screen
@@ -17,6 +18,7 @@ import cafe.adriel.voyager.navigator.currentOrThrow
 import core.presentation.composables.error.ErrorContainer
 import core.presentation.composables.loading.Loading
 import core.presentation.model.ScreenState
+import core.presentation.theme.Theme
 import features.character.presentation.screens.characterDetail.CharacterDetailScreen
 import features.character.presentation.screens.characterList.CharacterListScreen
 import features.home.presentation.composables.Header
@@ -35,7 +37,7 @@ object HomeScreen : Screen {
 
         val showSearchInput = model.state.value.showSearchInput
 
-        var searchInput by remember { mutableStateOf("") }
+        var searchInput by rememberSaveable { mutableStateOf("") }
 
         LaunchedEffect(key1 = searchInput) {
             if (showSearchInput && searchInput.isNotEmpty()) {
@@ -44,12 +46,16 @@ object HomeScreen : Screen {
             }
         }
 
-        Column(modifier = Modifier.fillMaxSize()) {
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(Theme.colors.background)
+        ) {
             Header(
                 onMenuClick = {},
                 isSearchVisible = showSearchInput,
                 onSearchClick = {
-                    if(state.state is ScreenState.Loading) return@Header
+                    if (state.state is ScreenState.Loading) return@Header
 
                     if (searchInput.isNotEmpty()) searchInput = ""
                     model.onToggleSearchInput()

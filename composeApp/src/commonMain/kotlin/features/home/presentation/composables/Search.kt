@@ -39,13 +39,16 @@ fun Search(
             shape = RoundedCornerShape(8.dp),
             value = searchInput,
             onValueChange = { onChangeSearchInput(it) },
-            label = { Text("Search...", color = Theme.colors.surface) },
+            label = {
+                Text("Search...", color = Theme.colors.onBackground)
+            },
+            singleLine = true,
             colors = TextFieldDefaults.outlinedTextFieldColors(
-                focusedBorderColor = Theme.colors.surface,
-                focusedLabelColor = Theme.colors.surface,
-                cursorColor = Theme.colors.surface,
-                textColor = Theme.colors.surface,
-                unfocusedBorderColor = Theme.colors.surface
+                focusedBorderColor = Theme.colors.onBackground,
+                focusedLabelColor = Theme.colors.onBackground,
+                cursorColor = Theme.colors.onBackground,
+                textColor = Theme.colors.onBackground,
+                unfocusedBorderColor = Theme.colors.onBackground
             )
         )
         Column(
@@ -58,7 +61,11 @@ fun Search(
                     modifier = Modifier.size(300.dp).padding(bottom = 30.dp),
                     url = "https://64.media.tumblr.com/tumblr_maxpwccLf31qegdapo1_500.gif",
                 )
-                Text(text = "Type to init a search...", style = Theme.typography.h3)
+                Text(
+                    text = "Type to init a search...",
+                    style = Theme.typography.h3,
+                    color = Theme.colors.onBackground
+                )
 
                 return
             }
@@ -69,7 +76,11 @@ fun Search(
                     modifier = Modifier.size(300.dp).padding(top = 80.dp, bottom = 30.dp),
                     url = "https://media.tenor.com/lASlJqOnTwkAAAAi/spiderman-marvel-vs-capcom.gif",
                 )
-                Text(text = "Not found results for this search", style = Theme.typography.h3)
+                Text(
+                    text = "Not found results for this search",
+                    style = Theme.typography.h3,
+                    color = Theme.colors.onBackground
+                )
 
                 return
             }

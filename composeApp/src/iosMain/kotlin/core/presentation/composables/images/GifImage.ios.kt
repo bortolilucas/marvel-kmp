@@ -6,6 +6,8 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.interop.UIKitView
 import androidx.compose.ui.layout.ContentScale
+import core.presentation.mapper.toUIColor
+import core.presentation.theme.Theme
 import core.presentation.util.gif.gifImageWithURL
 import kotlinx.cinterop.ExperimentalForeignApi
 import kotlinx.coroutines.launch
@@ -19,22 +21,25 @@ actual fun GifImage(
     modifier: Modifier,
     contentScale: ContentScale,
 ) {
+    val backgroundColor = Theme.colors.background
     val scope = rememberCoroutineScope()
 
     val imageView = remember(url) {
         UIImageView().apply {
             scope.launch {
-                image = gifImageWithURL(url)
-                contentMode = when (contentScale) {
-                    ContentScale.Fit -> UIViewContentMode.UIViewContentModeScaleAspectFit
-                    else -> UIViewContentMode.UIViewContentModeScaleAspectFill
-                }
+                this@apply.image = gifImageWithURL(url)
+            }
+
+            this.backgroundColor = backgroundColor.toUIColor()
+            this.contentMode = when (contentScale) {
+                ContentScale.Fit -> UIViewContentMode.UIViewContentModeScaleAspectFit
+                else -> UIViewContentMode.UIViewContentModeScaleAspectFill
             }
         }
     }
 
     UIKitView(
         factory = { imageView },
-        modifier = modifier
+        modifier = modifier,
     )
 }

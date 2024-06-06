@@ -17,9 +17,10 @@ import androidx.compose.material.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
-import coil3.compose.AsyncImage
 import core.domain.model.Character
+import core.presentation.composables.images.GifImage
 import core.presentation.theme.Theme
 import features.home.presentation.screens.home.HomeState
 
@@ -52,10 +53,10 @@ fun Search(
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             if (state.searchResults.isEmpty() and !state.hasNotFoundResults) {
-                AsyncImage(
+                GifImage(
+                    contentScale = ContentScale.Fit,
                     modifier = Modifier.size(300.dp).padding(bottom = 30.dp),
-                    model = "https://64.media.tumblr.com/tumblr_maxpwccLf31qegdapo1_500.gif",
-                    contentDescription = null
+                    url = "https://64.media.tumblr.com/tumblr_maxpwccLf31qegdapo1_500.gif",
                 )
                 Text(text = "Type to init a search...", style = Theme.typography.h3)
 
@@ -63,10 +64,10 @@ fun Search(
             }
 
             if (state.hasNotFoundResults) {
-                AsyncImage(
+                GifImage(
+                    contentScale = ContentScale.Fit,
                     modifier = Modifier.size(300.dp).padding(top = 80.dp, bottom = 30.dp),
-                    model = "https://media.tenor.com/lASlJqOnTwkAAAAi/spiderman-marvel-vs-capcom.gif",
-                    contentDescription = null
+                    url = "https://media.tenor.com/lASlJqOnTwkAAAAi/spiderman-marvel-vs-capcom.gif",
                 )
                 Text(text = "Not found results for this search", style = Theme.typography.h3)
 

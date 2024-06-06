@@ -2,6 +2,7 @@ package features.home.presentation.composables
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.WindowInsetsSides
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -15,6 +16,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import core.presentation.theme.Theme
+import core.presentation.util.modifiers.safePadding
 import marvelkmp.composeapp.generated.resources.Res
 import marvelkmp.composeapp.generated.resources.marvel_logo
 import marvelkmp.composeapp.generated.resources.menu
@@ -34,11 +36,10 @@ fun Header(
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier
             .fillMaxWidth()
+            .safePadding(WindowInsetsSides.Top)
             .padding(
-                top = Theme.spacing.medium,
-                bottom = Theme.spacing.small,
-                start = Theme.spacing.extraMedium,
-                end = Theme.spacing.extraMedium
+                vertical = Theme.spacing.small,
+                horizontal = Theme.spacing.extraMedium,
             )
     ) {
         IconButton(onClick = onMenuClick) {

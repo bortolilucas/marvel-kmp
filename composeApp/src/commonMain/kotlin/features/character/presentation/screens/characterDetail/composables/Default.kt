@@ -5,17 +5,14 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.WindowInsetsSides
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.Icon
-import androidx.compose.material.IconButton
 import androidx.compose.material.Text
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -27,7 +24,9 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
 import core.presentation.composables.list.HorizontalList
+import core.presentation.composables.navigation.GoBackHeader
 import core.presentation.theme.Theme
+import core.presentation.util.modifiers.safePadding
 import features.character.data.model.CharacterDetails
 import marvelkmp.composeapp.generated.resources.Res
 import marvelkmp.composeapp.generated.resources.gender
@@ -50,15 +49,10 @@ fun CharacterDetailsDefault(onBack: () -> Unit, character: CharacterDetails) {
                 model = character.backgroundImage,
                 contentDescription = null,
             )
-            Row(Modifier.padding(horizontal = 12.dp, vertical = 20.dp)) {
-                IconButton(onClick = { onBack() }) {
-                    Icon(
-                        imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                        contentDescription = null,
-                        tint = Theme.colors.onSurface
-                    )
-                }
-            }
+            GoBackHeader(
+                tint = Theme.colors.onSurface,
+                onGoBack = onBack,
+            )
             Box(
                 Modifier.fillMaxWidth().matchParentSize().background(
                     Brush.verticalGradient(
@@ -83,7 +77,11 @@ fun CharacterDetailsDefault(onBack: () -> Unit, character: CharacterDetails) {
                 )
             }
         }
-        Column {
+        Column(
+            modifier = Modifier
+                .safePadding(WindowInsetsSides.Bottom)
+                .padding(bottom = Theme.spacing.extraMedium)
+        ) {
             Column(Modifier.padding(horizontal = 24.dp)) {
                 Row(
                     Modifier

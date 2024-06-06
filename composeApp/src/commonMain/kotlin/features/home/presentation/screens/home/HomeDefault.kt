@@ -68,9 +68,7 @@ fun HomeDefault(
                         onClick = onCharacterClick,
                     )
                 },
-                modifier = Modifier.padding(
-                    bottom = Theme.spacing.big
-                )
+                modifier = Modifier.padding(bottom = Theme.spacing.extraBig)
             )
         }
     }

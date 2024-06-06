@@ -40,6 +40,7 @@ class CharacterListScreen(private val type: CharacterFilter) : Screen {
                 onBack = navigator::pop,
                 onRetry = { model.loadCharacters(type) }
             )
+            else ->{}
         }
     }
 }

@@ -37,6 +37,8 @@ class CharacterDetailScreen(private val character: Character) : Screen {
             ScreenState.Error -> ErrorContainer(
                 onBack = { navigator.pop() },
                 onRetry = { model.getCharacterDetails(character) })
+
+            else -> {}
         }
     }
 }

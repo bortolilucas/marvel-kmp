@@ -16,11 +16,11 @@ val GradientRed = listOf(Color(0xFFED1D24), Color(0xFFED1F69))
 val GradientPurple = listOf(Color(0xFFB224EF), Color(0xFF7579FF))
 val GradientGreen = listOf(Color(0xFF0BA360), Color(0xFF3CBA92))
 val GradientPink = listOf(Color(0xFFFF7EB3), Color(0xFFFF758C))
-val GradientBlack = listOf(Color(0xFF0000004D), Color(0xFF000000BF))
-val GradientDark = listOf(Color(0xFF00000066), Color(0xFF000000))
 
 val lightColors = lightColors(
     primary = PrimaryRed,
+    primaryVariant = PrimaryRed,
+    onPrimary = PrimaryWhite,
     secondary = PrimaryGrey,
     background = PrimarySilver,
     onBackground = PrimaryDark,
@@ -30,6 +30,8 @@ val lightColors = lightColors(
 
 val darkColors = darkColors(
     primary = PrimaryRed,
+    primaryVariant = PrimaryWhite,
+    onPrimary = PrimaryWhite,
     secondary = PrimaryWhite,
     background = PrimaryBlack,
     onBackground = PrimaryWhite,

@@ -32,8 +32,8 @@ fun ErrorContainer(onBack: (() -> Unit)? = null, onRetry: () -> Unit) {
     Column(
         modifier = Modifier
             .fillMaxSize()
+            .background(Theme.colors.background)
             .padding(bottom = Theme.spacing.small)
-            .background(Theme.colors.onSurface)
     ) {
         onBack?.let { GoBackHeader(onGoBack = it) }
 
@@ -69,16 +69,22 @@ fun ErrorContainer(onBack: (() -> Unit)? = null, onRetry: () -> Unit) {
                     modifier = Modifier.padding(bottom = 8.dp),
                     text = "An error occoured when load the data",
                     style = Theme.typography.h3,
+                    color = Theme.colors.onBackground,
                     textAlign = TextAlign.Center
                 )
                 Text(
                     randomIllustration.description,
                     style = Theme.typography.h4,
+                    color = Theme.colors.onBackground,
                     textAlign = TextAlign.Center
                 )
             }
             Button(modifier = Modifier.fillMaxWidth().height(50.dp), onClick = { onRetry() }) {
-                Text("Tentar novamente", style = Theme.typography.h4)
+                Text(
+                    "Tentar novamente",
+                    style = Theme.typography.h4,
+                    color = Theme.colors.onPrimary
+                )
             }
         }
     }

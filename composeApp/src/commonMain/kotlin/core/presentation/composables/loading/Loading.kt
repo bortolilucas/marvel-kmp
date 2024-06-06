@@ -1,5 +1,6 @@
 package core.presentation.composables.loading
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.WindowInsetsSides
@@ -31,6 +32,7 @@ fun Loading(
     Column(
         modifier = Modifier
             .fillMaxSize()
+            .background(Theme.colors.background)
             .padding(bottom = Theme.spacing.large),
     ) {
         onBack?.let { GoBackHeader(onGoBack = it) }

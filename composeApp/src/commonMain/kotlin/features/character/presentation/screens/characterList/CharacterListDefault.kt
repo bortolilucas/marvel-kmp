@@ -1,5 +1,6 @@
 package features.character.presentation.screens.characterList
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -27,7 +28,11 @@ fun CharacterListDefault(
     onCharacterClick: (Character) -> Unit,
     onGoBack: () -> Unit
 ) {
-    Column(modifier = Modifier.fillMaxSize()) {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Theme.colors.background)
+    ) {
         GoBackHeader(onGoBack = onGoBack)
 
         Text(

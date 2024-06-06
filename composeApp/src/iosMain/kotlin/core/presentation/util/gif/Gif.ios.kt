@@ -25,6 +25,11 @@ import platform.ImageIO.kCGImagePropertyGIFDictionary
 import platform.UIKit.UIImage
 import kotlin.coroutines.resume
 
+/*
+* Temporary workaround to render Gifs in iOS while Coil or Kamel doesn't add real support to it.
+* Source code found in kotlin forum
+* https://slack-chats.kotlinlang.org/t/16598499/has-anyone-been-able-to-implement-a-gif-renderer-on-ios#55fc02fe-a5fe-4731-b8b8-2bb35b7c9d11
+* */
 suspend fun gifImageWithURL(url: String): UIImage? {
     val data = loadGif(url)
     return createGifImage(data)

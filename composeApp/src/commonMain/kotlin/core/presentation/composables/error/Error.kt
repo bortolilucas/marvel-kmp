@@ -13,12 +13,13 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import coil3.compose.AsyncImage
+import core.presentation.composables.images.GifImage
 import core.presentation.composables.navigation.GoBackHeader
 import core.presentation.theme.Theme
 import core.presentation.util.modifiers.safePadding
@@ -26,7 +27,7 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
 fun ErrorContainer(onBack: (() -> Unit)? = null, onRetry: () -> Unit) {
-    val randomIllustration = illustrations.random()
+    val randomIllustration = remember { illustrations.random() }
 
     Column(
         modifier = Modifier
@@ -52,17 +53,16 @@ fun ErrorContainer(onBack: (() -> Unit)? = null, onRetry: () -> Unit) {
                 verticalArrangement = Arrangement.Center
             ) {
                 Box {
-                    AsyncImage(
+                    GifImage(
                         modifier = Modifier.size(300.dp).padding(bottom = 30.dp),
-                        model = randomIllustration.url,
-                        contentDescription = null,
+                        url = randomIllustration.url,
+                        contentScale = ContentScale.Fit,
                     )
                     if (randomIllustration.secondUrl.isNotEmpty())
-                        AsyncImage(
+                        GifImage(
                             modifier = Modifier.size(300.dp).padding(bottom = 30.dp),
                             contentScale = ContentScale.FillBounds,
-                            model = randomIllustration.secondUrl,
-                            contentDescription = null,
+                            url = randomIllustration.secondUrl,
                         )
                 }
                 Text(

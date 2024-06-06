@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -25,7 +26,7 @@ fun Loading(
     loadingTextColor: Color = Theme.colors.onBackground,
     onBack: (() -> Unit)? = null,
 ) {
-    val illustration = loadingIllustrations.random()
+    val illustration = remember { loadingIllustrations.random() }
 
     Column(
         modifier = Modifier

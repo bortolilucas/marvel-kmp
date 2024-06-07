@@ -1,6 +1,9 @@
 package core.presentation.composables.statusbar
 
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.runtime.Composable
 
 @Composable
-expect fun StatusBarEffect(isAppearanceLight: Boolean)
+expect fun StatusBarEffect(
+    isAppearanceLight: Boolean = !isSystemInDarkTheme(),
+)

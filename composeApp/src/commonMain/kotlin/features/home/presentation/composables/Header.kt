@@ -15,6 +15,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import core.presentation.composables.statusbar.StatusBarEffect
 import core.presentation.theme.Theme
 import core.presentation.util.modifiers.safePadding
 import marvelkmp.composeapp.generated.resources.Res
@@ -29,6 +30,8 @@ fun Header(
     onSearchClick: () -> Unit,
     isSearchVisible: Boolean = false
 ) {
+    StatusBarEffect()
+
     Row(
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically,

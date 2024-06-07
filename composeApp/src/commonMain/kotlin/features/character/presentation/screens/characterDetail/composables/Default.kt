@@ -25,7 +25,6 @@ import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
 import core.presentation.composables.list.HorizontalList
 import core.presentation.composables.navigation.GoBackHeader
-import core.presentation.composables.statusbar.StatusBarEffect
 import core.presentation.theme.Theme
 import core.presentation.util.modifiers.safePadding
 import features.character.data.model.CharacterDetails
@@ -37,8 +36,6 @@ import marvelkmp.composeapp.generated.resources.weight
 
 @Composable
 fun CharacterDetailsDefault(onBack: () -> Unit, character: CharacterDetails) {
-    StatusBarEffect(isAppearanceLight = false)
-
     Column(
         Modifier
             .background(Theme.colors.surface)
@@ -55,6 +52,7 @@ fun CharacterDetailsDefault(onBack: () -> Unit, character: CharacterDetails) {
             GoBackHeader(
                 tint = Theme.colors.onSurface,
                 onGoBack = onBack,
+                isStatusAppearanceLight = false
             )
             Box(
                 Modifier.fillMaxWidth().matchParentSize().background(

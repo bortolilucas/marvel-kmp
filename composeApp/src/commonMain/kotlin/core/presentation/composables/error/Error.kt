@@ -32,7 +32,7 @@ fun ErrorContainer(onBack: (() -> Unit)? = null, onRetry: () -> Unit) {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Theme.colors.background)
+            .background(Theme.colors.onSurface)
             .padding(bottom = Theme.spacing.small)
     ) {
         onBack?.let { GoBackHeader(onGoBack = it) }

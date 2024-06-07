@@ -18,12 +18,10 @@ import androidx.compose.ui.unit.dp
 import core.presentation.theme.Theme
 import core.presentation.util.modifiers.safePadding
 import marvelkmp.composeapp.generated.resources.Res
+import marvelkmp.composeapp.generated.resources.heart
 import marvelkmp.composeapp.generated.resources.marvel_logo
-import marvelkmp.composeapp.generated.resources.menu
 import marvelkmp.composeapp.generated.resources.search
-import org.jetbrains.compose.resources.imageResource
 import org.jetbrains.compose.resources.painterResource
-import org.jetbrains.compose.resources.vectorResource
 
 @Composable
 fun Header(
@@ -42,22 +40,6 @@ fun Header(
                 horizontal = Theme.spacing.extraMedium,
             )
     ) {
-        IconButton(onClick = onMenuClick) {
-            Icon(
-                painter = painterResource(Res.drawable.menu),
-                contentDescription = "Menu",
-                modifier = Modifier.size(24.dp),
-                tint = Theme.colors.onBackground
-            )
-        }
-
-        Icon(
-            painter = painterResource(Res.drawable.marvel_logo),
-            contentDescription = "Marvel Logo",
-            modifier = Modifier.width(70.dp),
-            tint = Theme.colors.primary
-        )
-
         IconButton(onClick = onSearchClick) {
             if (isSearchVisible) {
                 Icon(
@@ -73,6 +55,20 @@ fun Header(
             Icon(
                 painter = painterResource(Res.drawable.search),
                 contentDescription = "Search",
+                modifier = Modifier.size(24.dp),
+                tint = Theme.colors.onBackground
+            )
+        }
+        Icon(
+            painter = painterResource(Res.drawable.marvel_logo),
+            contentDescription = "Marvel Logo",
+            modifier = Modifier.width(70.dp),
+            tint = Theme.colors.primary
+        )
+        IconButton(onClick = onMenuClick) {
+            Icon(
+                painter = painterResource(Res.drawable.heart),
+                contentDescription = "Menu",
                 modifier = Modifier.size(24.dp),
                 tint = Theme.colors.onBackground
             )

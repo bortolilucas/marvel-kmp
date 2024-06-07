@@ -21,6 +21,7 @@ import core.presentation.model.ScreenState
 import core.presentation.theme.Theme
 import features.character.presentation.screens.characterDetail.CharacterDetailScreen
 import features.character.presentation.screens.characterList.CharacterListScreen
+import features.favorites.presentation.screen.FavoritesScreen
 import features.home.presentation.composables.Header
 import features.home.presentation.composables.Search
 import kotlinx.coroutines.delay
@@ -52,7 +53,7 @@ object HomeScreen : Screen {
                 .background(Theme.colors.background)
         ) {
             Header(
-                onMenuClick = {},
+                onMenuClick = {navigator.push(FavoritesScreen)},
                 isSearchVisible = showSearchInput,
                 onSearchClick = {
                     if (state.state is ScreenState.Loading) return@Header

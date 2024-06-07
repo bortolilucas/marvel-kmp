@@ -7,7 +7,7 @@ val illustrations = setOf(
         secondUrl = "https://cdn.marvel.com/content/u/open-html-assets/marvel-error-pages/iron-man-rain.477626af.gif"
     ),
     IllustrationVariant(
-        url = "https://cdn.marvel.com/content/u/open-html-assets/marvel-error-pages/mjolnir-char.a573d738.jpg",
+        url = "https://www.disneyclips.com/images6/images/thor.png",
         description = "You are not worthy..."
     ),
     IllustrationVariant(

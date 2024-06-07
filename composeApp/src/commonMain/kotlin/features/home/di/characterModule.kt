@@ -11,7 +11,7 @@ import org.koin.core.qualifier.named
 import org.koin.dsl.module
 
 val homeModule = module {
-    factory { HomeScreenModel(get(), get()) }
+    factory { HomeScreenModel(get(), get(), get()) }
     single<CharacterService> { CharacterServiceImpl(get(named("superHeroHttpClient"))) }
     single<CharacterRepository> { CharacterRepositoryImpl(get()) }
     factory { GetCharactersByTypeUseCase(get()) }

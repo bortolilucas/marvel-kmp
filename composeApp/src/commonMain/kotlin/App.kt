@@ -4,6 +4,7 @@ import cafe.adriel.voyager.transitions.SlideTransition
 import core.presentation.theme.ThemeProvider
 import core.presentation.util.dimensions.DimensionsProvider
 import features.home.presentation.screens.home.HomeScreen
+import org.koin.core.module.Module
 
 @Composable
 fun App() {
@@ -15,3 +16,5 @@ fun App() {
         }
     }
 }
+
+expect val appModule: Module

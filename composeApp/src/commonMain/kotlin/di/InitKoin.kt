@@ -1,5 +1,6 @@
 package di
 
+import appModule
 import features.character.di.characterModule
 import features.home.di.homeModule
 import network.di.networkModule
@@ -9,7 +10,8 @@ fun initKoin() {
     val modules = listOf(
         networkModule,
         homeModule,
-        characterModule
+        characterModule,
+        appModule,
     )
 
     startKoin {

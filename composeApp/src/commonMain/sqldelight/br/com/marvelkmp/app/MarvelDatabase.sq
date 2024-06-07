@@ -1,0 +1,10 @@
+CREATE TABLE CharactersEntity (
+    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL
+);
+
+getCharacters:
+SELECT * FROM CharactersEntity;
+
+addCharacter:
+INSERT INTO CharactersEntity (name) VALUES ('name');

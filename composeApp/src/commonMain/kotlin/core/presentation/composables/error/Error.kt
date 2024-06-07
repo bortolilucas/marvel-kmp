@@ -30,7 +30,7 @@ fun ErrorContainer(onBack: (() -> Unit)? = null, onRetry: () -> Unit) {
     val randomIllustration = illustrations.random()
 
     Column(
-        Modifier.fillMaxSize().background(Theme.colors.onSurface).padding(Theme.spacing.extraMedium)
+        Modifier.fillMaxSize().background(Theme.colors.background).padding(Theme.spacing.extraMedium)
     ) {
         onBack?.let {
             IconButton(onClick = it) {

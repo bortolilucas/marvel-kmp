@@ -38,11 +38,11 @@ kotlin {
             implementation(libs.androidx.activity.compose)
             implementation(libs.koin.android)
             implementation(libs.ktor.client.okhttp)
-            implementation("app.cash.sqldelight:android-driver:2.0.2")
+            implementation(libs.android.driver)
 
         }
         iosMain.dependencies {
-            implementation("app.cash.sqldelight:native-driver:2.0.2")
+            implementation(libs.native.driver)
         }
         commonMain.dependencies {
             implementation(compose.runtime)
@@ -87,7 +87,7 @@ kotlin {
 
             implementation(libs.bignum)
 
-            implementation("app.cash.sqldelight:coroutines-extensions:2.0.2")
+            implementation(libs.coroutines.extensions)
 
         }
     }

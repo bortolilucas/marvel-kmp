@@ -1,10 +1,34 @@
-CREATE TABLE CharactersEntity (
-    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-    name TEXT NOT NULL
+CREATE TABLE Characters (
+id INTEGER NOT NULL PRIMARY KEY,
+heroName TEXT NOT NULL,
+realName TEXT NOT NULL,
+imagePath TEXT NOT NULL,
+gender TEXT NOT NULL,
+race TEXT,
+publisher TEXT NOT NULL,
+alignment TEXT NOT NULL,
+weight TEXT,
+height TEXT
+);
+
+CREATE TABLE CharacterStats (
+id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+characterId INTEGER NOT NULL,
+intelligence INTEGER NOT NULL,
+strength INTEGER NOT NULL,
+speed INTEGER NOT NULL,
+durability INTEGER NOT NULL,
+power INTEGER NOT NULL,
+combat INTEGER NOT NULL,
+FOREIGN KEY (characterId) REFERENCES Characters(id)
 );
 
 getCharacters:
-SELECT * FROM CharactersEntity;
+SELECT * FROM Characters JOIN CharacterStats ON Characters.id = CharacterStats.characterId;
 
 addCharacter:
-INSERT INTO CharactersEntity (name) VALUES ('name');
+INSERT INTO Characters (
+id, heroName, realName, imagePath, publisher, alignment, gender, race, weight, height
+) VALUES (
+?, ?,?, ?, ?, ?,?, ?, ?, ?
+);

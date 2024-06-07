@@ -28,7 +28,11 @@ object FavoritesScreen : Screen {
 
         Column {
             when (state) {
-                ScreenState.Default -> Default(onBack = { onBack() })
+                ScreenState.Default -> Default(
+                    onBack = { onBack() },
+                    favorites = screenModelState.favorites
+                )
+
                 ScreenState.Error -> ErrorContainer(onRetry = {}, onBack = { onBack() })
                 ScreenState.Loading -> Loading(onBack = { onBack() })
                 else -> {}

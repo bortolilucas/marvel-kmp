@@ -1,10 +1,8 @@
 package features.home.presentation.screens.home
 
-import br.com.marvelkmp.app.MarvelDatabase
 import cafe.adriel.voyager.core.model.StateScreenModel
 import cafe.adriel.voyager.core.model.screenModelScope
 import core.presentation.model.ScreenState
-import database.Database
 import features.home.domain.usecase.GetCharactersByNameUseCase
 import features.home.domain.usecase.GetCharactersByTypeUseCase
 import kotlinx.coroutines.flow.update
@@ -12,8 +10,7 @@ import kotlinx.coroutines.launch
 
 class HomeScreenModel(
     private val getCharactersByType: GetCharactersByTypeUseCase,
-    private val getCharactersByName: GetCharactersByNameUseCase,
-    private val database: Database
+    private val getCharactersByName: GetCharactersByNameUseCase
 ) : StateScreenModel<HomeState>(HomeState()) {
     init {
         loadData()

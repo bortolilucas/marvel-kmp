@@ -1,13 +1,9 @@
 package database
 
-import br.com.marvelkmp.app.CharactersEntity
 import br.com.marvelkmp.app.MarvelDatabase
 
 class Database(driverFactory: DriverFactory) {
-    val driver = driverFactory.createDriver()
-    val database = MarvelDatabase(driver)
+    private val driver = driverFactory.createDriver()
 
-    fun getCharacters(): List<CharactersEntity> {
-        return database.marvelDatabaseQueries.getCharacters().executeAsList()
-    }
+    val databaseQueries = MarvelDatabase(driver).marvelDatabaseQueries
 }

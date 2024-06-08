@@ -14,18 +14,18 @@ fun List<GetCharacters>.toCharacter(): List<Character> = map {
         id = it.id.toInt(),
         heroName = it.heroName,
         realName = it.realName,
-        publisher = CharacterPublisher.parse(it.publisher),
-        images = CharacterImages(sm = it.imagePath),
-        alignment = CharacterAlignment.parse(it.alignment),
-        race = CharacterRace.parse(it.race),
+        publisher = CharacterPublisher.parse(""),
+        images = CharacterImages(lg = it.imagePath, sm = it.imagePath),
+        alignment = CharacterAlignment.parse("neutral"),
+        race = CharacterRace.parse(it.race ?: ""),
         gender = it.gender,
         powerStats = CharacterPowerStatsDto(
-            intelligence = it.intelligence.toInt(),
-            strength = it.strength.toInt(),
-            speed = it.speed.toInt(),
-            durability = it.durability.toInt(),
-            power = it.power.toInt(),
-            combat = it.combat.toInt()
+            intelligence = it.intelligence?.toInt() ?: 0,
+            strength = it.strength?.toInt() ?: 0,
+            speed = it.speed?.toInt() ?: 0,
+            durability = it.durability?.toInt() ?: 0,
+            power = it.power?.toInt() ?: 0,
+            combat = it.combat?.toInt() ?: 0
         ),
         appearance = CharacterAppearanceDto(
             gender = it.gender,

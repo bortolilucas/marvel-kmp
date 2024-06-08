@@ -1,10 +1,10 @@
-package features.favorites.domain.usecase
+package features.character.domain.usecase
 
 import core.domain.model.Character
-import features.favorites.data.repository.FavoritesRepository
+import features.character.domain.repository.CharacterDetailRepository
 
 class AddFavoriteUseCase(
-    private val repository: FavoritesRepository
+    private val repository: CharacterDetailRepository
 ) {
     suspend operator fun invoke(favoriteCharacter: Character): Result<Unit> = runCatching {
         repository.addFavorite(favoriteCharacter)

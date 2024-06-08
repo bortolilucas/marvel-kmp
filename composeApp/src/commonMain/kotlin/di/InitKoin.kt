@@ -1,6 +1,5 @@
 package di
 
-import appModule
 import features.character.di.characterModule
 import features.favorites.di.favoritesModule
 import features.home.di.homeModule
@@ -17,7 +16,7 @@ fun initKoin(
         characterModule,
         favoritesModule,
         characterModule,
-        appModule
+        nativeModule
     )
 
     startKoin {

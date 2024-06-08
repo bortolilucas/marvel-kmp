@@ -35,7 +35,12 @@ import marvelkmp.composeapp.generated.resources.universe
 import marvelkmp.composeapp.generated.resources.weight
 
 @Composable
-fun CharacterDetailsDefault(onBack: () -> Unit, character: CharacterDetails) {
+fun CharacterDetailsDefault(
+    onBack: () -> Unit,
+    onToggleFavorite: () -> Unit,
+    character: CharacterDetails,
+    isFavorite: Boolean
+) {
     Column(
         Modifier
             .background(Theme.colors.surface)
@@ -52,7 +57,10 @@ fun CharacterDetailsDefault(onBack: () -> Unit, character: CharacterDetails) {
             GoBackHeader(
                 tint = Theme.colors.onSurface,
                 onGoBack = onBack,
-                isStatusAppearanceLight = false
+                isStatusAppearanceLight = false,
+                showFavoriteButton = true,
+                isFavorited = isFavorite,
+                onToggleFavorite = { onToggleFavorite() }
             )
             Box(
                 Modifier.fillMaxWidth().matchParentSize().background(

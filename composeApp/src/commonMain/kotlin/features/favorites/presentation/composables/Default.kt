@@ -20,7 +20,11 @@ import core.presentation.util.modifiers.getBottomSafePadding
 import features.home.presentation.composables.CharacterListItem
 
 @Composable
-fun Default(favorites: List<Character>, onBack: () -> Unit) {
+fun Default(
+    favorites: List<Character>,
+    onBack: () -> Unit,
+    onGoToCharacter: (character: Character) -> Unit
+) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -49,12 +53,10 @@ fun Default(favorites: List<Character>, onBack: () -> Unit) {
                     bottom = Theme.spacing.big + getBottomSafePadding(),
                 ),
             ) {
-                items(favorites) {
+                items(favorites) { character ->
                     CharacterListItem(
-                        character = it,
-                        onClick = {
-
-                        }
+                        character = character,
+                        onClick = { onGoToCharacter(character) }
                     )
                 }
             }

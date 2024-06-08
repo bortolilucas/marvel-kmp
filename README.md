@@ -38,6 +38,7 @@ Marvel App KMP
 A proposta é desenvolver um app em dupla que consuma uma api e liste seus dados usando compose multiplatform e libs relacionadas.
 O figma do layout pode ser encontrado <a href="https://www.figma.com/community/file/849367817302905364/marvel-heroes" target="_blank">aqui</a>
 Neste projetos usamos a API da <a href="https://developer.marvel.com/" target="_blank">marvel</a> e a <a href="https://github.com/akabab/superhero-api/tree/0.3.0/" target="_blank">superheroapi</a> para listar os personagens, suas habilidades e seus quadrinhos.
+As animações de carregamento e de erro mudam aleatoriamente :)
 
 ## 🛠 Tecnologias utilizadas
 
@@ -60,10 +61,13 @@ Neste projetos usamos a API da <a href="https://developer.marvel.com/" target="_
   <li>Abra a pasta raiz do projeto no Android Studio</li>
   <li>Localize o arquivo `local.properties`</li>
   <li>Adicione as seguintes linhas:
-```bash
-PUBLIC_KEY=""
-PRIVATE_KEY=""
-```bash
+
+    
+    # Adicione suas chaves da api da marvel aqui
+    PUBLIC_KEY=""
+    PRIVATE_KEY=""
+
+    
   </li>
   <li>Rode o app</li>
 </ol>

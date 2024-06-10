@@ -1,4 +1,4 @@
-package database
+package br.com.marvelkmp.database
 
 import app.cash.sqldelight.db.SqlDriver
 

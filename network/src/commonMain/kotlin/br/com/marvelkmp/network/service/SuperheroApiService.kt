@@ -1,4 +1,4 @@
-package network.service
+package br.com.marvelkmp.network.service
 
 import io.github.aakira.napier.Napier
 import io.ktor.client.HttpClient

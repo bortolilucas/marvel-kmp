@@ -1,4 +1,4 @@
-import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
+
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
@@ -8,9 +8,7 @@ plugins {
     alias(libs.plugins.jetbrainsCompose)
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.kotlinxSerialization)
-    id("com.github.gmazzo.buildconfig") version "5.3.5"
-    id("app.cash.sqldelight") version "2.0.2"
-
+    alias(libs.plugins.sqldelight)
 }
 
 kotlin {
@@ -37,9 +35,7 @@ kotlin {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
             implementation(libs.koin.android)
-            implementation(libs.ktor.client.okhttp)
             implementation(libs.android.driver)
-
         }
         iosMain.dependencies {
             implementation(libs.native.driver)
@@ -52,14 +48,7 @@ kotlin {
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
 
-            implementation(libs.ktor.client.core)
-            implementation(libs.ktor.client.logging)
-            implementation(libs.ktor.client.content.negotiation)
-            implementation(libs.ktor.serialization.kotlinx.json)
-
             implementation(libs.kotlinx.coroutines.core)
-
-            implementation(libs.kamel.image)
 
             implementation(libs.coil)
             implementation(libs.coil.compose)
@@ -79,16 +68,11 @@ kotlin {
 
             implementation(libs.napier)
 
-            implementation(libs.kotlinx.datetime)
-
-            implementation(project.dependencies.platform(libs.crypto.bom))
-            implementation(libs.crypto)
-            implementation(libs.crypto.md)
-
-            implementation(libs.bignum)
-
             implementation(libs.coroutines.extensions)
 
+            implementation(libs.kotlinx.serialization.json)
+
+            implementation(project(":network"))
         }
     }
 }
@@ -128,13 +112,6 @@ android {
     dependencies {
         debugImplementation(compose.uiTooling)
     }
-}
-buildConfig {
-    val publicKey = gradleLocalProperties(rootDir).getProperty("PUBLIC_KEY")
-    val privateKey = gradleLocalProperties(rootDir).getProperty("PRIVATE_KEY")
-
-    buildConfigField("String", "PUBLIC_KEY", publicKey)
-    buildConfigField("String", "PRIVATE_KEY", privateKey)
 }
 
 sqldelight {

@@ -1,5 +1,6 @@
 package core.presentation.composables.error
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -23,6 +24,7 @@ import core.presentation.composables.images.GifImage
 import core.presentation.composables.navigation.GoBackHeader
 import core.presentation.theme.Theme
 import core.presentation.util.modifiers.safePadding
+import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
@@ -53,17 +55,21 @@ fun ErrorContainer(onBack: (() -> Unit)? = null, onRetry: () -> Unit) {
                 verticalArrangement = Arrangement.Center
             ) {
                 Box {
-                    GifImage(
-                        modifier = Modifier.size(300.dp).padding(bottom = 30.dp),
-                        url = randomIllustration.url,
-                        contentScale = ContentScale.Fit,
-                    )
-                    if (randomIllustration.secondUrl.isNotEmpty())
+                    randomIllustration.gifResource?.let {
                         GifImage(
                             modifier = Modifier.size(300.dp).padding(bottom = 30.dp),
                             contentScale = ContentScale.FillBounds,
-                            url = randomIllustration.secondUrl,
+                            resource = it,
                         )
+                    }
+                    randomIllustration.resource?.let {
+                        Image(
+                            modifier = Modifier.size(300.dp).padding(bottom = 30.dp),
+                            painter = painterResource(it),
+                            contentDescription = randomIllustration.description,
+                            contentScale = ContentScale.Fit,
+                        )
+                    }
                 }
                 Text(
                     modifier = Modifier.padding(bottom = 8.dp),

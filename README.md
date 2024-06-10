@@ -18,8 +18,8 @@ Marvel App KMP
 - [Sobre o projeto](#-Sobre-o-projeto)
 - [Tecnologias utilizadas](#-Tecnologias-utilizadas)
 - [Rodando o projeto](#-Rodando-o-projeto)
-  - [Pré-requisitos](#-Pré-requisitos)
-  - [Rodando o app](#-Rodando-o-app)
+    - [Pré-requisitos](#-Pré-requisitos)
+    - [Rodando o app](#-Rodando-o-app)
 
 ## 🎨 Telas
 
@@ -35,9 +35,14 @@ Marvel App KMP
 
 ## 📃 Sobre o projeto
 
-A proposta é desenvolver um app em dupla que consuma uma api e liste seus dados usando compose multiplatform e libs relacionadas.
-O figma do layout pode ser encontrado <a href="https://www.figma.com/community/file/849367817302905364/marvel-heroes" target="_blank">aqui</a>
-Neste projetos usamos a API da <a href="https://developer.marvel.com/" target="_blank">marvel</a> e a <a href="https://github.com/akabab/superhero-api/tree/0.3.0/" target="_blank">superheroapi</a> para listar os personagens, suas habilidades e seus quadrinhos.
+A proposta é desenvolver um app em dupla que consuma uma api e liste seus dados usando compose
+multiplatform e libs relacionadas.
+O figma do layout pode ser
+encontrado <a href="https://www.figma.com/community/file/849367817302905364/marvel-heroes" target="_blank">
+aqui</a>
+Neste projetos usamos a API da <a href="https://developer.marvel.com/" target="_blank">marvel</a> e
+a <a href="https://github.com/akabab/superhero-api/tree/0.3.0/" target="_blank">superheroapi</a>
+para listar os personagens, suas habilidades e seus quadrinhos.
 As animações de carregamento e de erro mudam aleatoriamente :)
 
 ## 🛠 Tecnologias utilizadas
@@ -62,12 +67,19 @@ As animações de carregamento e de erro mudam aleatoriamente :)
   <li>Localize o arquivo `local.properties`</li>
   <li>Adicione as seguintes linhas:
 
-    
     # Adicione suas chaves da api da marvel aqui
     PUBLIC_KEY=""
     PRIVATE_KEY=""
 
-    
+  </li>
+  <li>Instale o ASDF (caso não esteja já instalado). https://asdf-vm.com/pt-br/guide/getting-started.html#_1-instalando-as-dependencias</li>
+  <li>Adicione o plugin ruby:
+
+    asdf plugin add ruby
+  </li>
+  <li>Instale as dependências:
+
+    asdf install
   </li>
   <li>Rode o app</li>
 </ol>

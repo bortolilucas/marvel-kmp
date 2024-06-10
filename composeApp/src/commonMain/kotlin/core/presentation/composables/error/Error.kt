@@ -81,7 +81,7 @@ fun ErrorContainer(onBack: (() -> Unit)? = null, onRetry: () -> Unit) {
             }
             Button(modifier = Modifier.fillMaxWidth().height(50.dp), onClick = { onRetry() }) {
                 Text(
-                    "Tentar novamente",
+                    "Try again",
                     style = Theme.typography.h4,
                     color = Theme.colors.onPrimary
                 )

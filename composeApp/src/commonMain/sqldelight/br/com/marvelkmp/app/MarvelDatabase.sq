@@ -1,0 +1,45 @@
+CREATE TABLE Characters (
+id INTEGER NOT NULL PRIMARY KEY,
+heroName TEXT NOT NULL,
+realName TEXT NOT NULL,
+imagePath TEXT NOT NULL,
+gender TEXT NOT NULL,
+race TEXT,
+weight TEXT,
+height TEXT
+);
+
+CREATE TABLE CharacterStats (
+id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+characterId INTEGER NOT NULL,
+intelligence INTEGER NOT NULL,
+strength INTEGER NOT NULL,
+speed INTEGER NOT NULL,
+durability INTEGER NOT NULL,
+power INTEGER NOT NULL,
+combat INTEGER NOT NULL,
+FOREIGN KEY (characterId) REFERENCES Characters(id) ON DELETE CASCADE
+);
+
+getCharacters:
+SELECT * FROM Characters LEFT JOIN CharacterStats ON Characters.id = CharacterStats.characterId;
+
+getCharacterById:
+SELECT COUNT(*) FROM Characters WHERE Characters.id = ?;
+
+addCharacter:
+INSERT INTO Characters (
+ id, heroName, realName, imagePath, gender, race, weight, height
+) VALUES (
+ ?,?, ?, ?,?, ?, ?, ?
+);
+
+addCharacterStats:
+INSERT INTO CharacterStats (
+ characterId, intelligence, strength, speed, durability, power, combat
+) VALUES (
+ ?, ?, ?, ?, ?, ?, ?
+);
+
+removeCharacter:
+DELETE FROM Characters WHERE Characters.id = ?;

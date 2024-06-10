@@ -9,6 +9,8 @@ plugins {
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.kotlinxSerialization)
     id("com.github.gmazzo.buildconfig") version "5.3.5"
+    id("app.cash.sqldelight") version "2.0.2"
+
 }
 
 kotlin {
@@ -36,6 +38,11 @@ kotlin {
             implementation(libs.androidx.activity.compose)
             implementation(libs.koin.android)
             implementation(libs.ktor.client.okhttp)
+            implementation(libs.android.driver)
+
+        }
+        iosMain.dependencies {
+            implementation(libs.native.driver)
         }
         commonMain.dependencies {
             implementation(compose.runtime)
@@ -79,6 +86,9 @@ kotlin {
             implementation(libs.crypto.md)
 
             implementation(libs.bignum)
+
+            implementation(libs.coroutines.extensions)
+
         }
     }
 }
@@ -125,4 +135,12 @@ buildConfig {
 
     buildConfigField("String", "PUBLIC_KEY", publicKey)
     buildConfigField("String", "PRIVATE_KEY", privateKey)
+}
+
+sqldelight {
+    databases {
+        create("MarvelDatabase") {
+            packageName.set("br.com.marvelkmp.app")
+        }
+    }
 }

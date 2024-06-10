@@ -3,49 +3,52 @@ agp = "8.2.0"
 android-compileSdk = "34"
 android-minSdk = "24"
 android-targetSdk = "34"
-androidDriver = "2.0.2"
+ktorClientIos = "2.3.8"
+sqldelight = "2.0.2"
 androidx-activityCompose = "1.9.0"
 bignum = "0.3.9"
 coil = "3.0.0-alpha06"
 compose-plugin = "1.6.11"
 crypto = "0.5.1"
-kamelImage = "0.9.5"
 koin = "3.5.6"
 kotlin = "2.0.0"
 kotlinxCoroutinesCore = "1.9.0-RC"
 kotlinxDatetime = "0.6.0"
+kotlinxSerializationJson = "1.7.0"
 ktor = "2.3.11"
 logbackAndroid = "3.0.0"
 napier = "2.7.1"
 slf4jApi = "2.0.13"
 voyagerNavigator = "1.1.0-beta01"
+buildconfig = "5.3.5"
 
 [libraries]
-android-driver = { module = "app.cash.sqldelight:android-driver", version.ref = "androidDriver" }
+android-driver = { module = "app.cash.sqldelight:android-driver", version.ref = "sqldelight" }
 bignum = { module = "com.ionspin.kotlin:bignum", version.ref = "bignum" }
 coil = { module = "io.coil-kt.coil3:coil", version.ref = "coil" }
 coil-compose = { module = "io.coil-kt.coil3:coil-compose", version.ref = "coil" }
 coil-gif = { module = "io.coil-kt.coil3:coil-gif", version.ref = "coil" }
 coil-network-ktor = { module = "io.coil-kt.coil3:coil-network-ktor", version.ref = "coil" }
-coroutines-extensions = { module = "app.cash.sqldelight:coroutines-extensions", version.ref = "androidDriver" }
+coroutines-extensions = { module = "app.cash.sqldelight:coroutines-extensions", version.ref = "sqldelight" }
 crypto = { module = "org.kotlincrypto.core:digest", version.ref = "crypto" }
 crypto-bom = { module = "org.kotlincrypto.hash:bom", version.ref = "crypto" }
 crypto-md = { module = "org.kotlincrypto.hash:md" }
-kamel-image = { module = "media.kamel:kamel-image", version.ref = "kamelImage" }
 koin-bom = { module = "io.insert-koin:koin-bom", version.ref = "koin" }
 koin-android = { module = "io.insert-koin:koin-android" }
 koin-core = { module = "io.insert-koin:koin-core" }
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
 kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinxCoroutinesCore" }
 kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinxDatetime" }
+kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerializationJson" }
 ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
 ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
+ktor-client-ios = { module = "io.ktor:ktor-client-ios", version.ref = "ktorClientIos" }
 ktor-client-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktor" }
 ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
 ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktor" }
 logback-android = { module = "com.github.tony19:logback-android", version.ref = "logbackAndroid" }
 napier = { module = "io.github.aakira:napier", version.ref = "napier" }
-native-driver = { module = "app.cash.sqldelight:native-driver", version.ref = "androidDriver" }
+native-driver = { module = "app.cash.sqldelight:native-driver", version.ref = "sqldelight" }
 slf4j-api = { module = "org.slf4j:slf4j-api", version.ref = "slf4jApi" }
 voyager-koin = { module = "cafe.adriel.voyager:voyager-koin", version.ref = "voyagerNavigator" }
 voyager-navigator = { module = "cafe.adriel.voyager:voyager-navigator", version.ref = "voyagerNavigator" }
@@ -59,3 +62,5 @@ jetbrainsCompose = { id = "org.jetbrains.compose", version.ref = "compose-plugin
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 kotlinxSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+sqldelight = { id = "app.cash.sqldelight", version.ref = "sqldelight" }
+buildconfig = { id = "com.github.gmazzo.buildconfig", version.ref = "buildconfig" }

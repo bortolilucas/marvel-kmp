@@ -9,6 +9,7 @@ plugins {
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.kotlinxSerialization)
     alias(libs.plugins.sqldelight)
+    alias(libs.plugins.kotlinCocoaPods)
 }
 
 kotlin {
@@ -36,6 +37,7 @@ kotlin {
             implementation(libs.androidx.activity.compose)
             implementation(libs.koin.android)
             implementation(libs.android.driver)
+            implementation(libs.coil.gif)
         }
         iosMain.dependencies {
             implementation(libs.native.driver)
@@ -53,7 +55,6 @@ kotlin {
             implementation(libs.coil)
             implementation(libs.coil.compose)
             implementation(libs.coil.network.ktor)
-            implementation(libs.coil.gif)
 
             implementation(libs.voyager.navigator)
             implementation(libs.voyager.screenmodel)
@@ -74,6 +75,18 @@ kotlin {
 
             implementation(project(":network"))
         }
+    }
+
+    cocoapods {
+        version = "1.0"
+        summary = "CocoaPods integration for ComposeApp"
+        homepage = ""
+
+        framework {
+            baseName = "MarvelKmp"
+        }
+
+        podfile = file("../iosApp/Podfile")
     }
 }
 

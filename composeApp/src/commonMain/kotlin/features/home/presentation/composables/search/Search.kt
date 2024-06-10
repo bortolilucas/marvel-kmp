@@ -1,4 +1,4 @@
-package features.home.presentation.composables
+package features.home.presentation.composables.search
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -22,6 +22,7 @@ import androidx.compose.ui.unit.dp
 import core.domain.model.Character
 import core.presentation.composables.images.GifImage
 import core.presentation.theme.Theme
+import features.home.presentation.composables.CharacterListItem
 import features.home.presentation.screens.home.HomeState
 
 @Composable
@@ -59,7 +60,7 @@ fun Search(
                 GifImage(
                     contentScale = ContentScale.Fit,
                     modifier = Modifier.size(300.dp).padding(bottom = 30.dp),
-                    url = "https://64.media.tumblr.com/tumblr_maxpwccLf31qegdapo1_500.gif",
+                    resource = searchResources.typeToSearchResource
                 )
                 Text(
                     text = "Type to init a search...",
@@ -74,7 +75,7 @@ fun Search(
                 GifImage(
                     contentScale = ContentScale.Fit,
                     modifier = Modifier.size(300.dp).padding(top = 80.dp, bottom = 30.dp),
-                    url = "https://media.tenor.com/lASlJqOnTwkAAAAi/spiderman-marvel-vs-capcom.gif",
+                    resource = searchResources.notFoundResource,
                 )
                 Text(
                     text = "Not found results for this search",

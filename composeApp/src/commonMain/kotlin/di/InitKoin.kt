@@ -5,9 +5,11 @@ import features.character.di.characterModule
 import features.favorites.di.favoritesModule
 import features.home.di.homeModule
 import org.koin.core.context.startKoin
+import org.koin.core.module.Module
 import org.koin.dsl.KoinAppDeclaration
 
 fun initKoin(
+    additionalModules: List<Module> = emptyList(),
     appDeclaration: KoinAppDeclaration = {}
 ) {
     val modules = listOf(
@@ -21,6 +23,6 @@ fun initKoin(
 
     startKoin {
         appDeclaration()
-        modules(modules)
+        modules(modules + additionalModules)
     }
 }

@@ -1,0 +1,7 @@
+platform :ios, '15.3'
+
+target 'iosApp' do
+  use_frameworks!
+
+  pod 'Gifu', '~> 3.3'
+end

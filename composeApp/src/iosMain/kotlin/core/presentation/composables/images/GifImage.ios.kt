@@ -2,17 +2,19 @@ package core.presentation.composables.images
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.interop.UIKitView
 import androidx.compose.ui.layout.ContentScale
 import core.presentation.mapper.toUIColor
 import core.presentation.theme.Theme
-import core.presentation.util.gif.gifImageWithURL
+import core.presentation.util.gif.GifHelper
 import kotlinx.cinterop.ExperimentalForeignApi
-import kotlinx.coroutines.launch
-import platform.UIKit.UIImageView
+import org.koin.compose.koinInject
 import platform.UIKit.UIViewContentMode
+
+actual class GifResource(
+    val name: String,
+)
 
 @OptIn(ExperimentalForeignApi::class)
 @Composable
@@ -21,15 +23,38 @@ actual fun GifImage(
     modifier: Modifier,
     contentScale: ContentScale,
 ) {
+    val gifHelper = koinInject<GifHelper>()
     val backgroundColor = Theme.colors.background
-    val scope = rememberCoroutineScope()
 
     val imageView = remember(url) {
-        UIImageView().apply {
-            scope.launch {
-                this@apply.image = gifImageWithURL(url)
+        gifHelper.gifImageWithURL(url).apply {
+            this.backgroundColor = backgroundColor.toUIColor()
+            this.contentMode = when (contentScale) {
+                ContentScale.Fit -> UIViewContentMode.UIViewContentModeScaleAspectFit
+                else -> UIViewContentMode.UIViewContentModeScaleAspectFill
             }
+        }
+    }
 
+    UIKitView(
+        factory = { imageView },
+        modifier = modifier,
+    )
+}
+
+
+@OptIn(ExperimentalForeignApi::class)
+@Composable
+actual fun GifImage(
+    resource: GifResource,
+    modifier: Modifier,
+    contentScale: ContentScale
+) {
+    val gifHelper = koinInject<GifHelper>()
+    val backgroundColor = Theme.colors.background
+
+    val imageView = remember(resource) {
+        gifHelper.gitImageWithName(resource.name).apply {
             this.backgroundColor = backgroundColor.toUIColor()
             this.contentMode = when (contentScale) {
                 ContentScale.Fit -> UIViewContentMode.UIViewContentModeScaleAspectFit

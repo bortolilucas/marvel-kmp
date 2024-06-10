@@ -50,7 +50,7 @@ fun Loading(
                 .padding(bottom = Theme.spacing.extraBig),
         ) {
             GifImage(
-                url = illustration.url,
+                resource = illustration.resource,
                 contentScale = ContentScale.Fit,
                 modifier = Modifier.size(illustration.size)
             )

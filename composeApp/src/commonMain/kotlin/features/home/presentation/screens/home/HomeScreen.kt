@@ -23,7 +23,7 @@ import features.character.presentation.screens.characterDetail.CharacterDetailSc
 import features.character.presentation.screens.characterList.CharacterListScreen
 import features.favorites.presentation.screen.FavoritesScreen
 import features.home.presentation.composables.Header
-import features.home.presentation.composables.Search
+import features.home.presentation.composables.search.Search
 import kotlinx.coroutines.delay
 
 const val DEBOUNCE_TIMEOUT = 1000L
@@ -53,7 +53,7 @@ object HomeScreen : Screen {
                 .background(Theme.colors.background)
         ) {
             Header(
-                onMenuClick = {navigator.push(FavoritesScreen)},
+                onMenuClick = { navigator.push(FavoritesScreen) },
                 isSearchVisible = showSearchInput,
                 onSearchClick = {
                     if (state.state is ScreenState.Loading) return@Header

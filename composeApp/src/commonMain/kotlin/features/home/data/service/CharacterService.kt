@@ -1,6 +1,6 @@
 package features.home.data.service
 
-import core.data.response.superhero.CharacterDto
+import br.com.marvelkmp.core.data.response.superhero.CharacterDto
 
 interface CharacterService {
     suspend fun getCharacters(): List<CharacterDto>

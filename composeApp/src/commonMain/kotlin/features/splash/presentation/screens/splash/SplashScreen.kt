@@ -11,12 +11,12 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import br.com.marvelkmp.core.presentation.composables.statusbar.StatusBarEffect
+import br.com.marvelkmp.core.presentation.theme.MarvelRed
+import br.com.marvelkmp.core.presentation.theme.PrimaryWhite
 import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
-import core.presentation.composables.statusbar.StatusBarEffect
-import core.presentation.theme.MarvelRed
-import core.presentation.theme.PrimaryWhite
 import features.home.presentation.screens.home.HomeScreen
 import kotlinx.coroutines.delay
 import marvelkmp.composeapp.generated.resources.Res

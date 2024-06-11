@@ -6,8 +6,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import core.presentation.model.CharacterFilter
-import core.presentation.theme.Theme
+import br.com.marvelkmp.core.presentation.model.CharacterFilter
+import br.com.marvelkmp.core.presentation.theme.Theme
 
 @Composable
 fun CharacterTypeCircleList(

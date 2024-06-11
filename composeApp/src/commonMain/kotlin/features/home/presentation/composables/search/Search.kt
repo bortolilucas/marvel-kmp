@@ -19,9 +19,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
-import core.domain.model.Character
-import core.presentation.composables.images.GifImage
-import core.presentation.theme.Theme
+import br.com.marvelkmp.core.domain.model.Character
+import br.com.marvelkmp.core.presentation.composables.images.GifImage
+import br.com.marvelkmp.core.presentation.theme.Theme
 import features.home.presentation.composables.CharacterListItem
 import features.home.presentation.screens.home.HomeState
 

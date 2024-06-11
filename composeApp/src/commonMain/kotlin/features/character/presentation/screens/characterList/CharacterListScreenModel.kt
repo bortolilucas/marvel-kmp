@@ -1,9 +1,9 @@
 package features.character.presentation.screens.characterList
 
+import br.com.marvelkmp.core.presentation.model.CharacterFilter
+import br.com.marvelkmp.core.presentation.model.ScreenState
 import cafe.adriel.voyager.core.model.StateScreenModel
 import cafe.adriel.voyager.core.model.screenModelScope
-import core.presentation.model.CharacterFilter
-import core.presentation.model.ScreenState
 import features.character.domain.usecase.GetCharacterListUseCase
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch

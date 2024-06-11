@@ -1,6 +1,6 @@
 package features.home.presentation.composables.search
 
-import core.presentation.composables.images.GifResource
+import br.com.marvelkmp.core.presentation.composables.images.GifResource
 
 class SearchResources(
     val notFoundResource: GifResource,

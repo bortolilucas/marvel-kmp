@@ -22,11 +22,11 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
+import br.com.marvelkmp.core.presentation.composables.list.HorizontalList
+import br.com.marvelkmp.core.presentation.composables.navigation.GoBackHeader
+import br.com.marvelkmp.core.presentation.theme.Theme
+import br.com.marvelkmp.core.presentation.util.modifiers.safePadding
 import coil3.compose.AsyncImage
-import core.presentation.composables.list.HorizontalList
-import core.presentation.composables.navigation.GoBackHeader
-import core.presentation.theme.Theme
-import core.presentation.util.modifiers.safePadding
 import features.character.data.model.CharacterDetails
 import marvelkmp.composeapp.generated.resources.Res
 import marvelkmp.composeapp.generated.resources.gender

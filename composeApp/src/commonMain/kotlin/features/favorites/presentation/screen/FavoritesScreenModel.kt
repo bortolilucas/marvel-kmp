@@ -1,8 +1,8 @@
 package features.favorites.presentation.screen
 
+import br.com.marvelkmp.core.presentation.model.ScreenState
 import cafe.adriel.voyager.core.model.StateScreenModel
 import cafe.adriel.voyager.core.model.screenModelScope
-import core.presentation.model.ScreenState
 import features.favorites.domain.usecase.GetFavoritesUseCase
 import features.favorites.presentation.model.FavoritesState
 import io.github.aakira.napier.Napier

@@ -1,6 +1,6 @@
 package di
 
-import core.presentation.util.gif.GifHelper
+import br.com.marvelkmp.core.presentation.util.gif.GifHelper
 import org.koin.dsl.module
 
 fun initKoinIOS(

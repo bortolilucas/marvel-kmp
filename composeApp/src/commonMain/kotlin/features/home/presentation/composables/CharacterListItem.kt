@@ -4,7 +4,9 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -13,9 +15,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.layout.ContentScale
+import br.com.marvelkmp.core.domain.model.Character
+import br.com.marvelkmp.core.presentation.theme.Theme
 import coil3.compose.AsyncImage
-import core.domain.model.Character
-import core.presentation.theme.Theme
 
 @Composable
 fun CharacterListItem(
@@ -26,7 +28,8 @@ fun CharacterListItem(
     Box(
         contentAlignment = Alignment.BottomStart,
         modifier = modifier
-            .fillMaxSize()
+            .fillMaxWidth()
+            .aspectRatio(0.6f)
             .shadow(Theme.spacing.small, Theme.shapes.large)
             .background(Theme.colors.surface)
             .clip(Theme.shapes.large)

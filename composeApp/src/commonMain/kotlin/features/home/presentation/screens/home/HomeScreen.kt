@@ -11,18 +11,18 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import br.com.marvelkmp.core.presentation.composables.error.ErrorContainer
+import br.com.marvelkmp.core.presentation.composables.loading.Loading
+import br.com.marvelkmp.core.presentation.composables.navigation.Header
+import br.com.marvelkmp.core.presentation.model.ScreenState
+import br.com.marvelkmp.core.presentation.theme.Theme
 import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.koin.koinScreenModel
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
-import core.presentation.composables.error.ErrorContainer
-import core.presentation.composables.loading.Loading
-import core.presentation.model.ScreenState
-import core.presentation.theme.Theme
 import features.character.presentation.screens.characterDetail.CharacterDetailScreen
 import features.character.presentation.screens.characterList.CharacterListScreen
 import features.favorites.presentation.screen.FavoritesScreen
-import features.home.presentation.composables.Header
 import features.home.presentation.composables.search.Search
 import kotlinx.coroutines.delay
 

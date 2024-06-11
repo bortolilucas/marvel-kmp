@@ -1,7 +1,7 @@
 package features.character.presentation.screens.characterList
 
-import core.domain.model.Character
-import core.presentation.model.ScreenState
+import br.com.marvelkmp.core.domain.model.Character
+import br.com.marvelkmp.core.presentation.model.ScreenState
 
 data class CharacterListState(
     val state: ScreenState = ScreenState.Loading,

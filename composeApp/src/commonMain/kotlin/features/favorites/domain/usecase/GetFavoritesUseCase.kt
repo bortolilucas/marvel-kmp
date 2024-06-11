@@ -1,6 +1,6 @@
 package features.favorites.domain.usecase
 
-import core.domain.model.Character
+import br.com.marvelkmp.core.domain.model.Character
 import features.favorites.data.repository.FavoritesRepository
 
 class GetFavoritesUseCase(

@@ -1,8 +1,8 @@
 package features.character.domain.usecase
 
-import core.domain.mapper.filterBy
-import core.domain.model.Character
-import core.presentation.model.CharacterFilter
+import br.com.marvelkmp.core.domain.mapper.filterBy
+import br.com.marvelkmp.core.domain.model.Character
+import br.com.marvelkmp.core.presentation.model.CharacterFilter
 import features.home.domain.repository.CharacterRepository
 
 class GetCharacterListUseCase(

@@ -1,7 +1,7 @@
 package features.home.domain.model
 
-import core.domain.model.Character
-import core.presentation.model.CharacterFilter
+import br.com.marvelkmp.core.domain.model.Character
+import br.com.marvelkmp.core.presentation.model.CharacterFilter
 
 data class CharacterSection(
     val characters: List<Character>,

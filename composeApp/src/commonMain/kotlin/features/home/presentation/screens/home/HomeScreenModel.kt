@@ -1,8 +1,8 @@
 package features.home.presentation.screens.home
 
+import br.com.marvelkmp.core.presentation.model.ScreenState
 import cafe.adriel.voyager.core.model.StateScreenModel
 import cafe.adriel.voyager.core.model.screenModelScope
-import core.presentation.model.ScreenState
 import features.home.domain.usecase.GetCharactersByNameUseCase
 import features.home.domain.usecase.GetCharactersByTypeUseCase
 import kotlinx.coroutines.flow.update

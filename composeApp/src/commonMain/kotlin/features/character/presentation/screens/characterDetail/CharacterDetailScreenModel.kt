@@ -1,9 +1,9 @@
 package features.character.presentation.screens.characterDetail
 
+import br.com.marvelkmp.core.domain.model.Character
+import br.com.marvelkmp.core.presentation.model.ScreenState
 import cafe.adriel.voyager.core.model.StateScreenModel
 import cafe.adriel.voyager.core.model.screenModelScope
-import core.domain.model.Character
-import core.presentation.model.ScreenState
 import features.character.data.model.CharacterDetails
 import features.character.domain.usecase.AddFavoriteUseCase
 import features.character.domain.usecase.GetCharacterComicsUseCase

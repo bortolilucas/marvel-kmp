@@ -1,13 +1,13 @@
 package features.favorites.domain.mapper
 
 import br.com.marvelkmp.app.GetCharacters
-import core.data.response.superhero.CharacterAppearanceDto
-import core.data.response.superhero.CharacterPowerStatsDto
-import core.domain.model.Character
-import core.domain.model.CharacterAlignment
-import core.domain.model.CharacterImages
-import core.domain.model.CharacterPublisher
-import core.domain.model.CharacterRace
+import br.com.marvelkmp.core.data.response.superhero.CharacterAppearanceDto
+import br.com.marvelkmp.core.data.response.superhero.CharacterPowerStatsDto
+import br.com.marvelkmp.core.domain.model.Character
+import br.com.marvelkmp.core.domain.model.CharacterAlignment
+import br.com.marvelkmp.core.domain.model.CharacterImages
+import br.com.marvelkmp.core.domain.model.CharacterPublisher
+import br.com.marvelkmp.core.domain.model.CharacterRace
 
 fun List<GetCharacters>.toCharacter(): List<Character> = map {
     Character(

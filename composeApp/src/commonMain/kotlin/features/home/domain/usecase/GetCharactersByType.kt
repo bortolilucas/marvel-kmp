@@ -1,7 +1,7 @@
 package features.home.domain.usecase
 
-import core.domain.mapper.filterBy
-import core.presentation.model.CharacterFilter
+import br.com.marvelkmp.core.domain.mapper.filterBy
+import br.com.marvelkmp.core.presentation.model.CharacterFilter
 import features.home.domain.model.CharacterSection
 import features.home.domain.repository.CharacterRepository
 

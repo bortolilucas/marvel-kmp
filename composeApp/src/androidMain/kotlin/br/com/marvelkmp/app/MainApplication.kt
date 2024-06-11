@@ -1,8 +1,8 @@
 package br.com.marvelkmp.app
 
 import android.app.Application
+import br.com.marvelkmp.logging.util.initNapier
 import di.initKoin
-import logging.util.initNapier
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 

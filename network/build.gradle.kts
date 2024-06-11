@@ -49,8 +49,6 @@ kotlin {
             implementation(libs.logback.android)
             implementation(libs.slf4j.api)
 
-            implementation(libs.napier)
-
             implementation(libs.kotlinx.datetime)
 
             implementation(project.dependencies.platform(libs.crypto.bom))
@@ -58,6 +56,8 @@ kotlin {
             implementation(libs.crypto.md)
 
             implementation(libs.bignum)
+
+            implementation(project(":logging"))
         }
     }
 }

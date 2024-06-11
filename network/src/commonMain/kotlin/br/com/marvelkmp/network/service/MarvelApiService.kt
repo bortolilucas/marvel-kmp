@@ -1,8 +1,8 @@
 package br.com.marvelkmp.network.service
 
 import MarvelKmp.network.BuildConfig.PUBLIC_KEY
+import br.com.marvelkmp.logging.util.Log
 import br.com.marvelkmp.network.utils.generateHash
-import io.github.aakira.napier.Napier
 import io.ktor.client.HttpClient
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.client.plugins.defaultRequest
@@ -18,7 +18,7 @@ val marvelApiService = HttpClient {
     install(Logging) {
         logger = object : Logger {
             override fun log(message: String) {
-                Napier.v("HTTP Client", null, message)
+                Log.v("HTTP Client", null, message)
             }
         }
         level = LogLevel.HEADERS

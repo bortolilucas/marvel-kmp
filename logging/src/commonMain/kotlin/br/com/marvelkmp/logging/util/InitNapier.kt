@@ -1,4 +1,4 @@
-package logging.util
+package br.com.marvelkmp.logging.util
 
 import io.github.aakira.napier.DebugAntilog
 import io.github.aakira.napier.Napier

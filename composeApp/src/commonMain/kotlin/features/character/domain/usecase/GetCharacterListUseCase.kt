@@ -3,10 +3,10 @@ package features.character.domain.usecase
 import br.com.marvelkmp.core.domain.mapper.filterBy
 import br.com.marvelkmp.core.domain.model.Character
 import br.com.marvelkmp.core.presentation.model.CharacterFilter
-import features.home.domain.repository.CharacterRepository
+import br.com.marvelkmp.home.domain.repository.HomeRepository
 
 class GetCharacterListUseCase(
-    private val characterRepository: CharacterRepository
+    private val characterRepository: HomeRepository
 ) {
     suspend operator fun invoke(type: CharacterFilter? = null): Result<List<Character>> =
         runCatching {

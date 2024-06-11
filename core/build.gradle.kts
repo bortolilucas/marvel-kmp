@@ -33,6 +33,7 @@ kotlin {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
             implementation(libs.coil.gif)
+            api(libs.koin.android)
         }
         commonMain.dependencies {
             implementation(compose.runtime)
@@ -42,9 +43,9 @@ kotlin {
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
 
-            implementation(libs.coil)
-            implementation(libs.coil.compose)
-            implementation(libs.coil.network.ktor)
+            api(libs.coil)
+            api(libs.coil.compose)
+            api(libs.coil.network.ktor)
 
             implementation(project.dependencies.platform(libs.koin.bom))
             implementation(libs.koin.core)
@@ -56,6 +57,8 @@ kotlin {
             api(libs.voyager.screenmodel)
             api(libs.voyager.koin)
             api(libs.voyager.transitions)
+
+            api(libs.koin.core)
         }
     }
 }

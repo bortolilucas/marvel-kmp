@@ -19,7 +19,7 @@ import br.com.marvelkmp.core.presentation.mapper.asString
 import br.com.marvelkmp.core.presentation.model.CharacterFilter
 import br.com.marvelkmp.core.presentation.theme.Theme
 import br.com.marvelkmp.core.presentation.util.modifiers.getBottomSafePadding
-import features.home.presentation.composables.CharacterListItem
+import br.com.marvelkmp.home.presentation.composables.CharacterListItem
 
 @Composable
 fun CharacterListDefault(

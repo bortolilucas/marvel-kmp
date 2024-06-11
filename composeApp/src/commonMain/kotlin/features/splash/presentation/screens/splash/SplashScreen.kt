@@ -14,10 +14,10 @@ import androidx.compose.ui.unit.dp
 import br.com.marvelkmp.core.presentation.composables.statusbar.StatusBarEffect
 import br.com.marvelkmp.core.presentation.theme.MarvelRed
 import br.com.marvelkmp.core.presentation.theme.PrimaryWhite
+import br.com.marvelkmp.home.presentation.HomeScreen
 import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
-import features.home.presentation.screens.home.HomeScreen
 import kotlinx.coroutines.delay
 import marvelkmp.composeapp.generated.resources.Res
 import marvelkmp.composeapp.generated.resources.marvel_logo

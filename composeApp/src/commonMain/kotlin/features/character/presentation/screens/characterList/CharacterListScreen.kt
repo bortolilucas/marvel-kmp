@@ -8,11 +8,12 @@ import br.com.marvelkmp.core.presentation.composables.error.ErrorContainer
 import br.com.marvelkmp.core.presentation.composables.loading.Loading
 import br.com.marvelkmp.core.presentation.model.CharacterFilter
 import br.com.marvelkmp.core.presentation.model.ScreenState
+import br.com.marvelkmp.navigation.SharedScreen
+import br.com.marvelkmp.navigation.utils.getScreenRegistry
 import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.koin.koinScreenModel
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
-import features.character.presentation.screens.characterDetail.CharacterDetailScreen
 
 class CharacterListScreen(private val type: CharacterFilter) : Screen {
     @Composable
@@ -31,7 +32,15 @@ class CharacterListScreen(private val type: CharacterFilter) : Screen {
                 type = type,
                 characters = state.characters,
                 onGoBack = navigator::pop,
-                onCharacterClick = { navigator.push(CharacterDetailScreen(it)) }
+                onCharacterClick = {
+                    navigator.push(
+                        getScreenRegistry(
+                            SharedScreen.CharacterDetails(
+                                it
+                            )
+                        )
+                    )
+                }
             )
 
             ScreenState.Loading -> Loading(onBack = navigator::pop)

@@ -11,18 +11,18 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import br.com.marvelkmp.core.domain.model.Character
 import br.com.marvelkmp.core.presentation.composables.error.ErrorContainer
 import br.com.marvelkmp.core.presentation.composables.loading.Loading
 import br.com.marvelkmp.core.presentation.composables.navigation.Header
 import br.com.marvelkmp.core.presentation.model.ScreenState
 import br.com.marvelkmp.core.presentation.theme.Theme
+import br.com.marvelkmp.navigation.SharedScreen
+import br.com.marvelkmp.navigation.utils.getScreenRegistry
 import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.koin.koinScreenModel
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
-import features.character.presentation.screens.characterDetail.CharacterDetailScreen
-import features.character.presentation.screens.characterList.CharacterListScreen
-import features.favorites.presentation.screen.FavoritesScreen
 import features.home.presentation.composables.search.Search
 import kotlinx.coroutines.delay
 
@@ -40,6 +40,10 @@ object HomeScreen : Screen {
 
         var searchInput by rememberSaveable { mutableStateOf("") }
 
+        fun onNavigateToCharacterDetails(character: Character) {
+            navigator.push(getScreenRegistry(SharedScreen.CharacterDetails(character)))
+        }
+
         LaunchedEffect(key1 = searchInput) {
             if (showSearchInput && searchInput.isNotEmpty()) {
                 delay(DEBOUNCE_TIMEOUT)
@@ -53,7 +57,7 @@ object HomeScreen : Screen {
                 .background(Theme.colors.background)
         ) {
             Header(
-                onMenuClick = { navigator.push(FavoritesScreen) },
+                onMenuClick = { navigator.push(getScreenRegistry(SharedScreen.Favorites)) },
                 isSearchVisible = showSearchInput,
                 onSearchClick = {
                     if (state.state is ScreenState.Loading) return@Header
@@ -67,8 +71,18 @@ object HomeScreen : Screen {
                 ScreenState.Default -> {
                     HomeDefault(
                         state = state,
-                        onCharacterClick = { navigator.push(CharacterDetailScreen(it)) },
-                        onCharacterTypeClick = { navigator.push(CharacterListScreen(it)) }
+                        onCharacterClick = {
+                            onNavigateToCharacterDetails(it)
+                        },
+                        onCharacterTypeClick = {
+                            navigator.push(
+                                getScreenRegistry(
+                                    SharedScreen.CharacterList(
+                                        it
+                                    )
+                                )
+                            )
+                        }
                     )
                 }
 
@@ -78,7 +92,9 @@ object HomeScreen : Screen {
                     searchInput = searchInput,
                     state = state,
                     onChangeSearchInput = { searchInput = it },
-                    onGoToCharacterDetails = { navigator.push(CharacterDetailScreen(it)) }
+                    onGoToCharacterDetails = {
+                        onNavigateToCharacterDetails(it)
+                    }
                 )
             }
         }

@@ -1,7 +1,7 @@
-package br.com.marvelkmp.home.navigation
+package br.com.marvelkmp.navigation
 
 import cafe.adriel.voyager.core.registry.ScreenRegistry
 
 private typealias ScreenModule = ScreenRegistry.() -> Unit
 
-public fun screenModule(block: ScreenModule): ScreenModule = { block() }
+fun screenModule(block: ScreenModule): ScreenModule = { block() }

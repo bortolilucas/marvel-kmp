@@ -60,14 +60,13 @@ kotlin {
             implementation(libs.logback.android)
             implementation(libs.slf4j.api)
 
-            implementation(libs.napier)
-
             implementation(libs.coroutines.extensions)
 
             implementation(libs.kotlinx.serialization.json)
 
             implementation(project(":network"))
             implementation(project(":database"))
+            implementation(project(":logging"))
             implementation(project(":core"))
         }
     }

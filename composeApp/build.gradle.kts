@@ -33,7 +33,6 @@ kotlin {
         androidMain.dependencies {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
-            implementation(libs.koin.android)
         }
         commonMain.dependencies {
             implementation(compose.runtime)
@@ -44,18 +43,6 @@ kotlin {
             implementation(compose.components.uiToolingPreview)
 
             implementation(libs.kotlinx.coroutines.core)
-
-            implementation(libs.coil)
-            implementation(libs.coil.compose)
-            implementation(libs.coil.network.ktor)
-
-            implementation(libs.voyager.navigator)
-            implementation(libs.voyager.screenmodel)
-            implementation(libs.voyager.koin)
-            implementation(libs.voyager.transitions)
-
-            implementation(project.dependencies.platform(libs.koin.bom))
-            implementation(libs.koin.core)
 
             implementation(libs.logback.android)
             implementation(libs.slf4j.api)
@@ -68,6 +55,7 @@ kotlin {
             implementation(project(":database"))
             implementation(project(":logging"))
             implementation(project(":core"))
+            implementation(project(":home"))
         }
     }
 

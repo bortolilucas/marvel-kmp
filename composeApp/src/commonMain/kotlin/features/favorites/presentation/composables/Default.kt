@@ -17,7 +17,7 @@ import br.com.marvelkmp.core.domain.model.Character
 import br.com.marvelkmp.core.presentation.composables.navigation.GoBackHeader
 import br.com.marvelkmp.core.presentation.theme.Theme
 import br.com.marvelkmp.core.presentation.util.modifiers.getBottomSafePadding
-import features.home.presentation.composables.CharacterListItem
+import br.com.marvelkmp.home.presentation.composables.CharacterListItem
 
 @Composable
 fun Default(

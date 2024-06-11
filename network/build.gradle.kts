@@ -28,6 +28,7 @@ kotlin {
 
     sourceSets {
         androidMain.dependencies {
+            implementation(libs.koin.android)
             implementation(libs.ktor.client.okhttp)
             implementation(libs.android.driver)
         }
@@ -38,9 +39,12 @@ kotlin {
             implementation(libs.ktor.client.core)
             implementation(libs.ktor.client.logging)
             implementation(libs.ktor.client.content.negotiation)
-            api(libs.ktor.serialization.kotlinx.json)
+            implementation(libs.ktor.serialization.kotlinx.json)
 
             implementation(libs.kotlinx.coroutines.core)
+
+            implementation(project.dependencies.platform(libs.koin.bom))
+            implementation(libs.koin.core)
 
             implementation(libs.logback.android)
             implementation(libs.slf4j.api)

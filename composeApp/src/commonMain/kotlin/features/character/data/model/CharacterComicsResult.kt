@@ -2,6 +2,7 @@ package features.character.data.model
 
 
 import features.character.data.model.response.Events
+import features.character.data.model.response.Series
 import features.character.data.model.response.Url
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable

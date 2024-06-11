@@ -30,25 +30,25 @@ kotlin {
 
     sourceSets {
         androidMain.dependencies {
+            implementation(compose.preview)
+            implementation(libs.androidx.activity.compose)
             implementation(libs.coil.gif)
-            api(compose.preview)
             api(libs.koin.android)
-            api(libs.androidx.activity.compose)
         }
         commonMain.dependencies {
-            api(compose.runtime)
-            api(compose.foundation)
-            api(compose.material)
-            api(compose.ui)
-            api(compose.components.resources)
-            api(compose.components.uiToolingPreview)
+            implementation(compose.runtime)
+            implementation(compose.foundation)
+            implementation(compose.material)
+            implementation(compose.ui)
+            implementation(compose.components.resources)
+            implementation(compose.components.uiToolingPreview)
 
             api(libs.coil)
             api(libs.coil.compose)
             api(libs.coil.network.ktor)
 
             implementation(project.dependencies.platform(libs.koin.bom))
-            api(libs.koin.core)
+            implementation(libs.koin.core)
             implementation(libs.koin.compose)
 
             implementation(libs.kotlinx.serialization.json)
@@ -57,6 +57,8 @@ kotlin {
             api(libs.voyager.screenmodel)
             api(libs.voyager.koin)
             api(libs.voyager.transitions)
+
+            api(libs.koin.core)
         }
     }
 }

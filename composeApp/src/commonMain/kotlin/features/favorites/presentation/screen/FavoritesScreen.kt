@@ -8,11 +8,12 @@ import androidx.compose.runtime.getValue
 import br.com.marvelkmp.core.presentation.composables.error.ErrorContainer
 import br.com.marvelkmp.core.presentation.composables.loading.Loading
 import br.com.marvelkmp.core.presentation.model.ScreenState
+import br.com.marvelkmp.navigation.SharedScreen
+import br.com.marvelkmp.navigation.utils.getScreenRegistry
 import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.koin.koinScreenModel
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
-import features.character.presentation.screens.characterDetail.CharacterDetailScreen
 import features.favorites.presentation.composables.Default
 
 object FavoritesScreen : Screen {
@@ -37,7 +38,15 @@ object FavoritesScreen : Screen {
                 ScreenState.Default -> Default(
                     favorites = screenModelState.favorites,
                     onBack = { onBack() },
-                    onGoToCharacter = { navigator.push(CharacterDetailScreen(it)) }
+                    onGoToCharacter = {
+                        navigator.push(
+                            getScreenRegistry(
+                                SharedScreen.CharacterDetails(
+                                    it
+                                )
+                            )
+                        )
+                    }
                 )
 
                 ScreenState.Error -> ErrorContainer(onRetry = {}, onBack = { onBack() })

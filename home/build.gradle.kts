@@ -39,6 +39,7 @@ kotlin {
             implementation(compose.components.uiToolingPreview)
 
             implementation(project(":core"))
+            implementation(project(":navigation"))
         }
     }
 }

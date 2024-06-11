@@ -5,6 +5,7 @@ import br.com.marvelkmp.logging.util.initNapier
 import di.initKoin
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
+import navigation.screenRegistry
 
 class MainApplication : Application() {
     override fun onCreate() {
@@ -15,5 +16,7 @@ class MainApplication : Application() {
             androidContext(this@MainApplication)
         }
         initNapier()
+
+        screenRegistry()
     }
 }

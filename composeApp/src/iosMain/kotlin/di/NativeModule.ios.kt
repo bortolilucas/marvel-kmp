@@ -1,7 +1,7 @@
 package di
 
-import database.Database
-import database.DriverFactory
+import br.com.marvelkmp.database.Database
+import br.com.marvelkmp.database.DriverFactory
 import org.koin.core.module.Module
 import org.koin.dsl.module
 

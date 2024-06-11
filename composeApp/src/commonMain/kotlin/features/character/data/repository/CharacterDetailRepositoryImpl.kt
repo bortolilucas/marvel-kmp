@@ -1,7 +1,7 @@
 package features.character.data.repository
 
+import br.com.marvelkmp.database.Database
 import core.domain.model.Character
-import database.Database
 import features.character.data.model.CharacterComic
 import features.character.data.model.MarvelApiCharacterDetails
 import features.character.data.service.CharacterDetailsService

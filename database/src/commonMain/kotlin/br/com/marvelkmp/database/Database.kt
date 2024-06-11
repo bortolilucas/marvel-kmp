@@ -1,6 +1,5 @@
-package database
+package br.com.marvelkmp.database
 
-import br.com.marvelkmp.app.MarvelDatabase
 
 class Database(driverFactory: DriverFactory) {
     private val driver = driverFactory.createDriver()

@@ -8,7 +8,6 @@ plugins {
     alias(libs.plugins.jetbrainsCompose)
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.kotlinxSerialization)
-    alias(libs.plugins.sqldelight)
     alias(libs.plugins.kotlinCocoaPods)
 }
 
@@ -36,11 +35,7 @@ kotlin {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
             implementation(libs.koin.android)
-            implementation(libs.android.driver)
             implementation(libs.coil.gif)
-        }
-        iosMain.dependencies {
-            implementation(libs.native.driver)
         }
         commonMain.dependencies {
             implementation(compose.runtime)
@@ -74,6 +69,7 @@ kotlin {
             implementation(libs.kotlinx.serialization.json)
 
             implementation(project(":network"))
+            implementation(project(":database"))
         }
     }
 
@@ -124,13 +120,5 @@ android {
     }
     dependencies {
         debugImplementation(compose.uiTooling)
-    }
-}
-
-sqldelight {
-    databases {
-        create("MarvelDatabase") {
-            packageName.set("br.com.marvelkmp.app")
-        }
     }
 }

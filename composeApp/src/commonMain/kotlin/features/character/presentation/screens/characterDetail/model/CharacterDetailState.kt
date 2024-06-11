@@ -1,6 +1,6 @@
 package features.character.presentation.screens.characterDetail.model
 
-import core.presentation.model.ScreenState
+import br.com.marvelkmp.core.presentation.model.ScreenState
 import features.character.data.model.CharacterDetails
 
 data class CharacterDetailState(

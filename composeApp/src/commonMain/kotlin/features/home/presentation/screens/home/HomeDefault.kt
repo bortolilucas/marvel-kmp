@@ -8,11 +8,11 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import core.domain.model.Character
-import core.presentation.composables.list.HorizontalList
-import core.presentation.mapper.asString
-import core.presentation.model.CharacterFilter
-import core.presentation.theme.Theme
+import br.com.marvelkmp.core.domain.model.Character
+import br.com.marvelkmp.core.presentation.composables.list.HorizontalList
+import br.com.marvelkmp.core.presentation.mapper.asString
+import br.com.marvelkmp.core.presentation.model.CharacterFilter
+import br.com.marvelkmp.core.presentation.theme.Theme
 import features.home.presentation.composables.CharacterListItem
 import features.home.presentation.composables.CharacterTypeCircleList
 

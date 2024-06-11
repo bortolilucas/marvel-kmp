@@ -1,4 +1,3 @@
-
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
@@ -35,7 +34,6 @@ kotlin {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
             implementation(libs.koin.android)
-            implementation(libs.coil.gif)
         }
         commonMain.dependencies {
             implementation(compose.runtime)
@@ -70,6 +68,7 @@ kotlin {
 
             implementation(project(":network"))
             implementation(project(":database"))
+            implementation(project(":core"))
         }
     }
 

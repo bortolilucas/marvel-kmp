@@ -1,9 +1,9 @@
 package features.home.data.repository
 
+import br.com.marvelkmp.core.domain.mapper.toDomain
+import br.com.marvelkmp.core.domain.model.Character
+import br.com.marvelkmp.core.domain.model.CharacterPublisher
 import features.home.data.service.CharacterService
-import core.domain.mapper.toDomain
-import core.domain.model.Character
-import core.domain.model.CharacterPublisher
 import features.home.domain.repository.CharacterRepository
 
 class CharacterRepositoryImpl(

@@ -1,6 +1,6 @@
 package features.character.domain.repository
 
-import core.domain.model.Character
+import br.com.marvelkmp.core.domain.model.Character
 import features.character.data.model.CharacterComic
 import features.character.data.model.MarvelApiCharacterDetails
 

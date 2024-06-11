@@ -1,7 +1,7 @@
 package features.home.presentation.screens.home
 
-import core.domain.model.Character
-import core.presentation.model.ScreenState
+import br.com.marvelkmp.core.domain.model.Character
+import br.com.marvelkmp.core.presentation.model.ScreenState
 import features.home.domain.model.CharacterSection
 
 data class HomeState(

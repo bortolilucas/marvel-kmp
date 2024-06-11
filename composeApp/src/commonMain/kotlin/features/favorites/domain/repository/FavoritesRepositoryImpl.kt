@@ -1,7 +1,7 @@
 package features.favorites.domain.repository
 
 import br.com.marvelkmp.database.Database
-import core.domain.model.Character
+import br.com.marvelkmp.core.domain.model.Character
 import features.favorites.data.repository.FavoritesRepository
 import features.favorites.domain.mapper.toCharacter
 

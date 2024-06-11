@@ -1,6 +1,6 @@
 package features.character.data.model
 
-import core.data.response.superhero.CharacterPowerStatsDto
+import br.com.marvelkmp.core.data.response.superhero.CharacterPowerStatsDto
 
 data class CharacterDetails(
     val id: Int,

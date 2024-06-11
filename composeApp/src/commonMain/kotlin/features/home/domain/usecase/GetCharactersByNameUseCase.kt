@@ -1,7 +1,6 @@
 package features.home.domain.usecase
 
-import androidx.compose.ui.text.toLowerCase
-import core.domain.model.Character
+import br.com.marvelkmp.core.domain.model.Character
 import features.home.domain.repository.CharacterRepository
 
 class GetCharactersByNameUseCase(

@@ -1,7 +1,7 @@
 package features.character.data.repository
 
+import br.com.marvelkmp.core.domain.model.Character
 import br.com.marvelkmp.database.Database
-import core.domain.model.Character
 import features.character.data.model.CharacterComic
 import features.character.data.model.MarvelApiCharacterDetails
 import features.character.data.service.CharacterDetailsService
@@ -37,12 +37,12 @@ class CharacterDetailRepositoryImpl(
 
         database.databaseQueries.addCharacterStats(
             characterId = favoriteCharacter.id.toLong(),
-            intelligence = favoriteCharacter.powerStats?.intelligence!!.toLong(),
-            strength = favoriteCharacter.powerStats.strength.toLong(),
-            speed = favoriteCharacter.powerStats.speed.toLong(),
-            durability = favoriteCharacter.powerStats.durability.toLong(),
-            power = favoriteCharacter.powerStats.power.toLong(),
-            combat = favoriteCharacter.powerStats.combat.toLong(),
+            intelligence = favoriteCharacter.powerStats?.intelligence?.toLong() ?: 0,
+            strength = favoriteCharacter.powerStats?.strength?.toLong() ?: 0,
+            speed = favoriteCharacter.powerStats?.speed?.toLong() ?: 0,
+            durability = favoriteCharacter.powerStats?.durability?.toLong() ?: 0,
+            power = favoriteCharacter.powerStats?.power?.toLong() ?: 0,
+            combat = favoriteCharacter.powerStats?.combat?.toLong() ?: 0,
         )
     }
 

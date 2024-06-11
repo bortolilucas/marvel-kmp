@@ -2,7 +2,7 @@ import ComposeApp
 import Gifu
 import UIKit
 
-class IOSGifHelper : GifHelper {
+class IOSGifHelper : CoreGifHelper {
     func gifImageWithURL(url: String) -> UIImageView {
         let gifView = GIFImageView()
         

@@ -1,6 +1,6 @@
 package features.home.domain.repository
 
-import core.domain.model.Character
+import br.com.marvelkmp.core.domain.model.Character
 
 interface CharacterRepository {
     suspend fun getMarvelCharacters(): List<Character>

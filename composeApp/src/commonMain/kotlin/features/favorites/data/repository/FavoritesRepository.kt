@@ -1,6 +1,6 @@
 package features.favorites.data.repository
 
-import core.domain.model.Character
+import br.com.marvelkmp.core.domain.model.Character
 
 interface FavoritesRepository {
     suspend fun getFavorites(): List<Character>

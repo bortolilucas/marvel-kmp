@@ -13,10 +13,10 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import core.domain.model.Character
-import core.presentation.composables.navigation.GoBackHeader
-import core.presentation.theme.Theme
-import core.presentation.util.modifiers.getBottomSafePadding
+import br.com.marvelkmp.core.domain.model.Character
+import br.com.marvelkmp.core.presentation.composables.navigation.GoBackHeader
+import br.com.marvelkmp.core.presentation.theme.Theme
+import br.com.marvelkmp.core.presentation.util.modifiers.getBottomSafePadding
 import features.home.presentation.composables.CharacterListItem
 
 @Composable
@@ -39,6 +39,7 @@ fun Default(
                 bottom = Theme.spacing.extraMedium
             ),
             text = "Favorites",
+            color = Theme.colors.onBackground,
             style = Theme.typography.h1
         )
         if (favorites.isNotEmpty()) {
@@ -68,6 +69,7 @@ fun Default(
             ) {
                 Text(
                     text = "You not have favorites yet!",
+                    color = Theme.colors.onBackground,
                     style = Theme.typography.h3
                 )
             }

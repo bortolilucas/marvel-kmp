@@ -14,10 +14,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import br.com.marvelkmp.core.domain.model.Character
+import br.com.marvelkmp.core.presentation.composables.character.CharacterListItem
 import br.com.marvelkmp.core.presentation.composables.navigation.GoBackHeader
 import br.com.marvelkmp.core.presentation.theme.Theme
 import br.com.marvelkmp.core.presentation.util.modifiers.getBottomSafePadding
-import br.com.marvelkmp.home.presentation.composables.CharacterListItem
 
 @Composable
 fun Default(

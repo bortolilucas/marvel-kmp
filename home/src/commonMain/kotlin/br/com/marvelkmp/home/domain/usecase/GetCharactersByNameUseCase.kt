@@ -1,10 +1,10 @@
 package br.com.marvelkmp.home.domain.usecase
 
 import br.com.marvelkmp.core.domain.model.Character
-import br.com.marvelkmp.home.domain.repository.HomeRepository
+import br.com.marvelkmp.core.domain.repository.CharacterListRepository
 
 class GetCharactersByNameUseCase(
-    private val repository: HomeRepository
+    private val repository: CharacterListRepository
 ) {
     suspend operator fun invoke(value: String): Result<List<Character>> =
         runCatching {

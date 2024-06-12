@@ -1,8 +1,8 @@
 package features.favorites.domain.mapper
 
 import br.com.marvelkmp.app.GetCharacters
-import br.com.marvelkmp.core.data.response.superhero.CharacterAppearanceDto
-import br.com.marvelkmp.core.data.response.superhero.CharacterPowerStatsDto
+import br.com.marvelkmp.core.data.model.superhero.CharacterAppearanceDto
+import br.com.marvelkmp.core.data.model.superhero.CharacterPowerStatsDto
 import br.com.marvelkmp.core.domain.model.Character
 import br.com.marvelkmp.core.domain.model.CharacterAlignment
 import br.com.marvelkmp.core.domain.model.CharacterImages

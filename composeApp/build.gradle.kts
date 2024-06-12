@@ -42,28 +42,15 @@ kotlin {
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
 
-            implementation(libs.kotlinx.coroutines.core)
-
-            implementation(libs.coil)
-            implementation(libs.coil.compose)
-            implementation(libs.coil.network.ktor)
-
             implementation(project.dependencies.platform(libs.koin.bom))
             implementation(libs.koin.core)
 
-            implementation(libs.logback.android)
-            implementation(libs.slf4j.api)
-
-            implementation(libs.coroutines.extensions)
-
-            implementation(libs.kotlinx.serialization.json)
-
             implementation(project(":network"))
-            implementation(project(":database"))
             implementation(project(":logging"))
             implementation(project(":core"))
             implementation(project(":home"))
             implementation(project(":navigation"))
+            implementation(project(":character"))
         }
     }
 

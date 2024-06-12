@@ -1,8 +1,9 @@
 package di
 
+import br.com.marvelkmp.character.di.characterModule
+import br.com.marvelkmp.core.di.coreModule
 import br.com.marvelkmp.home.di.homeModule
 import br.com.marvelkmp.network.di.networkModule
-import features.character.di.characterModule
 import features.favorites.di.favoritesModule
 import org.koin.core.context.startKoin
 import org.koin.core.module.Module
@@ -13,11 +14,11 @@ fun initKoin(
     appDeclaration: KoinAppDeclaration = {}
 ) {
     val modules = listOf(
+        coreModule,
         networkModule,
         homeModule,
         characterModule,
         favoritesModule,
-        characterModule,
         nativeModule
     )
 

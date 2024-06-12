@@ -1,12 +1,12 @@
 package br.com.marvelkmp.home.domain.usecase
 
 import br.com.marvelkmp.core.domain.mapper.filterBy
+import br.com.marvelkmp.core.domain.repository.CharacterListRepository
 import br.com.marvelkmp.core.presentation.model.CharacterFilter
 import br.com.marvelkmp.home.domain.model.CharacterSection
-import br.com.marvelkmp.home.domain.repository.HomeRepository
 
 class GetCharactersByTypeUseCase(
-    private val repository: HomeRepository
+    private val repository: CharacterListRepository
 ) {
     suspend operator fun invoke(): Result<List<CharacterSection>> = runCatching {
         val characters = repository.getMarvelCharacters().shuffled()

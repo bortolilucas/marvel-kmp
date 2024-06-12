@@ -1,6 +1,6 @@
 package br.com.marvelkmp.core.domain.mapper
 
-import br.com.marvelkmp.core.data.response.superhero.CharacterDto
+import br.com.marvelkmp.core.data.model.superhero.CharacterDto
 import br.com.marvelkmp.core.domain.model.Character
 import br.com.marvelkmp.core.domain.model.CharacterAlignment
 import br.com.marvelkmp.core.domain.model.CharacterImages

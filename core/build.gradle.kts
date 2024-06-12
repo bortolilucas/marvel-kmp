@@ -59,6 +59,8 @@ kotlin {
             api(libs.voyager.transitions)
 
             api(libs.koin.core)
+
+            api(project(":database"))
         }
     }
 }

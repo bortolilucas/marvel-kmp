@@ -9,6 +9,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import br.com.marvelkmp.core.domain.model.Character
+import br.com.marvelkmp.core.presentation.composables.character.CharacterListItem
 import br.com.marvelkmp.core.presentation.composables.list.HorizontalList
 import br.com.marvelkmp.core.presentation.mapper.asString
 import br.com.marvelkmp.core.presentation.model.CharacterFilter

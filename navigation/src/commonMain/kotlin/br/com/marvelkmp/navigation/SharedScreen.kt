@@ -5,6 +5,7 @@ import br.com.marvelkmp.core.presentation.model.CharacterFilter
 import cafe.adriel.voyager.core.registry.ScreenProvider
 
 sealed class SharedScreen : ScreenProvider {
+    object Splash : SharedScreen()
     object Home : SharedScreen()
     object Favorites : SharedScreen()
     data class CharacterList(val type: CharacterFilter) : SharedScreen()

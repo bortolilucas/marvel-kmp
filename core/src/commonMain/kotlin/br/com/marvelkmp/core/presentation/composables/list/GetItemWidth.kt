@@ -4,7 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import br.com.marvelkmp.core.presentation.util.dimensions.LocalDimensions
+import br.com.marvelkmp.core.presentation.theme.Theme
 
 @Composable
 fun rememberHorizontalItemWidth(
@@ -12,7 +12,7 @@ fun rememberHorizontalItemWidth(
     horizontalPadding: Dp,
     itemSpacing: Dp
 ): Dp {
-    val screenWidth = LocalDimensions.current.screenWidth
+    val screenWidth = Theme.dimensions.screenWidth
 
     return remember(screenWidth, numOfItems, horizontalPadding, itemSpacing) {
         val listWidth = screenWidth - horizontalPadding

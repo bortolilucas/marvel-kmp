@@ -27,4 +27,9 @@ object Theme {
         @Composable
         @ReadOnlyComposable
         get() = LocalSpacing.current
+
+    val dimensions: Dimensions
+        @Composable
+        @ReadOnlyComposable
+        get() = LocalDimensions.current
 }

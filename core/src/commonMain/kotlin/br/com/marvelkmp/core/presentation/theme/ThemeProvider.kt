@@ -13,7 +13,8 @@ fun ThemeProvider(
     val colors = if (isDarkTheme) darkColors else lightColors
 
     CompositionLocalProvider(
-        LocalSpacing provides Spacing()
+        LocalSpacing provides Spacing(),
+        LocalDimensions provides getDimensions()
     ) {
         MaterialTheme(
             colors = colors,

@@ -1,4 +1,4 @@
-package br.com.marvelkmp.core.presentation.util.dimensions
+package br.com.marvelkmp.core.presentation.theme
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalConfiguration

@@ -1,4 +1,4 @@
-package features.favorites.domain.mapper
+package br.com.marvelkmp.favorites.domain.mapper
 
 import br.com.marvelkmp.app.GetCharacters
 import br.com.marvelkmp.core.data.model.superhero.CharacterAppearanceDto

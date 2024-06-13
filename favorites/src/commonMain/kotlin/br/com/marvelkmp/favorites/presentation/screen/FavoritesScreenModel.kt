@@ -1,11 +1,10 @@
-package features.favorites.presentation.screen
+package br.com.marvelkmp.favorites.presentation.screen
 
 import br.com.marvelkmp.core.presentation.model.ScreenState
-import br.com.marvelkmp.logging.util.Log
+import br.com.marvelkmp.favorites.domain.usecase.GetFavoritesUseCase
+import br.com.marvelkmp.favorites.presentation.model.FavoritesState
 import cafe.adriel.voyager.core.model.StateScreenModel
 import cafe.adriel.voyager.core.model.screenModelScope
-import features.favorites.domain.usecase.GetFavoritesUseCase
-import features.favorites.presentation.model.FavoritesState
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
@@ -21,7 +20,6 @@ class FavoritesScreenModel(
         result.onSuccess { favorites ->
             mutableState.update { it.copy(state = ScreenState.Default, favorites = favorites) }
         }.onFailure {
-            Log.e("Error on get favorites", it)
             mutableState.update { it.copy(state = ScreenState.Error) }
         }
 

@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
+    alias(libs.plugins.jetbrainsCompose)
+    alias(libs.plugins.compose.compiler)
 }
 
 kotlin {
@@ -11,32 +13,28 @@ kotlin {
             }
         }
     }
-    
+
     listOf(
         iosX64(),
         iosArm64(),
         iosSimulatorArm64()
     ).forEach {
         it.binaries.framework {
-            baseName = "navigation"
+            baseName = "favorites"
             isStatic = true
         }
     }
 
     sourceSets {
         commonMain.dependencies {
-            api(libs.voyager.navigator)
-            api(libs.voyager.screenmodel)
-            api(libs.voyager.koin)
-            api(libs.voyager.transitions)
-
             implementation(project(":core"))
+            implementation(project(":navigation"))
         }
     }
 }
 
 android {
-    namespace = "br.com.marvelkmp.navigation"
+    namespace = "br.com.marvelkmp.favorites"
     compileSdk = 34
     defaultConfig {
         minSdk = 24

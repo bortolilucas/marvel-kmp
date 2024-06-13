@@ -1,4 +1,4 @@
-package features.splash.presentation.screens.splash
+package br.com.marvelkmp.splash.presentation.screens.splash
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -14,13 +14,14 @@ import androidx.compose.ui.unit.dp
 import br.com.marvelkmp.core.presentation.composables.statusbar.StatusBarEffect
 import br.com.marvelkmp.core.presentation.theme.MarvelRed
 import br.com.marvelkmp.core.presentation.theme.PrimaryWhite
-import br.com.marvelkmp.home.presentation.HomeScreen
+import br.com.marvelkmp.navigation.SharedScreen
+import br.com.marvelkmp.navigation.utils.getScreenRegistry
 import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
 import kotlinx.coroutines.delay
-import marvelkmp.composeapp.generated.resources.Res
-import marvelkmp.composeapp.generated.resources.marvel_logo
+import marvelkmp.splash.generated.resources.Res
+import marvelkmp.splash.generated.resources.marvel_logo
 import org.jetbrains.compose.resources.painterResource
 
 object SplashScreen : Screen {
@@ -32,7 +33,7 @@ object SplashScreen : Screen {
 
         LaunchedEffect(key1 = Unit) {
             delay(3000)
-            navigator.replace(HomeScreen)
+            navigator.replace(getScreenRegistry(SharedScreen.Home))
         }
 
         Column(

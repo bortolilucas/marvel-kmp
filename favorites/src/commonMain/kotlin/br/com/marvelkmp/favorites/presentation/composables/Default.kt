@@ -1,4 +1,4 @@
-package features.favorites.presentation.composables
+package br.com.marvelkmp.favorites.presentation.composables
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement

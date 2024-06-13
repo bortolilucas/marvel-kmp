@@ -1,9 +1,9 @@
-package features.favorites.domain.repository
+package br.com.marvelkmp.favorites.domain.repository
 
-import br.com.marvelkmp.database.Database
 import br.com.marvelkmp.core.domain.model.Character
-import features.favorites.data.repository.FavoritesRepository
-import features.favorites.domain.mapper.toCharacter
+import br.com.marvelkmp.database.Database
+import br.com.marvelkmp.favorites.data.repository.FavoritesRepository
+import br.com.marvelkmp.favorites.domain.mapper.toCharacter
 
 class FavoritesRepositoryImpl(
     private val database: Database

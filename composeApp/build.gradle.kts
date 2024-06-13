@@ -49,8 +49,9 @@ kotlin {
             implementation(project(":logging"))
             implementation(project(":core"))
             implementation(project(":home"))
-            implementation(project(":navigation"))
             implementation(project(":character"))
+            implementation(project(":favorites"))
+            implementation(project(":navigation"))
         }
     }
 

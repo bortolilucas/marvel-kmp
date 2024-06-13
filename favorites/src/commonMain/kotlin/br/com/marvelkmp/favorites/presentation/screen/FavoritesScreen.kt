@@ -1,4 +1,4 @@
-package features.favorites.presentation.screen
+package br.com.marvelkmp.favorites.presentation.screen
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
@@ -14,7 +14,7 @@ import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.koin.koinScreenModel
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
-import features.favorites.presentation.composables.Default
+import br.com.marvelkmp.favorites.presentation.composables.Default
 
 object FavoritesScreen : Screen {
     @Composable

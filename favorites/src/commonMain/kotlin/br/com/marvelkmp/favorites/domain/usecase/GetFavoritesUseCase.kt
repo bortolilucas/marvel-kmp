@@ -1,7 +1,7 @@
-package features.favorites.domain.usecase
+package br.com.marvelkmp.favorites.domain.usecase
 
 import br.com.marvelkmp.core.domain.model.Character
-import features.favorites.data.repository.FavoritesRepository
+import br.com.marvelkmp.favorites.data.repository.FavoritesRepository
 
 class GetFavoritesUseCase(
     private val repository: FavoritesRepository

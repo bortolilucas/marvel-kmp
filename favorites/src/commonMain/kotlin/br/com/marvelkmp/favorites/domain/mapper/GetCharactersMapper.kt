@@ -30,8 +30,8 @@ fun List<GetCharacters>.toCharacter(): List<Character> = map {
         appearance = CharacterAppearanceDto(
             gender = it.gender,
             race = it.race,
-            height = listOf(it.height) as List<String>,
-            weight = listOf(it.weight) as List<String>,
+            height = listOf(it.height.orEmpty()),
+            weight = listOf(it.weight.orEmpty()),
             hairColor = "",
             eyeColor = ""
         ),

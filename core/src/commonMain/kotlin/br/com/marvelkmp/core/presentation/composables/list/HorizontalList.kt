@@ -19,6 +19,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import br.com.marvelkmp.core.presentation.theme.Theme
+import marvelkmp.core.generated.resources.Res
+import marvelkmp.core.generated.resources.see_all
+import org.jetbrains.compose.resources.stringResource
 
 @Composable
 fun <T> HorizontalList(
@@ -54,7 +57,7 @@ fun <T> HorizontalList(
 
             onSeeAll?.let {
                 Text(
-                    text = "See all",
+                    text = stringResource(Res.string.see_all),
                     style = Theme.typography.body1,
                     color = Theme.colors.secondary,
                     modifier = Modifier.clickable(onClick = it)

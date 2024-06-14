@@ -14,6 +14,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.unit.dp
+import br.com.marvelkmp.core.presentation.mapper.asString
 import br.com.marvelkmp.core.presentation.model.CharacterFilter
 import br.com.marvelkmp.core.presentation.theme.GradientBlue
 import br.com.marvelkmp.core.presentation.theme.GradientGreen
@@ -55,7 +56,7 @@ fun CharacterTypeCircle(
     ) {
         Icon(
             painter = painterResource(icon),
-            contentDescription = null,
+            contentDescription = type.asString(),
             tint = PrimaryWhite,
             modifier = Modifier.size(32.dp)
         )

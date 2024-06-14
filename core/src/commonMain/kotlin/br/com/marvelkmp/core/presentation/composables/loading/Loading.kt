@@ -20,6 +20,9 @@ import br.com.marvelkmp.core.presentation.composables.images.GifImage
 import br.com.marvelkmp.core.presentation.composables.navigation.GoBackHeader
 import br.com.marvelkmp.core.presentation.theme.Theme
 import br.com.marvelkmp.core.presentation.util.modifiers.safePadding
+import marvelkmp.core.generated.resources.Res
+import marvelkmp.core.generated.resources.loading
+import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
@@ -56,7 +59,7 @@ fun Loading(
             )
 
             Text(
-                text = "Loading...",
+                text = stringResource(Res.string.loading),
                 style = Theme.typography.h3,
                 color = loadingTextColor,
                 textAlign = TextAlign.Center

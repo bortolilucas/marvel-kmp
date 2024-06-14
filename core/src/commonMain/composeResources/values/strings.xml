@@ -1,0 +1,20 @@
+<resources>
+    <string name="marvel">Marvel</string>
+    <string name="humans">Humans</string>
+    <string name="heroes">Heroes</string>
+    <string name="villains">Villains</string>
+    <string name="antiheroes">Anti-Heroes</string>
+    <string name="aliens">Aliens</string>
+    <string name="see_all">See all</string>
+    <string name="loading">Loading...</string>
+    <string name="close">Close</string>
+    <string name="search">Search</string>
+    <string name="favorites">Favorites</string>
+    <string name="try_again">Try again</string>
+    <string name="error_generic">An error occoured when load the data</string>
+    <string name="error_protocol_missing">Protocol missing... Exiting program...</string>
+    <string name="error_not_worthy">You are not worthy...</string>
+    <string name="error_hydra_attacking">HYDRA is currently attacking this app!</string>
+    <string name="error_broke_something">$#&amp;%, you broke something! Just kidding...</string>
+    <string name="error_hydra_stole_the_app">HYDRA has stolen this app from the S.H.I.E.L.D. database!</string>
+</resources>

@@ -24,6 +24,11 @@ import br.com.marvelkmp.core.presentation.composables.character.CharacterListIte
 import br.com.marvelkmp.core.presentation.composables.images.GifImage
 import br.com.marvelkmp.core.presentation.theme.Theme
 import br.com.marvelkmp.home.presentation.model.HomeState
+import marvelkmp.home.generated.resources.Res
+import marvelkmp.home.generated.resources.no_results_found
+import marvelkmp.home.generated.resources.search
+import marvelkmp.home.generated.resources.type_to_search
+import org.jetbrains.compose.resources.stringResource
 
 @Composable
 fun Search(
@@ -41,7 +46,10 @@ fun Search(
             value = searchInput,
             onValueChange = { onChangeSearchInput(it) },
             label = {
-                Text("Search...", color = Theme.colors.onBackground)
+                Text(
+                    text = stringResource(Res.string.search),
+                    color = Theme.colors.onBackground
+                )
             },
             singleLine = true,
             colors = TextFieldDefaults.outlinedTextFieldColors(
@@ -63,7 +71,7 @@ fun Search(
                     resource = searchResources.typeToSearchResource
                 )
                 Text(
-                    text = "Type to init a search...",
+                    text = stringResource(Res.string.type_to_search),
                     style = Theme.typography.h3,
                     color = Theme.colors.onBackground
                 )
@@ -78,7 +86,7 @@ fun Search(
                     resource = searchResources.notFoundResource,
                 )
                 Text(
-                    text = "Not found results for this search",
+                    text = stringResource(Res.string.no_results_found),
                     style = Theme.typography.h3,
                     color = Theme.colors.onBackground
                 )

@@ -24,7 +24,11 @@ import br.com.marvelkmp.core.presentation.composables.images.GifImage
 import br.com.marvelkmp.core.presentation.composables.navigation.GoBackHeader
 import br.com.marvelkmp.core.presentation.theme.Theme
 import br.com.marvelkmp.core.presentation.util.modifiers.safePadding
+import marvelkmp.core.generated.resources.Res
+import marvelkmp.core.generated.resources.error_generic
+import marvelkmp.core.generated.resources.try_again
 import org.jetbrains.compose.resources.painterResource
+import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
@@ -66,20 +70,20 @@ fun ErrorContainer(onBack: (() -> Unit)? = null, onRetry: () -> Unit) {
                         Image(
                             modifier = Modifier.size(300.dp).padding(bottom = 30.dp),
                             painter = painterResource(it),
-                            contentDescription = randomIllustration.description,
+                            contentDescription = stringResource(randomIllustration.description),
                             contentScale = ContentScale.Fit,
                         )
                     }
                 }
                 Text(
                     modifier = Modifier.padding(bottom = 8.dp),
-                    text = "An error occoured when load the data",
+                    text = stringResource(Res.string.error_generic),
                     style = Theme.typography.h3,
                     color = Theme.colors.onBackground,
                     textAlign = TextAlign.Center
                 )
                 Text(
-                    randomIllustration.description,
+                    text = stringResource(randomIllustration.description),
                     style = Theme.typography.h4,
                     color = Theme.colors.onBackground,
                     textAlign = TextAlign.Center
@@ -87,7 +91,7 @@ fun ErrorContainer(onBack: (() -> Unit)? = null, onRetry: () -> Unit) {
             }
             Button(modifier = Modifier.fillMaxWidth().height(50.dp), onClick = { onRetry() }) {
                 Text(
-                    "Try again",
+                    text = stringResource(Res.string.try_again),
                     style = Theme.typography.h4,
                     color = Theme.colors.onPrimary
                 )

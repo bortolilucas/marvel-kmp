@@ -18,6 +18,10 @@ import br.com.marvelkmp.core.presentation.composables.character.CharacterListIte
 import br.com.marvelkmp.core.presentation.composables.navigation.GoBackHeader
 import br.com.marvelkmp.core.presentation.theme.Theme
 import br.com.marvelkmp.core.presentation.util.modifiers.getBottomSafePadding
+import marvelkmp.favorites.generated.resources.Res
+import marvelkmp.favorites.generated.resources.favorites
+import marvelkmp.favorites.generated.resources.no_favorites
+import org.jetbrains.compose.resources.stringResource
 
 @Composable
 fun Default(
@@ -38,7 +42,7 @@ fun Default(
                 top = Theme.spacing.small,
                 bottom = Theme.spacing.extraMedium
             ),
-            text = "Favorites",
+            text = stringResource(Res.string.favorites),
             color = Theme.colors.onBackground,
             style = Theme.typography.h1
         )
@@ -68,7 +72,7 @@ fun Default(
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Text(
-                    text = "You not have favorites yet!",
+                    text = stringResource(Res.string.no_favorites),
                     color = Theme.colors.onBackground,
                     style = Theme.typography.h3
                 )

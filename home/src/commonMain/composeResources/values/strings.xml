@@ -1,0 +1,7 @@
+<resources>
+    <string name="search">Search...</string>
+    <string name="type_to_search">Type to init a search...</string>
+    <string name="no_results_found">Not found results for this search</string>
+    <string name="welcome">Welcome to Marvel Heroes</string>
+    <string name="pick_character">Pick your&#10;character</string>
+</resources>

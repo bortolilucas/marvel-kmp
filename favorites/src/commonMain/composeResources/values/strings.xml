@@ -1,0 +1,4 @@
+<resources>
+    <string name="favorites">Favorites</string>
+    <string name="no_favorites">You not have favorites yet!</string>
+</resources>

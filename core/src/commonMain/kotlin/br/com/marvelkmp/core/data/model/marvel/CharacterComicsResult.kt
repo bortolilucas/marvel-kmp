@@ -9,11 +9,11 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class CharacterComicsResult(
     @SerialName("id")
-    val id: Int?,
+    val id: Int,
     @SerialName("digitalId")
     val digitalId: Int?,
     @SerialName("title")
-    val title: String?,
+    val title: String,
     @SerialName("issueNumber")
     val issueNumber: Int?,
     @SerialName("variantDescription")

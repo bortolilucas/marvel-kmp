@@ -8,8 +8,8 @@ import br.com.marvelkmp.core.domain.utils.toHttpsUrl
 fun MarvelApiResponse<CharacterComicsResult>.toCharacterComic() =
     data.results.map {
         CharacterComic(
-            id = it.id!!,
-            title = it.title!!,
+            id = it.id,
+            title = it.title,
             cover = "${it.thumbnail?.path}.${it.thumbnail?.extension}".toHttpsUrl()
         )
     }

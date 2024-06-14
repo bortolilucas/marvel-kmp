@@ -1,6 +1,6 @@
 package br.com.marvelkmp.character.presentation.screens.characterDetail
 
-import br.com.marvelkmp.core.data.model.marvel.CharacterDetails
+import br.com.marvelkmp.character.domain.mapper.toCharacterDetails
 import br.com.marvelkmp.character.domain.usecase.GetCharacterComicsUseCase
 import br.com.marvelkmp.character.domain.usecase.GetCharacterDetailsUseCase
 import br.com.marvelkmp.character.domain.usecase.RemoveFavoriteUseCase
@@ -29,18 +29,9 @@ class CharacterDetailScreenModel(
             mutableState.update {
                 it.copy(
                     state = ScreenState.Default,
-                    character = CharacterDetails(
-                        id = character.id,
-                        backgroundImage = character.images.lg,
-                        realName = character.realName,
-                        name = character.heroName,
-                        biography = marvelApiCharacterBio,
-                        height = character.height ?: "",
-                        weight = character.weight ?: "",
-                        race = character.race?.name ?: "",
-                        stats = character.powerStats,
-                        gender = character.gender,
-                        comics = comics
+                    character = character.toCharacterDetails(
+                        marvelApiCharacterBio.orEmpty(),
+                        comics
                     )
                 )
             }

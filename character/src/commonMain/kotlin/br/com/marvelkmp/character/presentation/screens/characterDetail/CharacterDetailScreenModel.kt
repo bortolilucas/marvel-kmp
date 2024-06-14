@@ -5,6 +5,7 @@ import br.com.marvelkmp.character.domain.usecase.GetCharacterComicsUseCase
 import br.com.marvelkmp.character.domain.usecase.GetCharacterDetailsUseCase
 import br.com.marvelkmp.character.domain.usecase.RemoveFavoriteUseCase
 import br.com.marvelkmp.character.domain.usecase.VerifyIsFavoriteUseCase
+import br.com.marvelkmp.character.presentation.screens.characterDetail.model.CharacterDetailEvent
 import br.com.marvelkmp.character.presentation.screens.characterDetail.model.CharacterDetailState
 import br.com.marvelkmp.core.domain.model.Character
 import br.com.marvelkmp.core.domain.usecase.AddFavoriteUseCase
@@ -21,6 +22,16 @@ class CharacterDetailScreenModel(
     private val verifyIsFavoriteUseCase: VerifyIsFavoriteUseCase,
     private val removeFavoriteUseCase: RemoveFavoriteUseCase
 ) : StateScreenModel<CharacterDetailState>(CharacterDetailState()) {
+
+    fun onEvent(event: CharacterDetailEvent) = when (event) {
+        is CharacterDetailEvent.OnLaunch -> {
+            getCharacterDetails(event.character)
+            verifyIsFavorite(event.character.id)
+        }
+
+        is CharacterDetailEvent.OnRetry -> getCharacterDetails(event.character)
+        is CharacterDetailEvent.OnToggleFavorite -> toggleFavorite(event.character)
+    }
 
     private fun getCharacterComics(
         marvelApiCharacterId: Int, character: Character, marvelApiCharacterBio: String? = null
@@ -40,7 +51,7 @@ class CharacterDetailScreenModel(
         }
     }
 
-    fun getCharacterDetails(character: Character) = screenModelScope.launch {
+    private fun getCharacterDetails(character: Character) = screenModelScope.launch {
         mutableState.update { it.copy(state = ScreenState.Loading) }
 
         getCharacterDetailsUseCase(character.heroName).onSuccess { marvelApiCharacter ->
@@ -52,7 +63,7 @@ class CharacterDetailScreenModel(
         }
     }
 
-    fun toggleFavorite(character: Character) = screenModelScope.launch {
+    private fun toggleFavorite(character: Character) = screenModelScope.launch {
         if (state.value.isFavorite) {
             val result = removeFavoriteUseCase.invoke(character.id)
 
@@ -68,7 +79,7 @@ class CharacterDetailScreenModel(
             mutableState.update { it.copy(isFavorite = true) }
     }
 
-    fun verifyIsFavorite(characterId: Int) = screenModelScope.launch {
+    private fun verifyIsFavorite(characterId: Int) = screenModelScope.launch {
         verifyIsFavoriteUseCase(characterId).onSuccess { isFavorite ->
             mutableState.update { it.copy(isFavorite = isFavorite) }
         }.onFailure {

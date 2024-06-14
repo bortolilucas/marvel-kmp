@@ -24,7 +24,7 @@ class CharacterListScreen(private val type: CharacterFilter) : Screen {
         val navigator = LocalNavigator.currentOrThrow
 
         LaunchedEffect(key1 = Unit) {
-            model.loadCharacters(type)
+            model.onEvent(CharacterListEvent.OnLaunch(type))
         }
 
         when (state.state) {
@@ -47,7 +47,7 @@ class CharacterListScreen(private val type: CharacterFilter) : Screen {
 
             ScreenState.Error -> ErrorContainer(
                 onBack = navigator::pop,
-                onRetry = { model.loadCharacters(type) }
+                onRetry = { model.onEvent(CharacterListEvent.OnRetry(type)) }
             )
 
             else -> {}

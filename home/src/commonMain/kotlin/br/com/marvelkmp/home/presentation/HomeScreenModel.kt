@@ -17,7 +17,15 @@ class HomeScreenModel(
         loadData()
     }
 
-    fun loadData() = screenModelScope.launch {
+    fun onEvent(event: HomeEvent) {
+        when (event) {
+            HomeEvent.OnToggleSearchInput -> onToggleSearchInput()
+            HomeEvent.OnRetry -> loadData()
+            is HomeEvent.OnSearch -> onSearch(event.search)
+        }
+    }
+
+    private fun loadData() = screenModelScope.launch {
         mutableState.update { it.copy(state = ScreenState.Loading) }
 
         getCharactersByType()
@@ -34,7 +42,7 @@ class HomeScreenModel(
             }
     }
 
-    fun onToggleSearchInput() {
+    private fun onToggleSearchInput() {
         mutableState.update {
             it.copy(
                 showSearchInput = !it.showSearchInput,
@@ -45,7 +53,7 @@ class HomeScreenModel(
         }
     }
 
-    fun onSearch(value: String) = screenModelScope.launch {
+    private fun onSearch(value: String) = screenModelScope.launch {
         getCharactersByName(value)
             .onSuccess { characters ->
                 mutableState.update {

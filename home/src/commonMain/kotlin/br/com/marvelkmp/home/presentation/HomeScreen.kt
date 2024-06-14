@@ -48,7 +48,7 @@ object HomeScreen : Screen {
         LaunchedEffect(key1 = searchInput) {
             if (showSearchInput && searchInput.isNotEmpty()) {
                 delay(DEBOUNCE_TIMEOUT)
-                model.onSearch(searchInput)
+                model.onEvent(HomeEvent.OnSearch(searchInput))
             }
         }
 
@@ -64,7 +64,7 @@ object HomeScreen : Screen {
                     if (state.state is ScreenState.Loading) return@Header
 
                     if (searchInput.isNotEmpty()) searchInput = ""
-                    model.onToggleSearchInput()
+                    model.onEvent(HomeEvent.OnToggleSearchInput)
                 }
             )
 
@@ -88,7 +88,7 @@ object HomeScreen : Screen {
                 }
 
                 ScreenState.Loading -> Loading()
-                ScreenState.Error -> ErrorContainer(onRetry = model::loadData)
+                ScreenState.Error -> ErrorContainer(onRetry = { model.onEvent(HomeEvent.OnRetry) })
                 ScreenState.Search -> Search(
                     searchInput = searchInput,
                     state = state,

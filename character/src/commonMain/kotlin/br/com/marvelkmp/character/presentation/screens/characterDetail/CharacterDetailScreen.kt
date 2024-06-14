@@ -6,6 +6,8 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import br.com.marvelkmp.character.presentation.screens.characterDetail.composables.CharacterDetailsDefault
+import br.com.marvelkmp.character.presentation.screens.characterDetail.model.CharacterDetailEvent
 import br.com.marvelkmp.core.domain.model.Character
 import br.com.marvelkmp.core.presentation.composables.error.ErrorContainer
 import br.com.marvelkmp.core.presentation.composables.loading.Loading
@@ -14,7 +16,6 @@ import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.koin.koinScreenModel
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
-import br.com.marvelkmp.character.presentation.screens.characterDetail.composables.CharacterDetailsDefault
 
 class CharacterDetailScreen(private val character: Character) : Screen {
     @Composable
@@ -27,8 +28,7 @@ class CharacterDetailScreen(private val character: Character) : Screen {
         val navigator = LocalNavigator.currentOrThrow
 
         LaunchedEffect(key1 = Unit) {
-            model.getCharacterDetails(character)
-            model.verifyIsFavorite(character.id)
+            model.onEvent(CharacterDetailEvent.OnLaunch(character))
         }
 
         LaunchedEffect(key1 = model.state.value.isFavorite) {
@@ -38,7 +38,7 @@ class CharacterDetailScreen(private val character: Character) : Screen {
         when (state.state) {
             ScreenState.Default -> CharacterDetailsDefault(
                 onBack = { navigator.pop() },
-                onToggleFavorite = { model.toggleFavorite(character) },
+                onToggleFavorite = { model.onEvent(CharacterDetailEvent.OnToggleFavorite(character)) },
                 character = model.state.value.character ?: return,
                 isFavorite = isFavorite.value
             )
@@ -47,24 +47,7 @@ class CharacterDetailScreen(private val character: Character) : Screen {
 
             ScreenState.Error -> ErrorContainer(
                 onBack = { navigator.pop() },
-                onRetry = { model.getCharacterDetails(character) })
-
-            else -> {}
-        }
-
-        when (state.state) {
-            ScreenState.Default -> CharacterDetailsDefault(
-                onBack = { navigator.pop() },
-                onToggleFavorite = { model.toggleFavorite(character) },
-                character = model.state.value.character ?: return,
-                isFavorite = model.state.value.isFavorite
-            )
-
-            ScreenState.Loading -> Loading(onBack = { navigator.pop() })
-
-            ScreenState.Error -> ErrorContainer(
-                onBack = { navigator.pop() },
-                onRetry = { model.getCharacterDetails(character) })
+                onRetry = { model.onEvent(CharacterDetailEvent.OnRetry(character)) })
 
             else -> {}
         }

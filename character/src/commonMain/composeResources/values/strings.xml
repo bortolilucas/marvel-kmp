@@ -1,0 +1,9 @@
+<resources>
+    <string name="power">Power</string>
+    <string name="intelligence">Intelligence</string>
+    <string name="strength">Strength</string>
+    <string name="combat">Combat</string>
+    <string name="speed">Speed</string>
+    <string name="durability">Durability</string>
+    <string name="comics">Comics</string>
+</resources>

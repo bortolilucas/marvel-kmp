@@ -16,9 +16,7 @@ kotlinxCoroutinesCore = "1.9.0-RC"
 kotlinxDatetime = "0.6.0"
 kotlinxSerializationJson = "1.7.0"
 ktor = "2.3.11"
-logbackAndroid = "3.0.0"
 napier = "2.7.1"
-slf4jApi = "2.0.13"
 voyagerNavigator = "1.1.0-beta02"
 buildconfig = "5.3.5"
 
@@ -29,7 +27,6 @@ coil = { module = "io.coil-kt.coil3:coil", version.ref = "coil" }
 coil-compose = { module = "io.coil-kt.coil3:coil-compose", version.ref = "coil" }
 coil-gif = { module = "io.coil-kt.coil3:coil-gif", version.ref = "coil" }
 coil-network-ktor = { module = "io.coil-kt.coil3:coil-network-ktor", version.ref = "coil" }
-coroutines-extensions = { module = "app.cash.sqldelight:coroutines-extensions", version.ref = "sqldelight" }
 crypto = { module = "org.kotlincrypto.core:digest", version.ref = "crypto" }
 crypto-bom = { module = "org.kotlincrypto.hash:bom", version.ref = "crypto" }
 crypto-md = { module = "org.kotlincrypto.hash:md" }
@@ -47,10 +44,8 @@ ktor-client-ios = { module = "io.ktor:ktor-client-ios", version.ref = "ktorClien
 ktor-client-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktor" }
 ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
 ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktor" }
-logback-android = { module = "com.github.tony19:logback-android", version.ref = "logbackAndroid" }
 napier = { module = "io.github.aakira:napier", version.ref = "napier" }
 native-driver = { module = "app.cash.sqldelight:native-driver", version.ref = "sqldelight" }
-slf4j-api = { module = "org.slf4j:slf4j-api", version.ref = "slf4jApi" }
 voyager-koin = { module = "cafe.adriel.voyager:voyager-koin", version.ref = "voyagerNavigator" }
 voyager-navigator = { module = "cafe.adriel.voyager:voyager-navigator", version.ref = "voyagerNavigator" }
 voyager-screenmodel = { module = "cafe.adriel.voyager:voyager-screenmodel", version.ref = "voyagerNavigator" }

@@ -19,10 +19,14 @@ import br.com.marvelkmp.core.presentation.composables.statusbar.StatusBarEffect
 import br.com.marvelkmp.core.presentation.theme.Theme
 import br.com.marvelkmp.core.presentation.util.modifiers.safePadding
 import marvelkmp.core.generated.resources.Res
+import marvelkmp.core.generated.resources.close
+import marvelkmp.core.generated.resources.favorites
 import marvelkmp.core.generated.resources.heart
+import marvelkmp.core.generated.resources.marvel
 import marvelkmp.core.generated.resources.marvel_logo
 import marvelkmp.core.generated.resources.search
 import org.jetbrains.compose.resources.painterResource
+import org.jetbrains.compose.resources.stringResource
 
 @Composable
 fun Header(
@@ -47,7 +51,7 @@ fun Header(
             if (isSearchVisible) {
                 Icon(
                     imageVector = Icons.Default.Close,
-                    contentDescription = "Close",
+                    contentDescription = stringResource(Res.string.close),
                     modifier = Modifier.size(24.dp),
                     tint = Theme.colors.onBackground
                 )
@@ -57,21 +61,21 @@ fun Header(
 
             Icon(
                 painter = painterResource(Res.drawable.search),
-                contentDescription = "Search",
+                contentDescription = stringResource(Res.string.search),
                 modifier = Modifier.size(24.dp),
                 tint = Theme.colors.onBackground
             )
         }
         Icon(
             painter = painterResource(Res.drawable.marvel_logo),
-            contentDescription = "Marvel Logo",
+            contentDescription = stringResource(Res.string.marvel),
             modifier = Modifier.width(70.dp),
             tint = Theme.colors.primary
         )
         IconButton(onClick = onMenuClick) {
             Icon(
                 painter = painterResource(Res.drawable.heart),
-                contentDescription = "Menu",
+                contentDescription = stringResource(Res.string.favorites),
                 modifier = Modifier.size(24.dp),
                 tint = Theme.colors.onBackground
             )

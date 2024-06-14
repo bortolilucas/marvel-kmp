@@ -15,6 +15,10 @@ import br.com.marvelkmp.core.presentation.mapper.asString
 import br.com.marvelkmp.core.presentation.model.CharacterFilter
 import br.com.marvelkmp.core.presentation.theme.Theme
 import br.com.marvelkmp.home.presentation.model.HomeState
+import marvelkmp.home.generated.resources.Res
+import marvelkmp.home.generated.resources.pick_character
+import marvelkmp.home.generated.resources.welcome
+import org.jetbrains.compose.resources.stringResource
 
 @Composable
 fun HomeDefault(
@@ -35,12 +39,12 @@ fun HomeDefault(
                     )
             ) {
                 Text(
-                    text = "Welcome to Marvel Heroes",
+                    text = stringResource(Res.string.welcome),
                     style = Theme.typography.subtitle2,
                     color = Theme.colors.secondary,
                 )
                 Text(
-                    text = "Pick your\ncharacter",
+                    text = stringResource(Res.string.pick_character),
                     style = Theme.typography.h2,
                     color = Theme.colors.onBackground,
                 )

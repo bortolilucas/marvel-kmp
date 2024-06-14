@@ -30,10 +30,18 @@ import br.com.marvelkmp.core.presentation.theme.Theme
 import br.com.marvelkmp.core.presentation.util.modifiers.safePadding
 import coil3.compose.AsyncImage
 import marvelkmp.character.generated.resources.Res
+import marvelkmp.character.generated.resources.combat
+import marvelkmp.character.generated.resources.comics
+import marvelkmp.character.generated.resources.durability
 import marvelkmp.character.generated.resources.gender
 import marvelkmp.character.generated.resources.height
+import marvelkmp.character.generated.resources.intelligence
+import marvelkmp.character.generated.resources.power
+import marvelkmp.character.generated.resources.speed
+import marvelkmp.character.generated.resources.strength
 import marvelkmp.character.generated.resources.universe
 import marvelkmp.character.generated.resources.weight
+import org.jetbrains.compose.resources.stringResource
 
 @Composable
 fun CharacterDetailsDefault(
@@ -141,12 +149,21 @@ fun CharacterDetailsDefault(
                         modifier = Modifier.padding(bottom = 32.dp),
                         verticalArrangement = Arrangement.spacedBy(24.dp)
                     ) {
-                        HabilityRow(label = "Power", level = it.power)
-                        HabilityRow(label = "Intelligence", level = it.intelligence)
-                        HabilityRow(label = "Strength", level = it.strength)
-                        HabilityRow(label = "Combat", level = it.combat)
-                        HabilityRow(label = "Speed", level = it.speed)
-                        HabilityRow(label = "Durability", level = it.durability)
+                        HabilityRow(label = stringResource(Res.string.power), level = it.power)
+                        HabilityRow(
+                            label = stringResource(Res.string.intelligence),
+                            level = it.intelligence
+                        )
+                        HabilityRow(
+                            label = stringResource(Res.string.strength),
+                            level = it.strength
+                        )
+                        HabilityRow(label = stringResource(Res.string.combat), level = it.combat)
+                        HabilityRow(label = stringResource(Res.string.speed), level = it.speed)
+                        HabilityRow(
+                            label = stringResource(Res.string.durability),
+                            level = it.durability
+                        )
                     }
                 }
             }
@@ -154,7 +171,7 @@ fun CharacterDetailsDefault(
                 if (it.isNotEmpty()) {
                     HorizontalList(
                         modifier = Modifier.padding(bottom = 24.dp),
-                        title = "Comics",
+                        title = stringResource(Res.string.comics),
                         titleColor = Theme.colors.onSurface,
                         data = it,
                         horizontalPadding = 24.dp,

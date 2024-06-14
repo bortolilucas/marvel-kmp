@@ -3,11 +3,9 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
-    alias(libs.plugins.androidApplication)
+    alias(libs.plugins.androidLibrary)
     alias(libs.plugins.jetbrainsCompose)
     alias(libs.plugins.compose.compiler)
-    alias(libs.plugins.kotlinxSerialization)
-    alias(libs.plugins.kotlinCocoaPods)
 }
 
 kotlin {
@@ -22,9 +20,9 @@ kotlin {
         iosX64(),
         iosArm64(),
         iosSimulatorArm64()
-    ).forEach { iosTarget ->
-        iosTarget.binaries.framework {
-            baseName = "ComposeApp"
+    ).forEach {
+        it.binaries.framework {
+            baseName = "core"
             isStatic = true
         }
     }
@@ -33,32 +31,14 @@ kotlin {
         commonMain.dependencies {
             implementation(compose.components.resources)
 
-            implementation(project(":network"))
-            implementation(project(":logging"))
             implementation(project(":core"))
-            implementation(project(":home"))
-            implementation(project(":character"))
-            implementation(project(":favorites"))
             implementation(project(":navigation"))
-            implementation(project(":splash"))
         }
-    }
-
-    cocoapods {
-        version = "1.0"
-        summary = "CocoaPods integration for ComposeApp"
-        homepage = ""
-
-        framework {
-            baseName = "MarvelKmp"
-        }
-
-        podfile = file("../iosApp/Podfile")
     }
 }
 
 android {
-    namespace = "br.com.marvelkmp.app"
+    namespace = "br.com.marvelkmp.character"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
@@ -66,11 +46,7 @@ android {
     sourceSets["main"].resources.srcDirs("src/commonMain/resources")
 
     defaultConfig {
-        applicationId = "br.com.marvelkmp.app"
         minSdk = libs.versions.android.minSdk.get().toInt()
-        targetSdk = libs.versions.android.targetSdk.get().toInt()
-        versionCode = 1
-        versionName = "1.0"
     }
     packaging {
         resources {

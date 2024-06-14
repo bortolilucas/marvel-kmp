@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.WindowInsetsSides
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -161,7 +162,8 @@ fun CharacterDetailsDefault(
                         renderItem = { item ->
                             Box(
                                 modifier = Modifier
-                                    .fillMaxSize()
+                                    .fillMaxWidth()
+                                    .aspectRatio(0.6f)
                                     .shadow(Theme.spacing.small, Theme.shapes.large)
                                     .background(Theme.colors.onSurface)
                                     .clip(Theme.shapes.large)

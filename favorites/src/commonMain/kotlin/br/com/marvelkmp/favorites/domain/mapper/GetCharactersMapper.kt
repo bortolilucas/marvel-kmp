@@ -17,7 +17,7 @@ fun List<GetCharacters>.toCharacter(): List<Character> = map {
         publisher = CharacterPublisher.parse(""),
         images = CharacterImages(lg = it.imagePath, sm = it.imagePath),
         alignment = CharacterAlignment.parse("neutral"),
-        race = CharacterRace.parse(it.race ?: ""),
+        race = CharacterRace.parse(it.race.orEmpty()),
         gender = it.gender,
         powerStats = CharacterPowerStatsDto(
             intelligence = it.intelligence?.toInt() ?: 0,

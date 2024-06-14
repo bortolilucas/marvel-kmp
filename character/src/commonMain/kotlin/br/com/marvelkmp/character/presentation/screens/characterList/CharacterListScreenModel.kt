@@ -11,7 +11,14 @@ import kotlinx.coroutines.launch
 class CharacterListScreenModel(
     private val getCharacterList: GetCharacterListUseCase,
 ) : StateScreenModel<CharacterListState>(CharacterListState()) {
-    fun loadCharacters(type: CharacterFilter) {
+    fun onEvent(event: CharacterListEvent) {
+        when (event) {
+            is CharacterListEvent.OnLaunch -> loadCharacters(event.type)
+            is CharacterListEvent.OnRetry -> loadCharacters(event.type)
+        }
+    }
+
+    private fun loadCharacters(type: CharacterFilter) {
         screenModelScope.launch {
             mutableState.update { it.copy(state = ScreenState.Loading) }
 

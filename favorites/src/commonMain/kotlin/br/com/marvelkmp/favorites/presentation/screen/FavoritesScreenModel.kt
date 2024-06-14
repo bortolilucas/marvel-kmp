@@ -11,7 +11,14 @@ import kotlinx.coroutines.launch
 class FavoritesScreenModel(
     private val getFavoritesUseCase: GetFavoritesUseCase,
 ) : StateScreenModel<FavoritesState>(FavoritesState()) {
-    fun getFavorites() = screenModelScope.launch {
+    fun onEvent(event: FavoritesEvent) {
+        when (event) {
+            FavoritesEvent.OnLaunch -> getFavorites()
+            FavoritesEvent.OnRetry -> getFavorites()
+        }
+    }
+
+    private fun getFavorites() = screenModelScope.launch {
         if (mutableState.value.state !== ScreenState.Loading)
             mutableState.update { it.copy(state = ScreenState.Default) }
 

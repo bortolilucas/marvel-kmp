@@ -8,13 +8,13 @@ import androidx.compose.runtime.getValue
 import br.com.marvelkmp.core.presentation.composables.error.ErrorContainer
 import br.com.marvelkmp.core.presentation.composables.loading.Loading
 import br.com.marvelkmp.core.presentation.model.ScreenState
+import br.com.marvelkmp.favorites.presentation.composables.Default
 import br.com.marvelkmp.navigation.SharedScreen
 import br.com.marvelkmp.navigation.utils.getScreenRegistry
 import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.koin.koinScreenModel
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
-import br.com.marvelkmp.favorites.presentation.composables.Default
 
 object FavoritesScreen : Screen {
     @Composable
@@ -30,7 +30,7 @@ object FavoritesScreen : Screen {
         }
 
         LaunchedEffect(key1 = Unit) {
-            screenModel.getFavorites()
+            screenModel.onEvent(FavoritesEvent.OnLaunch)
         }
 
         Column {
@@ -49,7 +49,11 @@ object FavoritesScreen : Screen {
                     }
                 )
 
-                ScreenState.Error -> ErrorContainer(onRetry = {}, onBack = { onBack() })
+                ScreenState.Error -> ErrorContainer(
+                    onRetry = { screenModel.onEvent(FavoritesEvent.OnRetry) },
+                    onBack = { onBack() }
+                )
+
                 ScreenState.Loading -> Loading(onBack = { onBack() })
                 else -> {}
             }

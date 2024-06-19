@@ -1,4 +1,4 @@
-package br.com.marvelkmp.network.model
+package br.com.marvelkmp.network.core.model
 
 data class GenerateHashReturn(
     val hash: String,

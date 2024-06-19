@@ -1,7 +1,7 @@
-package br.com.marvelkmp.network.service
+package br.com.marvelkmp.network.core.service
 
-import br.com.marvelkmp.network.utils.installContentNegotiation
-import br.com.marvelkmp.network.utils.installLogging
+import br.com.marvelkmp.network.core.utils.installContentNegotiation
+import br.com.marvelkmp.network.core.utils.installLogging
 import io.ktor.client.HttpClient
 import io.ktor.client.plugins.defaultRequest
 

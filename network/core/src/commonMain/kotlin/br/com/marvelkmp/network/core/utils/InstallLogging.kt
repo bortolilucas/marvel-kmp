@@ -1,4 +1,4 @@
-package br.com.marvelkmp.network.utils
+package br.com.marvelkmp.network.core.utils
 
 import br.com.marvelkmp.logging.util.Log
 import io.ktor.client.HttpClientConfig

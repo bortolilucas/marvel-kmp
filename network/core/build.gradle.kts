@@ -10,18 +10,18 @@ kotlin {
     androidTarget {
         compilations.all {
             kotlinOptions {
-                jvmTarget = "1.8"
+                jvmTarget = "11"
             }
         }
     }
-    
+
     listOf(
         iosX64(),
         iosArm64(),
         iosSimulatorArm64()
     ).forEach {
         it.binaries.framework {
-            baseName = "network"
+            baseName = "networkCore"
             isStatic = true
         }
     }
@@ -52,6 +52,9 @@ kotlin {
             implementation(project(":core"))
             implementation(project(":logging"))
         }
+        commonTest.dependencies {
+            implementation(libs.ktor.client.mock)
+        }
     }
 }
 buildConfig {
@@ -63,13 +66,13 @@ buildConfig {
 }
 
 android {
-    namespace = "br.com.marvelkmp.network"
+    namespace = "br.com.marvelkmp.network.core"
     compileSdk = 34
     defaultConfig {
         minSdk = 24
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
 }

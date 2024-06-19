@@ -32,7 +32,7 @@ kotlin {
         commonMain.dependencies {
             implementation(compose.components.resources)
 
-            implementation(project(":network"))
+            implementation(project(":network:core"))
             implementation(project(":database"))
             implementation(project(":core"))
             implementation(project(":navigation"))

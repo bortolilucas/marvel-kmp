@@ -1,7 +1,7 @@
-package br.com.marvelkmp.network.di
+package br.com.marvelkmp.network.core.di
 
-import br.com.marvelkmp.network.service.marvelApiService
-import br.com.marvelkmp.network.service.superHeroApiService
+import br.com.marvelkmp.network.core.service.marvelApiService
+import br.com.marvelkmp.network.core.service.superHeroApiService
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
 

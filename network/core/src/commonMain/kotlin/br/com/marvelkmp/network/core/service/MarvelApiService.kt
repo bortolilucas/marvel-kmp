@@ -1,9 +1,9 @@
-package br.com.marvelkmp.network.service
+package br.com.marvelkmp.network.core.service
 
-import MarvelKmp.network.BuildConfig.PUBLIC_KEY
-import br.com.marvelkmp.network.utils.generateHash
-import br.com.marvelkmp.network.utils.installContentNegotiation
-import br.com.marvelkmp.network.utils.installLogging
+import MarvelKmp.network.core.BuildConfig.PUBLIC_KEY
+import br.com.marvelkmp.network.core.utils.generateHash
+import br.com.marvelkmp.network.core.utils.installContentNegotiation
+import br.com.marvelkmp.network.core.utils.installLogging
 import io.ktor.client.HttpClient
 import io.ktor.client.plugins.defaultRequest
 

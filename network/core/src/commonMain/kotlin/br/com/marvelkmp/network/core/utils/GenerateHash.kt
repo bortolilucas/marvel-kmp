@@ -1,7 +1,7 @@
-package br.com.marvelkmp.network.utils
+package br.com.marvelkmp.network.core.utils
 
-import MarvelKmp.network.BuildConfig
-import br.com.marvelkmp.network.model.GenerateHashReturn
+import MarvelKmp.network.core.BuildConfig
+import br.com.marvelkmp.network.core.model.GenerateHashReturn
 import com.ionspin.kotlin.bignum.integer.BigInteger
 import com.ionspin.kotlin.bignum.integer.Sign
 import io.ktor.util.date.getTimeMillis

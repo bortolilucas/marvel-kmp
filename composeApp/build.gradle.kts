@@ -33,7 +33,7 @@ kotlin {
         commonMain.dependencies {
             implementation(compose.components.resources)
 
-            implementation(project(":network"))
+            implementation(project(":network:core"))
             implementation(project(":logging"))
             implementation(project(":core"))
             implementation(project(":home"))

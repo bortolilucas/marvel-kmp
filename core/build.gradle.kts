@@ -55,6 +55,11 @@ kotlin {
 
             api(project(":database"))
         }
+        commonTest.dependencies {
+            implementation(libs.kotlin.test)
+            implementation(libs.kotlinx.coroutines.test)
+            implementation(project(":network:test"))
+        }
     }
 }
 

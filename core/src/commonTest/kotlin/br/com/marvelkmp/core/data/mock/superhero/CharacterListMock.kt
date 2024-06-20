@@ -1,10 +1,12 @@
 package br.com.marvelkmp.core.data.mock.superhero
 
 import br.com.marvelkmp.core.data.model.superhero.CharacterDto
+import br.com.marvelkmp.core.domain.mapper.toDomain
+import br.com.marvelkmp.core.domain.model.CharacterPublisher
 import kotlinx.serialization.builtins.ListSerializer
 import kotlinx.serialization.json.Json
 
-const val characterListResponseJson = """
+const val mockCharacterListResponseJson = """
 [
     {
         "id": 1,
@@ -115,5 +117,13 @@ const val characterListResponseJson = """
 ]
 """
 
-val characterListResponseDto =
-    Json.decodeFromString(ListSerializer(CharacterDto.serializer()), characterListResponseJson)
+val mockCharacterListResponseDto
+    get() = Json.decodeFromString(
+        ListSerializer(CharacterDto.serializer()),
+        mockCharacterListResponseJson
+    )
+
+val mockMarvelCharacterList
+    get() = mockCharacterListResponseDto
+        .filter { it.biography.publisher == CharacterPublisher.Marvel.name }
+        .map { it.toDomain() }

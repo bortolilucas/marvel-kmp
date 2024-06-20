@@ -1,7 +1,7 @@
 package br.com.marvelkmp.core.data.service
 
-import br.com.marvelkmp.core.data.mock.superhero.characterListResponseDto
-import br.com.marvelkmp.core.data.mock.superhero.characterListResponseJson
+import br.com.marvelkmp.core.data.mock.superhero.mockCharacterListResponseDto
+import br.com.marvelkmp.core.data.mock.superhero.mockCharacterListResponseJson
 import br.com.marvelkmp.network.service.mockHttpClient
 import io.ktor.client.HttpClient
 import io.ktor.http.HttpStatusCode
@@ -15,9 +15,9 @@ class CharacterListServiceImplTest {
     private lateinit var characterListService: CharacterListService
 
     @BeforeTest
-    fun setup() {
+    fun setUp() {
         httpClient = mockHttpClient(
-            response = characterListResponseJson,
+            response = mockCharacterListResponseJson,
             status = HttpStatusCode.OK
         )
         characterListService = CharacterListServiceImpl(httpClient)
@@ -26,6 +26,6 @@ class CharacterListServiceImplTest {
     @Test
     fun `should return list of characters`() = runTest {
         val characters = characterListService.getCharacters()
-        assertEquals(characters, characterListResponseDto)
+        assertEquals(characters, mockCharacterListResponseDto)
     }
 }

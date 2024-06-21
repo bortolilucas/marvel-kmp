@@ -36,11 +36,11 @@ kotlin {
             implementation(project(":network:core"))
             implementation(project(":logging"))
             implementation(project(":core"))
-            implementation(project(":home"))
-            implementation(project(":character"))
-            implementation(project(":favorites"))
             implementation(project(":navigation"))
-            implementation(project(":splash"))
+            implementation(project(":features:home"))
+            implementation(project(":features:character"))
+            implementation(project(":features:favorites"))
+            implementation(project(":features:splash"))
         }
     }
 

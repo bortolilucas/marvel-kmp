@@ -20,6 +20,7 @@ napier = "2.7.1"
 voyagerNavigator = "1.1.0-beta02"
 buildconfig = "5.3.5"
 kotlinTest = "2.0.0"
+mokkery = "2.0.0"
 
 [libraries]
 android-driver = { module = "app.cash.sqldelight:android-driver", version.ref = "sqldelight" }
@@ -65,3 +66,4 @@ kotlinxSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", versi
 sqldelight = { id = "app.cash.sqldelight", version.ref = "sqldelight" }
 buildconfig = { id = "com.github.gmazzo.buildconfig", version.ref = "buildconfig" }
 kotlinCocoaPods = { id = "org.jetbrains.kotlin.native.cocoapods", version.ref = "kotlin" }
+mokkery = { id = "dev.mokkery", version.ref = "mokkery" }

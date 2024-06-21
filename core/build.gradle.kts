@@ -48,7 +48,7 @@ kotlin {
             api(libs.coil.network.ktor)
 
             implementation(project.dependencies.platform(libs.koin.bom))
-            implementation(libs.koin.core)
+            api(libs.koin.core)
             implementation(libs.koin.compose)
 
             implementation(libs.kotlinx.serialization.json)
@@ -56,8 +56,7 @@ kotlin {
             api(project(":database"))
         }
         commonTest.dependencies {
-            implementation(libs.kotlin.test)
-            implementation(libs.kotlinx.coroutines.test)
+            implementation(project(":testing"))
             implementation(project(":network:test"))
         }
     }

@@ -7,6 +7,7 @@ plugins {
     alias(libs.plugins.jetbrainsCompose)
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.kotlinxSerialization)
+    alias(libs.plugins.mokkery)
 }
 
 kotlin {
@@ -56,7 +57,8 @@ kotlin {
             api(project(":database"))
         }
         commonTest.dependencies {
-            implementation(project(":testing"))
+            implementation(libs.kotlin.test)
+            implementation(libs.kotlinx.coroutines.test)
             implementation(project(":network:test"))
         }
     }

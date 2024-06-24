@@ -37,9 +37,12 @@ kotlin {
             implementation(project(":database"))
             implementation(project(":core"))
             implementation(project(":navigation"))
+            implementation(project(":logging"))
         }
         commonTest.dependencies {
-            implementation(project(":testing"))
+            implementation(libs.kotlin.test)
+            implementation(libs.kotlinx.coroutines.test)
+            implementation(libs.turbine)
         }
     }
 }

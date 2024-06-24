@@ -38,7 +38,7 @@ kotlin {
 }
 
 android {
-    namespace = "br.com.marvelkmp.character"
+    namespace = "br.com.marvelkmp.splash"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")

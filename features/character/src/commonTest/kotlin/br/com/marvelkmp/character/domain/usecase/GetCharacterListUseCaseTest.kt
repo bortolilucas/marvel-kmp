@@ -15,7 +15,7 @@ import kotlin.test.assertEquals
 
 class GetCharacterListUseCaseTest {
     private val repository = mock<CharacterListRepository>()
-    private val useCase = GetCharacterListUseCase(repository)
+    private val useCase = GetCharacterListUseCaseImpl(repository)
 
     @Test
     fun `should return result success with all characters`() = runTest {

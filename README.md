@@ -18,8 +18,8 @@ Marvel App KMP
 - [Sobre o projeto](#-Sobre-o-projeto)
 - [Tecnologias utilizadas](#-Tecnologias-utilizadas)
 - [Rodando o projeto](#-Rodando-o-projeto)
-    - [Pré-requisitos](#-Pré-requisitos)
-    - [Rodando o app](#-Rodando-o-app)
+  - [Pré-requisitos](#-Pré-requisitos)
+  - [Rodando o app](#-Rodando-o-app)
 
 ## 🎨 Telas
 
@@ -76,10 +76,17 @@ As animações de carregamento e de erro mudam aleatoriamente :)
   <li>Adicione o plugin ruby:
 
     asdf plugin add ruby
+
   </li>
-  <li>Instale as dependências:
+  <li>Instale as dependências do asdf:
 
     asdf install
+
+  </li>
+  <li>Instale as dependências do gem:
+
+    bundle install
+
   </li>
   <li>Rode o app</li>
 </ol>

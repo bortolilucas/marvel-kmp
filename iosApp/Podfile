@@ -5,3 +5,15 @@ target 'iosApp' do
 
   pod 'Gifu', '~> 3.3'
 end
+
+# Temporary fix for compatibility issue between Xcode 16.0 and the Gifu pod.
+# Reference: https://github.com/kaishin/Gifu/issues/201
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    if target.name == 'Gifu'
+      target.build_configurations.each do |config|
+        config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '11.0'
+      end
+    end
+  end
+end

@@ -58,8 +58,8 @@ kotlin {
     }
 }
 buildConfig {
-    val publicKey = gradleLocalProperties(rootDir).getProperty("PUBLIC_KEY")
-    val privateKey = gradleLocalProperties(rootDir).getProperty("PRIVATE_KEY")
+    val publicKey = gradleLocalProperties(rootDir, providers).getProperty("PUBLIC_KEY")
+    val privateKey = gradleLocalProperties(rootDir, providers).getProperty("PRIVATE_KEY")
 
     buildConfigField("String", "PUBLIC_KEY", publicKey)
     buildConfigField("String", "PRIVATE_KEY", privateKey)

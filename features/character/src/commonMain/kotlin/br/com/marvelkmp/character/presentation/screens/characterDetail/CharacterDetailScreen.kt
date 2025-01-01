@@ -12,8 +12,8 @@ import br.com.marvelkmp.core.domain.model.Character
 import br.com.marvelkmp.core.presentation.composables.error.ErrorContainer
 import br.com.marvelkmp.core.presentation.composables.loading.Loading
 import br.com.marvelkmp.core.presentation.model.ScreenState
+import br.com.marvelkmp.di.koinScreenModel
 import cafe.adriel.voyager.core.screen.Screen
-import cafe.adriel.voyager.koin.koinScreenModel
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
 

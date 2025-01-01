@@ -1,4 +1,3 @@
-import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
@@ -12,7 +11,6 @@ plugins {
 
 kotlin {
     androidTarget {
-        @OptIn(ExperimentalKotlinGradlePluginApi::class)
         compilerOptions {
             jvmTarget.set(JvmTarget.JVM_11)
         }
@@ -48,12 +46,9 @@ kotlin {
             api(libs.coil.compose)
             api(libs.coil.network.ktor)
 
-            implementation(project.dependencies.platform(libs.koin.bom))
-            api(libs.koin.core)
-            implementation(libs.koin.compose)
-
             implementation(libs.kotlinx.serialization.json)
 
+            api(project(":di"))
             api(project(":database"))
         }
         commonTest.dependencies {

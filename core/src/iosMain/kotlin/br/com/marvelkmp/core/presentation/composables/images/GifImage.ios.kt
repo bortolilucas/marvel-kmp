@@ -3,12 +3,12 @@ package br.com.marvelkmp.core.presentation.composables.images
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.interop.UIKitView
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.viewinterop.UIKitInteropProperties
+import androidx.compose.ui.viewinterop.UIKitView
 import br.com.marvelkmp.core.presentation.mapper.toUIColor
 import br.com.marvelkmp.core.presentation.theme.Theme
 import br.com.marvelkmp.core.presentation.util.gif.GifHelper
-import kotlinx.cinterop.ExperimentalForeignApi
 import org.koin.compose.koinInject
 import platform.UIKit.UIViewContentMode
 
@@ -16,7 +16,6 @@ actual class GifResource(
     val name: String,
 )
 
-@OptIn(ExperimentalForeignApi::class)
 @Composable
 actual fun GifImage(
     url: String,
@@ -39,11 +38,14 @@ actual fun GifImage(
     UIKitView(
         factory = { imageView },
         modifier = modifier,
+        properties = UIKitInteropProperties(
+            isInteractive = true,
+            isNativeAccessibilityEnabled = true
+        )
     )
 }
 
 
-@OptIn(ExperimentalForeignApi::class)
 @Composable
 actual fun GifImage(
     resource: GifResource,

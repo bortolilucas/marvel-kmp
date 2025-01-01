@@ -11,8 +11,8 @@ import br.com.marvelkmp.core.presentation.model.ScreenState
 import br.com.marvelkmp.favorites.presentation.composables.Default
 import br.com.marvelkmp.navigation.SharedScreen
 import br.com.marvelkmp.navigation.utils.getScreenRegistry
+import br.com.marvelkmp.di.koinScreenModel
 import cafe.adriel.voyager.core.screen.Screen
-import cafe.adriel.voyager.koin.koinScreenModel
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
 

@@ -1,14 +1,16 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
+    alias(libs.plugins.jetbrainsCompose)
+    alias(libs.plugins.compose.compiler)
 }
 
 kotlin {
     androidTarget {
-        compilations.all {
-            kotlinOptions {
-                jvmTarget = "11"
-            }
+        compilerOptions {
+            jvmTarget.set(JvmTarget.JVM_11)
         }
     }
     
@@ -18,24 +20,23 @@ kotlin {
         iosSimulatorArm64()
     ).forEach {
         it.binaries.framework {
-            baseName = "navigation"
+            baseName = "di"
             isStatic = true
         }
     }
 
     sourceSets {
         commonMain.dependencies {
-            api(libs.voyager.navigator)
-            api(libs.voyager.screenmodel)
-            api(libs.voyager.transitions)
-
-            implementation(project(":core"))
+            api(project.dependencies.platform(libs.koin.bom))
+            api(libs.koin.core)
+            api(libs.koin.compose)
+            implementation(libs.voyager.screenmodel)
         }
     }
 }
 
 android {
-    namespace = "br.com.marvelkmp.navigation"
+    namespace = "br.com.marvelkmp.di"
     compileSdk = 34
     defaultConfig {
         minSdk = 24

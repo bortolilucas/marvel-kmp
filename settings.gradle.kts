@@ -31,6 +31,7 @@ dependencyResolutionManagement {
 include(":composeApp")
 include(":network:core")
 include(":network:test")
+include(":di")
 include(":database")
 include(":logging")
 include(":core")

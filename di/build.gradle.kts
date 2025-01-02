@@ -25,6 +25,8 @@ kotlin {
         }
     }
 
+    jvm("desktop")
+
     sourceSets {
         commonMain.dependencies {
             api(project.dependencies.platform(libs.koin.bom))

@@ -10,7 +10,7 @@ actual class DriverFactory(private val context: Context) {
         return AndroidSqliteDriver(
             MarvelDatabase.Schema,
             context,
-            "MarvelDatabase.db",
+            MARVEL_DATABASE_NAME,
             callback = object : AndroidSqliteDriver.Callback(MarvelDatabase.Schema) {
                 override fun onOpen(db: SupportSQLiteDatabase) {
                     db.setForeignKeyConstraintsEnabled(true)

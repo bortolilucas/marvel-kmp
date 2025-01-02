@@ -1,3 +1,4 @@
+import org.jetbrains.compose.ExperimentalComposeLibrary
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
@@ -27,7 +28,11 @@ kotlin {
         }
     }
 
+    jvm("desktop")
+
     sourceSets {
+        val desktopMain by getting
+
         androidMain.dependencies {
             api(compose.preview)
             api(libs.androidx.activity.compose)
@@ -55,6 +60,10 @@ kotlin {
             implementation(libs.kotlin.test)
             implementation(libs.kotlinx.coroutines.test)
             implementation(project(":network:test"))
+        }
+        desktopMain.dependencies {
+            @OptIn(ExperimentalComposeLibrary::class)
+            implementation(compose.desktop.components.animatedImage)
         }
     }
 }

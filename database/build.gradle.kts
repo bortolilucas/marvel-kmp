@@ -24,21 +24,28 @@ kotlin {
         }
     }
 
+    jvm("desktop")
+
     sourceSets {
+        val desktopMain by getting
+
         androidMain.dependencies {
             implementation(libs.android.driver)
         }
         iosMain.dependencies {
             implementation(libs.native.driver)
         }
+        desktopMain.dependencies {
+            implementation(libs.sqldelight.sqlite.driver)
+        }
     }
 }
 
 android {
     namespace = "br.com.marvelkmp.database"
-    compileSdk = 34
+    compileSdk = libs.versions.android.compileSdk.get().toInt()
     defaultConfig {
-        minSdk = 24
+        minSdk = libs.versions.android.minSdk.get().toInt()
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11

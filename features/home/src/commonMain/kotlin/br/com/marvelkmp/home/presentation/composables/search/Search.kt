@@ -94,7 +94,7 @@ fun Search(
                 return
             }
             LazyVerticalGrid(
-                columns = GridCells.Fixed(2),
+                columns = GridCells.Adaptive(minSize = 150.dp),
                 verticalArrangement = Arrangement.spacedBy(Theme.spacing.extraLarge),
                 horizontalArrangement = Arrangement.spacedBy(Theme.spacing.large),
                 contentPadding = PaddingValues(

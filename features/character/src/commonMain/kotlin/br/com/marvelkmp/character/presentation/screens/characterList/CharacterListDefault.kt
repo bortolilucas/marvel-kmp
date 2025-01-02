@@ -13,6 +13,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
 import br.com.marvelkmp.core.domain.model.Character
 import br.com.marvelkmp.core.presentation.composables.character.CharacterListItem
 import br.com.marvelkmp.core.presentation.composables.navigation.GoBackHeader
@@ -49,7 +50,7 @@ fun CharacterListDefault(
         )
 
         LazyVerticalGrid(
-            columns = GridCells.Fixed(2),
+            columns = GridCells.Adaptive(minSize = 150.dp),
             verticalArrangement = Arrangement.spacedBy(Theme.spacing.extraLarge),
             horizontalArrangement = Arrangement.spacedBy(Theme.spacing.large),
             contentPadding = PaddingValues(

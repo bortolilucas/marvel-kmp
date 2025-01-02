@@ -12,20 +12,6 @@ actual class GifResource(
 
 @Composable
 actual fun GifImage(
-    url: String,
-    modifier: Modifier,
-    contentScale: ContentScale,
-) {
-    AsyncImage(
-        model = url,
-        contentDescription = null,
-        contentScale = contentScale,
-        modifier = modifier,
-    )
-}
-
-@Composable
-actual fun GifImage(
     resource: GifResource,
     modifier: Modifier,
     contentScale: ContentScale

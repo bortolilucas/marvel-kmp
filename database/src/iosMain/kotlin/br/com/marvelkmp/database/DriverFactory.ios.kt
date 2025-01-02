@@ -8,7 +8,7 @@ actual class DriverFactory {
     actual fun createDriver(): SqlDriver {
         return NativeSqliteDriver(
             MarvelDatabase.Schema,
-            "MarvelDatabase.db",
+            MARVEL_DATABASE_NAME,
             onConfiguration = { config: DatabaseConfiguration ->
                 config.copy(
                     extendedConfig = DatabaseConfiguration.Extended(foreignKeyConstraints = true)

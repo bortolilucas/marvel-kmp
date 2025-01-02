@@ -179,7 +179,7 @@ fun CharacterDetailsDefault(
                         renderItem = { item ->
                             Box(
                                 modifier = Modifier
-                                    .fillMaxWidth()
+                                    .fillMaxSize()
                                     .aspectRatio(0.6f)
                                     .shadow(Theme.spacing.small, Theme.shapes.large)
                                     .background(Theme.colors.onSurface)
@@ -187,7 +187,9 @@ fun CharacterDetailsDefault(
                             ) {
                                 AsyncImage(
                                     model = item.cover,
-                                    contentDescription = null
+                                    contentDescription = null,
+                                    contentScale = ContentScale.FillBounds,
+                                    modifier = Modifier.fillMaxSize()
                                 )
                                 Box(
                                     Modifier.fillMaxWidth().matchParentSize().background(

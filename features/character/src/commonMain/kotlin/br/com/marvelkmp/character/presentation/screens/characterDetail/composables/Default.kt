@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Text
@@ -106,7 +107,8 @@ fun CharacterDetailsDefault(
                         .padding(
                             top = 48.dp,
                             bottom = 24.dp
-                        ).fillMaxWidth(),
+                        )
+                        .widthIn(Theme.dimensions.screenWidth, 400.dp),
                     horizontalArrangement = Arrangement.SpaceBetween
                 ) {
                     CharacterInfo(
@@ -146,7 +148,9 @@ fun CharacterDetailsDefault(
                         color = Theme.colors.onSurface
                     )
                     Column(
-                        modifier = Modifier.padding(bottom = 32.dp),
+                        modifier = Modifier
+                            .padding(bottom = 32.dp)
+                            .widthIn(Theme.dimensions.screenWidth, 400.dp),
                         verticalArrangement = Arrangement.spacedBy(24.dp)
                     ) {
                         HabilityRow(label = stringResource(Res.string.power), level = it.power)
@@ -179,7 +183,7 @@ fun CharacterDetailsDefault(
                         renderItem = { item ->
                             Box(
                                 modifier = Modifier
-                                    .fillMaxWidth()
+                                    .fillMaxSize()
                                     .aspectRatio(0.6f)
                                     .shadow(Theme.spacing.small, Theme.shapes.large)
                                     .background(Theme.colors.onSurface)
@@ -187,7 +191,9 @@ fun CharacterDetailsDefault(
                             ) {
                                 AsyncImage(
                                     model = item.cover,
-                                    contentDescription = null
+                                    contentDescription = null,
+                                    contentScale = ContentScale.FillBounds,
+                                    modifier = Modifier.fillMaxSize()
                                 )
                                 Box(
                                     Modifier.fillMaxWidth().matchParentSize().background(

@@ -23,7 +23,9 @@ actual fun GifImage(
     gif?.let {
         Image(
             bitmap = it.animate(),
-            contentDescription = null
+            contentDescription = null,
+            contentScale = contentScale,
+            modifier = modifier
         )
     }
 }

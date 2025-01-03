@@ -35,7 +35,6 @@ fun HomeDefault(
                         start = Theme.spacing.large,
                         end = Theme.spacing.large,
                         top = Theme.spacing.medium,
-                        bottom = Theme.spacing.extraLarge,
                     )
             ) {
                 Text(
@@ -48,15 +47,15 @@ fun HomeDefault(
                     style = Theme.typography.h2,
                     color = Theme.colors.onBackground,
                 )
-
-                CharacterTypeCircleList(
-                    onCirclePress = onCharacterTypeClick,
-                    modifier = Modifier.padding(
-                        top = Theme.spacing.medium,
-                        bottom = Theme.spacing.small
-                    )
-                )
             }
+
+            CharacterTypeCircleList(
+                onCirclePress = onCharacterTypeClick,
+                modifier = Modifier.padding(
+                    top = Theme.spacing.extraMedium,
+                    bottom = Theme.spacing.extraLarge
+                )
+            )
         }
 
         items(state.sections, key = { it.type }) { section ->

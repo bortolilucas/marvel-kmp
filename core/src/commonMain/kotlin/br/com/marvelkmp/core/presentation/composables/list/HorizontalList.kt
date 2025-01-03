@@ -18,6 +18,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.dp
 import br.com.marvelkmp.core.presentation.theme.Theme
 import marvelkmp.core.generated.resources.Res
 import marvelkmp.core.generated.resources.see_all
@@ -30,14 +31,11 @@ fun <T> HorizontalList(
     keyExtractor: (T) -> Any,
     renderItem: @Composable LazyItemScope.(T) -> Unit,
     modifier: Modifier = Modifier,
-    numOfItems: Int = 3,
     horizontalPadding: Dp = Theme.spacing.large,
     itemSpacing: Dp = Theme.spacing.extraMedium,
     titleColor: Color = Theme.colors.onBackground,
     onSeeAll: (() -> Unit)? = null,
 ) {
-    val itemWidth = rememberHorizontalItemWidth(numOfItems, horizontalPadding, itemSpacing)
-
     Column(
         modifier = modifier.fillMaxWidth(),
         verticalArrangement = Arrangement.spacedBy(Theme.spacing.extraMedium)
@@ -71,7 +69,7 @@ fun <T> HorizontalList(
             modifier = Modifier.fillMaxWidth(),
         ) {
             items(data, keyExtractor) {
-                Box(modifier = Modifier.width(itemWidth)) {
+                Box(modifier = Modifier.width(150.dp)) {
                     renderItem(it)
                 }
             }

@@ -5,6 +5,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Icon
 import androidx.compose.runtime.Composable
@@ -49,6 +50,7 @@ fun CharacterTypeCircle(
         contentAlignment = Alignment.Center,
         modifier = modifier
             .clip(CircleShape)
+            .width(60.dp)
             .aspectRatio(1f)
             .shadow(Theme.spacing.small, Theme.shapes.large)
             .background(Brush.horizontalGradient(colors))

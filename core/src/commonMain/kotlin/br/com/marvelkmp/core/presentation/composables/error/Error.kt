@@ -7,10 +7,10 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.WindowInsetsSides
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -44,7 +44,9 @@ fun ErrorContainer(onBack: (() -> Unit)? = null, onRetry: () -> Unit) {
         onBack?.let { GoBackHeader(onGoBack = it) }
 
         Column(
-            Modifier
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center,
+            modifier = Modifier
                 .safePadding(WindowInsetsSides.Bottom)
                 .padding(Theme.spacing.extraMedium)
         ) {
@@ -89,7 +91,13 @@ fun ErrorContainer(onBack: (() -> Unit)? = null, onRetry: () -> Unit) {
                     textAlign = TextAlign.Center
                 )
             }
-            Button(modifier = Modifier.fillMaxWidth().height(50.dp), onClick = { onRetry() }) {
+            Button(
+                modifier =
+                    Modifier
+                        .widthIn(Theme.dimensions.screenWidth, 500.dp)
+                        .height(50.dp),
+                onClick = { onRetry() }
+            ) {
                 Text(
                     text = stringResource(Res.string.try_again),
                     style = Theme.typography.h4,

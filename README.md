@@ -33,6 +33,20 @@ Marvel App KMP
 <img src=".github/error.png" alt="marvel-heroes-app" width-="400" height="400">
 </p>
 
+## 📱 Platforms
+
+### 🤖 Android
+
+<video src=".github/marvel-kmp-android.mov" width="400"></video>
+
+###  iOS
+
+<video src=".github/marvel-kmp-ios.mp4" width="400"></video>
+
+### 🖥️ Desktop
+
+<video src=".github/marvel-kmp-desktop.mov"></video>
+
 ## 📃 Sobre o projeto
 
 A proposta é desenvolver um app em dupla que consuma uma api e liste seus dados usando compose

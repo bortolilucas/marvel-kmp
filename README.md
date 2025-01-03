@@ -37,15 +37,15 @@ Marvel App KMP
 
 ### 🤖 Android
 
-<video src=".github/marvel-kmp-android.mov" width="400"></video>
+<video src="https://github.com/user-attachments/assets/7c84c4b4-89f8-4b34-a415-d09ebe994b40"></video>
 
 ###  iOS
 
-<video src=".github/marvel-kmp-ios.mp4" width="400"></video>
+<video src="https://github.com/user-attachments/assets/a9db15e1-2def-4f48-9229-977c1afb05d1"></video>
 
 ### 🖥️ Desktop
 
-<video src=".github/marvel-kmp-desktop.mov"></video>
+<video src="https://github.com/user-attachments/assets/8d0bf9db-3dcd-4e38-865c-f3fa076e4f92"></video>
 
 ## 📃 Sobre o projeto
 

@@ -30,6 +30,11 @@ kotlin {
 
     jvm("desktop")
 
+    js {
+        browser()
+        useEsModules()
+    }
+
     sourceSets {
         val desktopMain by getting
 

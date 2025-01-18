@@ -30,6 +30,17 @@ kotlin {
 
     jvm("desktop")
 
+    js {
+        moduleName = "composeApp"
+        browser {
+            commonWebpackConfig {
+                outputFileName = "composeApp.js"
+            }
+        }
+        binaries.executable()
+        useEsModules()
+    }
+
     sourceSets {
         val desktopMain by getting
 

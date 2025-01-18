@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.plugin.KotlinDependencyHandler
+
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
@@ -26,6 +28,11 @@ kotlin {
 
     jvm("desktop")
 
+    js {
+        browser()
+        useEsModules()
+    }
+
     sourceSets {
         val desktopMain by getting
 
@@ -37,6 +44,12 @@ kotlin {
         }
         desktopMain.dependencies {
             implementation(libs.sqldelight.sqlite.driver)
+        }
+        jsMain.dependencies {
+            implementation(libs.sqldelight.web.worker.driver)
+            implementationNpm(libs.sqljs)
+            implementationNpm(libs.sqldelight.sqljs.worker)
+            implementationDevNpm(libs.copy.webpack.plugin)
         }
     }
 }
@@ -57,6 +70,13 @@ sqldelight {
     databases {
         create("MarvelDatabase") {
             packageName.set("br.com.marvelkmp.database")
+            generateAsync.set(true)
         }
     }
 }
+
+fun KotlinDependencyHandler.implementationNpm(dependency: Provider<MinimalExternalModuleDependency>) =
+    with(dependency.get()) { implementation(npm(module.name, version.orEmpty())) }
+
+fun KotlinDependencyHandler.implementationDevNpm(dependency: Provider<MinimalExternalModuleDependency>) =
+    with(dependency.get()) { implementation(devNpm(module.name, version.orEmpty())) }

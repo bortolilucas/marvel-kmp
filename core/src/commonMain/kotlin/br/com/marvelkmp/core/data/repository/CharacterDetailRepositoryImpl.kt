@@ -1,5 +1,6 @@
 package br.com.marvelkmp.core.data.repository
 
+import app.cash.sqldelight.async.coroutines.awaitAsOneOrNull
 import br.com.marvelkmp.core.data.model.marvel.CharacterComic
 import br.com.marvelkmp.core.data.model.marvel.MarvelApiCharacterDetails
 import br.com.marvelkmp.core.data.service.CharacterDetailsService
@@ -24,7 +25,7 @@ class CharacterDetailRepositoryImpl(
     }
 
     override suspend fun addFavorite(favoriteCharacter: Character) {
-        database.databaseQueries.addCharacter(
+        database.getDatabaseQueries().addCharacter(
             id = favoriteCharacter.id.toLong(),
             heroName = favoriteCharacter.heroName,
             realName = favoriteCharacter.realName,
@@ -35,7 +36,7 @@ class CharacterDetailRepositoryImpl(
             gender = favoriteCharacter.gender,
         )
 
-        database.databaseQueries.addCharacterStats(
+        database.getDatabaseQueries().addCharacterStats(
             characterId = favoriteCharacter.id.toLong(),
             intelligence = favoriteCharacter.powerStats?.intelligence?.toLong() ?: 0,
             strength = favoriteCharacter.powerStats?.strength?.toLong() ?: 0,
@@ -48,13 +49,13 @@ class CharacterDetailRepositoryImpl(
 
     override suspend fun verifyIfFavorite(characterId: Int): Boolean {
         val response =
-            database.databaseQueries.getCharacterById(characterId.toLong()).executeAsOneOrNull()
+            database.getDatabaseQueries().getCharacterById(characterId.toLong()).awaitAsOneOrNull()
                 ?: return false
 
         return response.toInt() > 0
     }
 
     override suspend fun removeFavorite(characterId: Int) {
-        database.databaseQueries.removeCharacter(characterId.toLong())
+        database.getDatabaseQueries().removeCharacter(characterId.toLong())
     }
 }

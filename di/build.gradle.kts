@@ -27,6 +27,11 @@ kotlin {
 
     jvm("desktop")
 
+    js {
+        browser()
+        useEsModules()
+    }
+
     sourceSets {
         commonMain.dependencies {
             api(project.dependencies.platform(libs.koin.bom))

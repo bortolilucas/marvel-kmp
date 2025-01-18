@@ -28,6 +28,11 @@ kotlin {
 
     jvm("desktop")
 
+    js {
+        browser()
+        useEsModules()
+    }
+
     sourceSets {
         val desktopMain by getting
 
@@ -39,6 +44,9 @@ kotlin {
         }
         desktopMain.dependencies {
             implementation(libs.ktor.client.okhttp)
+        }
+        jsMain.dependencies {
+            implementation(libs.ktor.client.js)
         }
         commonMain.dependencies {
             implementation(libs.ktor.client.core)

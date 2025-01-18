@@ -18,6 +18,8 @@ ktor = "3.0.3"
 napier = "2.7.1"
 voyagerNavigator = "1.1.0-beta03"
 buildconfig = "5.5.1"
+webpackPlugin = "9.1.0"
+sqljs = "1.12.0"
 mokkery = "2.6.0"
 turbine = "1.2.0"
 
@@ -46,10 +48,15 @@ ktor-client-ios = { module = "io.ktor:ktor-client-ios", version.ref = "ktor" }
 ktor-client-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktor" }
 ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
 ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktor" }
+ktor-client-js = { module = "io.ktor:ktor-client-js", version.ref = "ktor" }
 ktor-client-mock = { module = "io.ktor:ktor-client-mock", version.ref = "ktor" }
 napier = { module = "io.github.aakira:napier", version.ref = "napier" }
 native-driver = { module = "app.cash.sqldelight:native-driver", version.ref = "sqldelight" }
 sqldelight-sqlite-driver = { module = "app.cash.sqldelight:sqlite-driver", version.ref = "sqldelight" }
+sqldelight-web-worker-driver = { module = "app.cash.sqldelight:web-worker-driver", version.ref = "sqldelight" }
+sqljs = { module = "npm:sql.js", version.ref = "sqljs" }
+sqldelight-sqljs-worker = { module = "npm:@cashapp/sqldelight-sqljs-worker", version.ref = "sqldelight" }
+copy-webpack-plugin = { module = "devnpm:copy-webpack-plugin", version.ref = "webpackPlugin" }
 voyager-navigator = { module = "cafe.adriel.voyager:voyager-navigator", version.ref = "voyagerNavigator" }
 voyager-screenmodel = { module = "cafe.adriel.voyager:voyager-screenmodel", version.ref = "voyagerNavigator" }
 voyager-transitions = { module = "cafe.adriel.voyager:voyager-transitions", version.ref = "voyagerNavigator" }
